@@ -4,7 +4,12 @@
 		<title>Zoom Electric: Sales Anaysis | Portfolio | Avishek Choudhary</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<link rel="stylesheet" href="/assets/css/main.css" />
+		<link rel="stylesheet" href="/assets/css/style.css" type="text/css" />
+		<link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon">
+		<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+		<link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
+		<link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
+		<link rel="manifest" href="/images/site.webmanifest">
 		<noscript><link rel="stylesheet" href="/assets/css/noscript.css" /></noscript>
 	</head>
 	<body class="is-preload">
@@ -22,9 +27,10 @@
 						<ul class="links">
 							<li><a href="/index.html#header">About</a></li>
 							<li class="active"><a href="/portfolio.html">Portfolio</a></li>
-							<li><a href="#contact">Contact Me</a></li>
+							<li><a href="#contact">Contact</a></li>
 						</ul>
 						<ul class="icons">
+							<li><a href="https://www.novypro.com/profile_projects/avishekchoudhary" target="_blank" class="icon brands"><i class="fa-solid fa-chart-simple"></i><span class="label">Power BI</span></a></li>
 							<li><a href="https://www.linkedin.com/in/avishek-choudhary" target="_blank" class="icon brands fa-linkedin"><span class="label">Linked In</span></a></li>
 							<li><a href="https://www.github.com/avishek-choudhary" target="_blank" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
 						</ul>
@@ -42,12 +48,13 @@
 								<!-- <div class="image main"><img src="/images/zoom-ev.jpg" alt="" /></div> -->
 								<p>I worked on the Zoom Electric- Sales Analysis project. I will be diving into the background, my full process of extracting and analyzing the data, along with my final suggestions and summary of the data. </p>
 								<u>Tools Used</u>: MySQL | Microsoft Excel<br>
-								<u>Quick Links</u>: <a href="https://github.com/avishek-choudhary/" style="color:rgb(0, 119, 255) ;" target="_blank">GitHub Repository</a> <br>
+								<u>Quick Links</u>: <a href="https://github.com/avishek-choudhary/zoom-ev" style="color:rgb(0, 119, 255) ;" target="_blank">GitHub Repository</a> <br>
 								Below is a table of contents in case you want to go to any section.
 								</p>
 								<h2><u>Table Contents</u>:</h2>
 								<ol>
-									<li><a href="#introduction" style="color:rgb(0, 119, 255) ;">Introduction</a></li>
+									<li><a href="#background" style="color:rgb(0, 119, 255) ;">Background</a></li>
+									<li><a href="#datadictionary" style="color:rgb(0, 119, 255) ;">Data Dictionary</a></li>
 									<li><a href="#process" style="color:rgb(0, 119, 255) ;">Process</a></li>
 									<ol type="a">
 										<li><a href="#excel" style="color:rgb(0, 119, 255) ;">Microsoft Excel</a></li>
@@ -62,35 +69,123 @@
 									<li><a href="#learnings" style="color:rgb(0, 119, 255) ;">What I Learned</a></li>
 									<li><a href="#resources" style="color:rgb(0, 119, 255) ;">Resources</a></li>
 								</ol>
-								<h2 id="introduction">INTRODUCTION</h2>
+								<h2 id="background">BACKGROUND</h2>
 								<p>
-									Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, adipisci similique beatae animi nam unde labore natus nisi, voluptate praesentium voluptas suscipit illo doloribus pariatur deleniti quaerat vel soluta? Explicabo!
-									<u>Overall Goal</u>: “Recommend strategies to retain employee”<br>
-									<u>Questions</u>: Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod, laborum voluptas provident inventore non quis excepturi ipsam eum quisquam, necessitatibus reiciendis doloremque libero vero animi, architecto eius eaque impedit perspiciatis.<br>
+									<b>Zoom Electric (ZE)</b> is an electric vehicle venture owned by a renowned automotive manufacturer called ZOOM MOTORS India Private Limited.<br>
+									Zoom Electric offers a range of automotive and scooter products, including FioNex, Sprint, and Parker, along with some exclusive limited-edition variants.<br> 
+									Recently, ZE introduced a new scooter model called <b>Sprint</b> in the 2-wheeler EV scooter segment. Initially, the sales numbers for Sprint Scooters were quite impressive during the first two weeks of its launch. However, unexpectedly, there was a sudden decline in sales thereafter.<br>
+									<u>My Role</u>: In this scenario I am working as an analyst in the sales & operation team at Zoom Electric (ZE). My team is responsible for executing the pre-orders, sales client visits, and website sales, and analyze the visit session created on the website, and analyzing the sales funnel. And my team has been tasked with the overall goal (see below) of sales & operation strategies.<br>
+									<u>Overall Goal</u>: As a data analyst, I have been assigned to validate the sales drop for Sprint scooters and figure out the reasons for this decline.
+									<ul>To find the reason for decline in sales precisely the overall goal is divided into three sub-goals:									
+										<li>Quantify the drop in sales volume, to validate if there was a drop in sales volume.</li>
+										<li>Assess whether there is a relation between the launch date and sales growth.</li>
+										<li>Assess the effectiveness of email campaign in influencing customers’ purchasing decisions.</li>
+									</ul>
 								</p>
-								<h2 id="process">Process</h2>
-								<p><u>Overview</u>: Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil est, nemo facere adipisci blanditiis libero soluta sit numquam, praesentium deleniti neque delectus. Libero error impedit aspernatur possimus earum, excepturi minus.</p>
+
+								<h2 id="datadictionary">DATA DICTIONARY</h2>
+								<p>
+
+								</p>
+
+								<h2 id="process">PROCESS</h2>
+								<p><u>Overview</u>: I first familiarized myself with the dataset, tables and fields separately in Excel, then used MySQL to create a database using those datasets to extract the required data. Finally I created pivot tables and charts of extracted data to analyze and find solution.</p>
 								<h3 id="excel">Microsoft Excel</h3>
 								<p>
 									Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aliquam saepe cupiditate sapiente alias eaque ad maiores dolorem nobis vero, nam, veniam culpa voluptatum expedita exercitationem sed aliquid ducimus autem eum.
 								</p>
 								<h3 id="sql">MySQL</h3>
 								<p>
-									Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit nesciunt debitis consequuntur? Nostrum cum accusantium deserunt mollitia dolorem? Nobis voluptate quaerat incidunt suscipit. Iure vel magnam ipsum, minima quisquam doloremque.
+									I originally wanted to use Excel but the files were too big to filter and it was difficult to process for my computer. Instead I used SQL to extract the data because it could handle all of the information quicker than Excel, and I wanted to work on my SQL-querying skills. Below is my general process in SQL, I didn't include my mistakes/missteps or errors for the sake of brevity.<br><br>
+									View my full code on my GitHub for this project <a href="#" style="color:rgb(0, 119, 255) ;" target="_blank">here</a>.<br><br>
+									Uploaded all of the original data from the data source into MySQL database, used MySQL Workbench to import all individual CSV files and save them in separate tables and created a database.<br>
+									I extracted 3 data tables based on the sub-goals:<br>
+									1. Quantify the decline in sales growth.<br>
+									Extracted the data relevant to the business problem ie, no. of “Sprint” scooters sold in the first 3 weeks (21 days) of its production start date and named it sprint_sales with following structure.<br>
+									<b>date</b> – to store the sales transaction date.<br>
+									<b>unit_sold</b> – to calculate and store the total no. of sprint scooter sold on each date.<br>
+									Added 3 new columns:<br>
+									<b>cumm_7D</b> – to calculate rolling sum of 7 days period of unit_sold for consistent evaluation of sales performance throughout the week.<br>
+									<b>cumm_7D_prev</b> – to store the previous day’s value of cumm_7D <br>
+									<b>growth</b> – to calculate the growth% or change in sales of current day and previous day, a positive value shows increase in sales while a negative value shows a decline in sales, to calculate growth please refer to this formula:<br>
+									<code>growth = 100 * (cumm_7D - cumm_7D_prev) / cumm_7D_prev</code><br>
+									Note: The sales_transaction_date column was of datetime date-type so I had to cast DATE() function in order to get total unit sold on each day.<br><br>
+									<code>
+										-- Extracting Sprint scooters sales data of first 3-weeks<br>
+										WITH sprint_sales AS (<br>
+											SELECT ROW_NUMBER() OVER(ORDER BY sales_transaction_date) AS day,<br>
+												DATE(sales_transaction_date) AS date,<br>
+												COUNT(*) AS unit_sold<br>
+											FROM sales<br>
+											JOIN products ON sales.product_id = products.product_id<br>
+											WHERE<br>
+											products.model = 'Sprint'<br>
+											GROUP BY 2<br>
+											LIMIT 21<br>
+										),<br>
+										-- Calculating cumulative sales over a rolling 7-day period<br>
+										cumm_sales AS (<br>
+											SELECT  *,<br>
+													SUM(unit_sold) <br>
+													OVER(ORDER BY day ROWS BETWEEN 6 PRECEDING AND CURRENT ROW) AS cumm_7D<br>
+											FROM sprint_sales<br>
+										)<br>
+										--  Calculating the rate of growth<br>
+										SELECT date, unit_sold, cumm_7D, cumm_7D_prev,<br>
+												CONCAT(ROUND((100 * (cumm_7D - cumm_7D_prev) / cumm_7D_prev), 2), '%') AS growth<br>
+										FROM (<br>
+											-- Calculating previous value of cumulative sales to calculate rate of growth<br>
+											SELECT *,<br>
+													LAG(CASE WHEN day >= 7 THEN cumm_7D END) <br>
+													OVER(ORDER BY day) AS cumm_7D_prev<br>
+												FROM cumm_sales) AS cumm_sales_prev;<br>
+									</code><br><br>
+									
+									2. Assess the relationship between launch date and sales growth.<br>
+									To find the relationship between launch date and sales growth, I extracted the sales data for another scooter model named “Sprint Limited Edition” to compare with “Sprint” model.
+									Sprint Limited Edition’s sales data table has same structure as Sprint’s sales data table.<br>
+									Then I joined both the data tables and created a new table of following structure.<br>
+									<b>day</b> – to store the no. of day(1-21 here) since the date column values in both the tables were different it was of no use.<br>
+									<b>sprint</b> – to store the unit_sold column from Sprint sales data table.<br>
+									<b>sprint_le</b> - to store the unit_sold column from Sprint Limited Edition sales data table.<br>
+									<b>sprint_cl7</b> - to store the cumm_7D column from Sprint sales data table.<br>
+									<b>sprint_le_cl7</b> - to store the cumm_7D column from Sprint Limited Edition sales data table.<br>
+									<b>growth_sprint</b> - to store the growth column from Sprint sales data table.<br>
+									<b>growth_sprint_le</b> - to store the growth column from Sprint Limited Edition sales data table.</p>
+									<p>3. Assess the effectiveness of email campaign in influencing customers’ purchasing decisions.<br></p><p>
+									Analyzing the email opening rate and click-through rates, as well as comparing them to industry benchmarks, will enable the evaluation of the effectiveness and quality of the email campaign. This will provide insights into how well the campaign engages recipients, whether they open the emails, and if they click on the provided links, helping to measure the overall impact and success of the campaign.<br>
+									I extracted the data from emails table where the sent date was between the production start date of “Sprint” model and two months before it.<br>
+									Then, I summarized those data in a different table called sprint_camp_summary with following structure:<br>
+									<b>email_sent</b> – to store the total count of rows sprint_campaign table.<br>
+									<b>clicked</b> – to store the total count of rows where clicked values were 't' in sprint_campaign table.<br>
+									<b>opened</b> – to store the total count of rows where opened values were 't' in sprint_campaign table.<br>
+									<b>bounced</b> – to store the total count of rows where bounced values were 't' in sprint_campaign table.<br>
+									I further summarized it to calculate the campaign Key Performance Indicators (KPI) to compare it with industry benchmark and named it campaign_performance_kpi with following structure:<br>
+									<b>click_rate</b> – to calculate and store the click through rate of emails clicked<br>
+									<b>open_rate</b> – to calculate and store the emails opening rate.<br>
+									To calculate the click_rate and open_rate please refer the formula below:<br>
+									<code>click_rate = 100 * (clicked / (email_sent – bounced))</code><br>
+									<code>open_rate = 100 * (opened / (email_sent – bounced))</code><br>
 								</p>
-								<h3 id="powerbi">Power BI</h3>
-								<p>
-									Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit nesciunt debitis consequuntur? Nostrum cum accusantium deserunt mollitia dolorem? Nobis voluptate quaerat incidunt suscipit. Iure vel magnam ipsum, minima quisquam doloremque.
-								</p>
-								<h3 id="misc">MISC.</h3>
-								<P>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Tempora, porro. Eos eius, impedit commodi et doloribus iure, porro, recusandae reprehenderit rerum neque reiciendis tenetur enim illum pariatur atque debitis excepturi!</P>
+
+								<h3 id="misc">Misc.</h3>
+								<h4>Microsoft Word</h4>
+								<ul>
+									<li><b>Date Log</b> - I wrote down what I did that day related to my project</li>
+									<li><b>Resources</b> - A list of resources I frequently used.</li>
+									<li><b>Notes</b> - Notes for the project including the final insights, what I was looking for, and anything else having to do with the project.</li>
+								</ul>
+								
 								<h2 id="finishedproject">FINISHED PROJECT</h2>
 								<p>
-									Here is my finished project: <a href="#" style="color:rgb(0, 119, 255) ;" target="_blank">Project Title</a><br>
+									Here is my finished project: <a href="#" style="color:rgb(0, 119, 255) ;" target="_blank">Zoom Electric: Sales Analysis.</a><br>
+									You can view my SQL code on Github used for data extraction 
+									<a href="#" style="color:rgb(0, 119, 255) ;" target="_blank">here</a> and the Excel files for analysis 
+									<a href="#" style="color:rgb(0, 119, 255) ;" target="_blank">here</a>.
 									<h3>Preview</h3>
 									<img src="" alt="image">
 								</p>
-								<h2 id="dataoverview">Overview of Data</h2>
+								<h2 id="dataoverview">OVERVIEW OF DATA</h2>
 								<p>
 									<h3>Data:</h3>
 									<ol>
@@ -111,43 +206,27 @@
 								</p>
 								<h2 id="learnings">WHAT I LEARNED</h2>
 								<p>
-									
+									<ul>
+										Below is what I learned/practiced from over 40 hours spent on this project:
+										<li>Complex SQL queries to extract required data for analysis.</li>
+										<li>Use of table joins and aggregate window functions like rolling sum over a specified no. of rows, Lag function, sub-query and common table expressions (cte).</li>
+										<li>Pivot tables and graphs in Excel, edited the data tables along with creating different charts using pivot tables.</li>
+									</ul>
 								</p>
 								<h2 id="resources">RESOURCES</h2>
-								<p>This dataset was downloaded from source, to download it click <a href="#" style="color:rgb(0, 119, 255) ;" target="_blank">here</a>.</p>
+								<p>
+									This project or micro-experience I found on <a href="#" style="color:rgb(0, 119, 255) ;" target="_blank">bluetick.ai</a> website.
+								</p>
 							</section>
 
 					</div>
 					<div id="contact">
 				<!-- Footer -->
 					<footer id="footer">
-						<section>
-							<form method="post" action="#">
-								<div class="fields">
-									<div class="field">
-										<label for="name">Name</label>
-										<input type="text" name="name" id="name" />
-									</div>
-									<div class="field">
-										<label for="email">Email</label>
-										<input type="text" name="email" id="email" />
-									</div>
-									<div class="field">
-										<label for="message">Message</label>
-										<textarea name="message" id="message" rows="3"></textarea>
-									</div>
-								</div>
-								<ul class="actions">
-									<li><input type="submit" value="Send Message" /></li>
-								</ul>
-							</form>
-						</section>
 						<section class="split contact">
 							<section class="alt">
 								<h3>Location</h3>
-								<p>Kolkata, West-Bengal<br>
-									India
-								</p>
+								<p>West-Bengal, India</p>
 							</section>
 							<section>
 								<h3>Phone</h3>
@@ -160,6 +239,7 @@
 							<section>
 								<h3>Profile</h3>
 								<ul class="icons alt">
+									<li><a href="https://www.novypro.com/profile_projects/avishekchoudhary" target="_blank" class="icon brands alt"><i class="fa-solid fa-chart-simple"></i><span class="label">Power BI</span></a></li>
 									<li><a href="https://www.linkedin.com/in/avishek-choudhary" target="_blank" class="icon brands alt fa-twitter"><span class="label">Twitter</span></a></li>
 									<li><a href="https://www.github.com/avishek-choudhary" target="_blank" class="icon brands alt fa-github"><span class="label">GitHub</span></a></li>
 								</ul>
@@ -182,6 +262,6 @@
 			<script src="/assets/js/breakpoints.min.js"></script>
 			<script src="/assets/js/util.js"></script>
 			<script src="/assets/js/main.js"></script>
-
+			<script src="https://kit.fontawesome.com/729695af29.js" crossorigin="anonymous"></script>
 	</body>
 </html>
