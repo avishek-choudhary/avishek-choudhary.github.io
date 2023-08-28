@@ -1,10 +1,20 @@
 <!DOCTYPE HTML>
 <html>
 	<head>
+		<!-- Google tag (gtag.js) -->
+		<script async src="https://www.googletagmanager.com/gtag/js?id=UA-282889432-1"></script>
+		<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+		gtag('js', new Date());
+		gtag('config', 'UA-282889432-1');
+		</script>
+		<!-- Google tag (gtag.js) -->
 		<title>Zoom Electric: Sales Anaysis | Portfolio | Avishek Choudhary</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="/assets/css/style.css" type="text/css" />
+		<link rel="stylesheet" href="/assets/css/prism.css">
 		<link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon">
 		<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
 		<link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
@@ -45,29 +55,28 @@
 									<span class="date">August, 2023</span>
 									<h1>Zoom Electric: Sales Analysis</h1>
 								</header>
-								<!-- <div class="image main"><img src="/images/zoom-ev.jpg" alt="" /></div> -->
+								<!-- <div><img src="/images/zoom-ev.jpg" alt="" class="image fit screenshot"/></div> -->
 								<p>I worked on the Zoom Electric- Sales Analysis project. I will be diving into the background, my full process of extracting and analyzing the data, along with my final suggestions and summary of the data. </p>
 								<u>Tools Used</u>: MySQL | Microsoft Excel<br>
-								<u>Quick Links</u>: <a href="https://github.com/avishek-choudhary/zoom-ev" style="color:rgb(0, 119, 255) ;" target="_blank">GitHub Repository</a> <br>
+								<u>Quick Links</u>: <a href="https://github.com/avishek-choudhary/zoom-electric" class="link-highlight" target="_blank">GitHub Repository</a> <br>
 								Below is a table of contents in case you want to go to any section.
 								</p>
 								<h2><u>Table Contents</u>:</h2>
 								<ol>
-									<li><a href="#background" style="color:rgb(0, 119, 255) ;">Background</a></li>
-									<li><a href="#datadictionary" style="color:rgb(0, 119, 255) ;">Data Dictionary</a></li>
-									<li><a href="#process" style="color:rgb(0, 119, 255) ;">Process</a></li>
-									<ol type="a">
-										<li><a href="#excel" style="color:rgb(0, 119, 255) ;">Microsoft Excel</a></li>
-										<li><a href="#sql" style="color:rgb(0, 119, 255) ;">MySQL</a></li>
-										<li><a href="#powerbi" style="color:rgb(0, 119, 255) ;">Microsoft Power BI</a></li>
-										<li><a href="#misc" style="color:rgb(0, 119, 255) ;">Misc.</a></li>
+									<li><a href="#background" class="link-highlight">Background</a></li>
+									<li><a href="#datadictionary" class="link-highlight">Data Dictionary</a></li>
+									<li><a href="#process" class="link-highlight">Process</a></li>
+									<ol class="sub-list">
+										<li><a href="#excel" class="link-highlight">Microsoft Excel</a></li>
+										<li><a href="#sql" class="link-highlight">MySQL</a></li>
+										<li><a href="#misc" class="link-highlight">Misc.</a></li>
 									</ol>
-									<li><a href="#finishedproject" style="color:rgb(0, 119, 255) ;">Finished Project</a></li>
-									<li><a href="#dataoverview" style="color:rgb(0, 119, 255) ;">Overview of Data</a></li>
-									<li><a href="#insights" style="color:rgb(0, 119, 255) ;">Insights</a></li>
-									<li><a href="#recommendations" style="color:rgb(0, 119, 255) ;">Recommendations</a></li>
-									<li><a href="#learnings" style="color:rgb(0, 119, 255) ;">What I Learned</a></li>
-									<li><a href="#resources" style="color:rgb(0, 119, 255) ;">Resources</a></li>
+									<li><a href="#finishedproject" class="link-highlight">Finished Project</a></li>
+									<li><a href="#dataoverview" class="link-highlight">Overview of Data</a></li>
+									<li><a href="#insights" class="link-highlight">Insights</a></li>
+									<li><a href="#recommendations" class="link-highlight">Recommendations</a></li>
+									<li><a href="#learnings" class="link-highlight">What I Learned</a></li>
+									<li><a href="#resources" class="link-highlight">Resources</a></li>
 								</ol>
 								<h2 id="background">BACKGROUND</h2>
 								<p>
@@ -85,22 +94,40 @@
 
 								<h2 id="datadictionary">DATA DICTIONARY</h2>
 								<p>
-
+									<h3>Schema</h3>
+									<img src="/images/projects/zoom-ev/schema.jpg" alt="schema diagram" class="image fit" style="filter:drop-shadow(10px 8px 6px rgb(6, 6, 189)) ;">
 								</p>
 
 								<h2 id="process">PROCESS</h2>
-								<p><u>Overview</u>: I first familiarized myself with the dataset, tables and fields separately in Excel, then used MySQL to create a database using those datasets to extract the required data. Finally I created pivot tables and charts of extracted data to analyze and find solution.</p>
+								<p><u>Overview</u>: I first familiarized myself with the dataset, tables and fields separately in Excel, then used MySQL to create a database using those datasets to extract the required data. Finally I returned to Excel to analyse those extracted data using pivot tables and graphs.</p>
 								<h3 id="excel">Microsoft Excel</h3>
 								<p>
-									Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aliquam saepe cupiditate sapiente alias eaque ad maiores dolorem nobis vero, nam, veniam culpa voluptatum expedita exercitationem sed aliquid ducimus autem eum.
+									I downloaded all the CSV files and familiarized myself with the data first.<br>
+									Then I used MySQL to create database for <a href="#sql">data extraction</a> purpose because the files were quite large to filter and processing those files in Excel would have taken a long time. And then I came back to Excel to analyse the data, I did this 3 times for each sub-goal.<br>I've streamlined the comprehension of process section by adding <i>goto</i> tags.
+									<p id="analysis-1">1. Quantify the decline in sales growth.&nbsp;
+									(<i><a href="#extract-1" class="link-highlight">goto extraction</a></i>)</p>
+									<img src="/images/projects/zoom-ev/table1.png" alt="sprint sales graph" class="image fit code-screenshot">
+									<img src="/images/projects/zoom-ev/table1a.png" alt="sprint sales graph" class="image fit code-screenshot">
+									<img src="/images/projects/zoom-ev/table1b.png" alt="sprint sales graph" class="image fit code-screenshot">
+										You can see the trendline in first graph going down and also there are (-ve) values in growth column that confirms there has been a decline in sales volume.<br><br>
+									<p id="analysis-2">2. Assess the relationship between launch date and sales growth.&nbsp;
+									(<i><a href="#extract-2" class="link-highlight">goto extraction</a></i>)</p>
+									<img src="/images/projects/zoom-ev/table2.png" alt="sprint vs sprint-le sales graph" class="image fit code-screenshot">
+									<img src="/images/projects/zoom-ev/table2a.png" alt="sprint vs sprint-le sales graph" class="image fit code-screenshot">
+									<img src="/images/projects/zoom-ev/table2b.png" alt="sprint vs sprint-le sales graph" class="image fit code-screenshot">
+										On comparing "Sprint" with "Sprint Limited Edition" sales data we see that 
+									<p id="analysis-3">3. Assess the effectiveness of email campaign in influencing customers’ purchasing decisions.&nbsp;
+									(<i><a href="#extract-3" class="link-highlight">goto extraction</a></i>)</p>
+									<img src="/images/projects/zoom-ev/table3.png" alt="emails campaign" class="image fit code-screenshot">
+										It is clear that click through rate(ctr) is significantly lower than industry benchmark but the opening rate is higher.
 								</p>
 								<h3 id="sql">MySQL</h3>
 								<p>
 									I originally wanted to use Excel but the files were too big to filter and it was difficult to process for my computer. Instead I used SQL to extract the data because it could handle all of the information quicker than Excel, and I wanted to work on my SQL-querying skills. Below is my general process in SQL, I didn't include my mistakes/missteps or errors for the sake of brevity.<br><br>
-									View my full code on my GitHub for this project <a href="#" style="color:rgb(0, 119, 255) ;" target="_blank">here</a>.<br><br>
-									Uploaded all of the original data from the data source into MySQL database, used MySQL Workbench to import all individual CSV files and save them in separate tables and created a database.<br>
-									I extracted 3 data tables based on the sub-goals:<br>
-									1. Quantify the decline in sales growth.<br>
+									View my full code on my GitHub for this project <a href="https://github.com/avishek-choudhary/zoom-electric/extract.sql" class="link-highlight" target="_blank">here</a>.<br><br>
+									Uploaded all of the original data from the data source into MySQL database, used MySQL Workbench to import all individual CSV files and save them in separate tables and created a database.<br><br>
+									I extracted 3 data tables based on the sub-goals:<br></p>
+									<p id="extract-1">1. Quantify the decline in sales growth.<br></p><p>
 									Extracted the data relevant to the business problem ie, no. of “Sprint” scooters sold in the first 3 weeks (21 days) of its production start date and named it sprint_sales with following structure.<br>
 									<b>date</b> – to store the sales transaction date.<br>
 									<b>unit_sold</b> – to calculate and store the total no. of sprint scooter sold on each date.<br>
@@ -109,50 +136,479 @@
 									<b>cumm_7D_prev</b> – to store the previous day’s value of cumm_7D <br>
 									<b>growth</b> – to calculate the growth% or change in sales of current day and previous day, a positive value shows increase in sales while a negative value shows a decline in sales, to calculate growth please refer to this formula:<br>
 									<code>growth = 100 * (cumm_7D - cumm_7D_prev) / cumm_7D_prev</code><br>
-									Note: The sales_transaction_date column was of datetime date-type so I had to cast DATE() function in order to get total unit sold on each day.<br><br>
-									<code>
-										-- Extracting Sprint scooters sales data of first 3-weeks<br>
-										WITH sprint_sales AS (<br>
-											SELECT ROW_NUMBER() OVER(ORDER BY sales_transaction_date) AS day,<br>
-												DATE(sales_transaction_date) AS date,<br>
-												COUNT(*) AS unit_sold<br>
-											FROM sales<br>
-											JOIN products ON sales.product_id = products.product_id<br>
-											WHERE<br>
-											products.model = 'Sprint'<br>
-											GROUP BY 2<br>
-											LIMIT 21<br>
-										),<br>
-										-- Calculating cumulative sales over a rolling 7-day period<br>
-										cumm_sales AS (<br>
-											SELECT  *,<br>
-													SUM(unit_sold) <br>
-													OVER(ORDER BY day ROWS BETWEEN 6 PRECEDING AND CURRENT ROW) AS cumm_7D<br>
-											FROM sprint_sales<br>
-										)<br>
-										--  Calculating the rate of growth<br>
-										SELECT date, unit_sold, cumm_7D, cumm_7D_prev,<br>
-												CONCAT(ROUND((100 * (cumm_7D - cumm_7D_prev) / cumm_7D_prev), 2), '%') AS growth<br>
-										FROM (<br>
-											-- Calculating previous value of cumulative sales to calculate rate of growth<br>
-											SELECT *,<br>
-													LAG(CASE WHEN day >= 7 THEN cumm_7D END) <br>
-													OVER(ORDER BY day) AS cumm_7D_prev<br>
-												FROM cumm_sales) AS cumm_sales_prev;<br>
-									</code><br><br>
+									Note: The sales_transaction_date column was of datetime date-type so I had to cast DATE() function in order to get total unit sold on each day.
+									<details>
+										<summary>view code</summary>
+										<!-- <img src="/images/projects/zoom-ev/code1.png" alt="" class="image fit code-screenshot"> -->
+										<md-block>
+											```sql
+											-- Extracting Sprint scooters sales data of first 3-weeks
+											WITH sprint_sales AS (
+											SELECT ROW_NUMBER() OVER(ORDER BY sales_transaction_date) AS day,
+												DATE(sales_transaction_date) AS date,
+												COUNT(*) AS unit_sold
+											FROM sales
+											JOIN products ON sales.product_id = products.product_id
+											WHERE
+											products.model = 'Sprint'
+											GROUP BY 2
+											LIMIT 21
+											),
+											-- Calculating cumulative sales over a rolling 7-day period
+											cumm_sales AS (
+											SELECT  *,
+													SUM(unit_sold) 
+													OVER(ORDER BY day ROWS BETWEEN 6 PRECEDING AND CURRENT ROW) AS cumm_7D
+											FROM sprint_sales
+											)
+											--  Calculating the rate of growth
+											SELECT date, unit_sold, cumm_7D, cumm_7D_prev,
+												CONCAT(ROUND((100 * (cumm_7D - cumm_7D_prev) / cumm_7D_prev), 2), '%') AS growth
+											FROM (
+											-- Calculating previous value of cumulative sales to calculate rate of growth
+											SELECT *,
+													LAG(CASE WHEN day >= 7 THEN cumm_7D END) 
+													OVER(ORDER BY day) AS cumm_7D_prev
+												FROM cumm_sales) AS cumm_sales_prev;
+										</md-block>
+									</details>
+									<details>
+										<summary>view data</summary>
+											<table style="font-family: 'Courier New', Courier, monospace;">
+												<thead>
+												  <tr>
+													<th>date</th>
+													<th>unit_sold</th>
+													<th>cumm_7D</th>
+													<th>cumm_7D_prev</th>
+													<th>growth</th>
+												  </tr>
+												</thead>
+												<tbody>
+												  <tr>
+													<td>2016-10-10</td>
+													<td>9</td>
+													<td>9</td>
+													<td>NULL</td>
+													<td>NULL</td>
+												  </tr>
+												  <tr>
+													<td>2016-10-11</td>
+													<td>6</td>
+													<td>15</td>
+													<td>NULL</td>
+													<td>NULL</td>
+												  </tr>
+												  <tr>
+													<td>2016-10-12</td>
+													<td>10</td>
+													<td>25</td>
+													<td>NULL</td>
+													<td>NULL</td>
+												  </tr>
+												  <tr>
+													<td>2016-10-13</td>
+													<td>10</td>
+													<td>35</td>
+													<td>NULL</td>
+													<td>NULL</td>
+												  </tr>
+												  <tr>
+													<td>2016-10-14</td>
+													<td>5</td>
+													<td>40</td>
+													<td>NULL</td>
+													<td>NULL</td>
+												  </tr>
+												  <tr>
+													<td>2016-10-15</td>
+													<td>10</td>
+													<td>50</td>
+													<td>NULL</td>
+													<td>NULL</td>
+												  </tr>
+												  <tr>
+													<td>2016-10-16</td>
+													<td>14</td>
+													<td>64</td>
+													<td>NULL</td>
+													<td>NULL</td>
+												  </tr>
+												  <tr>
+													<td>2016-10-17</td>
+													<td>9</td>
+													<td>64</td>
+													<td>64</td>
+													<td>0.00%</td>
+												  </tr>
+												  <tr>
+													<td>2016-10-18</td>
+													<td>11</td>
+													<td>69</td>
+													<td>64</td>
+													<td>7.81%</td>
+												  </tr>
+												  <tr>
+													<td>2016-10-19</td>
+													<td>12</td>
+													<td>71</td>
+													<td>69</td>
+													<td>2.90%</td>
+												  </tr>
+												  <tr>
+													<td>2016-10-20</td>
+													<td>10</td>
+													<td>71</td>
+													<td>71</td>
+													<td>0.00%</td>
+												  </tr>
+												  <tr>
+													<td>2016-10-21</td>
+													<td>6</td>
+													<td>72</td>
+													<td>71</td>
+													<td>1.41%</td>
+												  </tr>
+												  <tr>
+													<td>2016-10-22</td>
+													<td>2</td>
+													<td>64</td>
+													<td>72</td>
+													<td>-11.11%</td>
+												  </tr>
+												  <tr>
+													<td>2016-10-23</td>
+													<td>5</td>
+													<td>55</td>
+													<td>64</td>
+													<td>-14.06%</td>
+												  </tr>
+												  <tr>
+													<td>2016-10-24</td>
+													<td>6</td>
+													<td>52</td>
+													<td>55</td>
+													<td>-5.45%</td>
+												  </tr>
+												  <tr>
+													<td>2016-10-25</td>
+													<td>9</td>
+													<td>50</td>
+													<td>52</td>
+													<td>-3.85%</td>
+												  </tr>
+												  <tr>
+													<td>2016-10-26</td>
+													<td>2</td>
+													<td>40</td>
+													<td>50</td>
+													<td>-20.00%</td>
+												  </tr>
+												  <tr>
+													<td>2016-10-27</td>
+													<td>4</td>
+													<td>34</td>
+													<td>40</td>
+													<td>-15.00%</td>
+												  </tr>
+												  <tr>
+													<td>2016-10-28</td>
+													<td>7</td>
+													<td>35</td>
+													<td>34</td>
+													<td>2.94%</td>
+												  </tr>
+												  <tr>
+													<td>2016-10-29</td>
+													<td>5</td>
+													<td>38</td>
+													<td>35</td>
+													<td>8.57%</td>
+												  </tr>
+												  <tr>
+													<td>2016-10-30</td>
+													<td>5</td>
+													<td>38</td>
+													<td>38</td>
+													<td>0.00%</td>
+												  </tr>
+												</tbody>
+											  </table>
+										
+									</details> 
+									(<i><a href="#analysis-1" class="link-highlight">goto analysis</a></i>)</p>
 									
-									2. Assess the relationship between launch date and sales growth.<br>
+									<p id="extract-2">2. Assess the relationship between launch date and sales growth.<br></p><p>
 									To find the relationship between launch date and sales growth, I extracted the sales data for another scooter model named “Sprint Limited Edition” to compare with “Sprint” model.
 									Sprint Limited Edition’s sales data table has same structure as Sprint’s sales data table.<br>
 									Then I joined both the data tables and created a new table of following structure.<br>
-									<b>day</b> – to store the no. of day(1-21 here) since the date column values in both the tables were different it was of no use.<br>
-									<b>sprint</b> – to store the unit_sold column from Sprint sales data table.<br>
-									<b>sprint_le</b> - to store the unit_sold column from Sprint Limited Edition sales data table.<br>
-									<b>sprint_cl7</b> - to store the cumm_7D column from Sprint sales data table.<br>
-									<b>sprint_le_cl7</b> - to store the cumm_7D column from Sprint Limited Edition sales data table.<br>
-									<b>growth_sprint</b> - to store the growth column from Sprint sales data table.<br>
-									<b>growth_sprint_le</b> - to store the growth column from Sprint Limited Edition sales data table.</p>
-									<p>3. Assess the effectiveness of email campaign in influencing customers’ purchasing decisions.<br></p><p>
+									<b>day</b> – to store the no. of days(1-21) since the date column values in both the tables were different so it was of no use.<br>
+									<b>sprint</b> – to store the unit_sold column values from Sprint sales data table.<br>
+									<b>sprint_le</b> - to store the unit_sold column values from Sprint Limited Edition sales data table.<br>
+									<b>sprint_cl7</b> - to store the cumm_7D column values from Sprint sales data table.<br>
+									<b>sprint_le_cl7</b> - to store the cumm_7D column values from Sprint Limited Edition sales data table.<br>
+									<b>growth_sprint</b> - to store the growth column values from Sprint sales data table.<br>
+									<b>growth_sprint_le</b> - to store the growth column values from Sprint Limited Edition sales data table.
+									<details>
+										<summary>view code</summary>
+										<!-- <img src="/images/projects/zoom-ev/code2.png" alt="" class="image fit code-screenshot"> -->
+										<md-block>
+											```sql
+											-- Extracting Sprint scooters sales data of first 3-weeks
+											WITH sprint_sales AS (
+												SELECT ROW_NUMBER() OVER(ORDER BY sales_transaction_date) AS day,
+														DATE(sales_transaction_date) AS date,
+														COUNT(*) AS sprint
+												FROM sales
+												JOIN products ON sales.product_id = products.product_id
+												WHERE model = 'Sprint'
+												GROUP BY 2
+												LIMIT 21
+											),
+											-- Extracting Sprint Limited Edition variant sales data of first 3-weeks
+											sprintle_sales AS (
+												SELECT ROW_NUMBER() OVER(ORDER BY sales_transaction_date) AS day,
+														DATE(sales_transaction_date) AS date,
+														COUNT(*) AS sprint_le
+												FROM sales
+												JOIN products ON sales.product_id = products.product_id
+												WHERE model = 'Sprint Limited Edition'
+												GROUP BY 2
+												LIMIT 21
+											),
+											-- Calculating cumulative sales Of both the variants over a rolling 7-day period
+											cumm_sales AS (
+												SELECT  sprint_sales.day AS day,
+														sprint, sprint_le,
+														SUM(sprint) 
+														OVER(ORDER BY day ROWS BETWEEN 6 PRECEDING AND CURRENT ROW) AS sprint_cl7,
+														SUM(sprint_le) 
+														OVER(ORDER BY day ROWS BETWEEN 6 PRECEDING AND CURRENT ROW) AS sprint_le_cl7
+												FROM sprint_sales
+												JOIN sprintle_sales ON sprint_sales.day = sprintle_sales.day
+											)
+											-- Calculating rate of growth of both the variants for comparision
+											SELECT day, sprint, sprint_le, sprint_cl7, sprint_le_cl7,
+													CONCAT(ROUND(100 * (sprint_cl7 - sprint_cl7_prev) / sprint_cl7_prev, 2), '%') 
+														AS sprint_growth,
+													CONCAT(ROUND(100 * (sprint_le_cl7 - sprint_le_cl7_prev) / sprint_le_cl7_prev, 2), '%') 
+														AS sprint_le_growth
+											FROM ( 
+												-- Calculating previous value of cumulative sales to calculate rate of growth
+												SELECT *, 
+														LAG(CASE WHEN day >= 7 THEN sprint_cl7 END) 
+														OVER(ORDER BY day) AS sprint_cl7_prev, 
+														LAG(CASE WHEN day >= 7 THEN sprint_le_cl7 END) 
+														OVER(ORDER BY day) AS sprint_le_cl7_prev
+													FROM cumm_sales ) AS cumm_sales_prev;
+										</md-block>
+									</details>
+									<details>
+										<summary>view data</summary>
+										<table style="font-family: 'Courier New', Courier, monospace;">
+											<tr>
+											<th>day</th>
+											<th>sprint</th>
+											<th>sprint_le</th>
+											<th>sprint_cl7</th>
+											<th>sprint_le_cl7</th>
+											<th>sprint_growth</th>
+											<th>sprint_le_growth</th>
+											</tr>
+											<tr>
+											<td>1</td>
+											<td>9</td>
+											<td>6</td>
+											<td>9</td>
+											<td>6</td>
+											<td>NULL</td>
+											<td>NULL</td>
+											</tr>
+											<tr>
+											<td>2</td>
+											<td>6</td>
+											<td>2</td>
+											<td>15</td>
+											<td>8</td>
+											<td>NULL</td>
+											<td>NULL</td>
+											</tr>
+											<tr>
+											<td>3</td>
+											<td>10</td>
+											<td>1</td>
+											<td>25</td>
+											<td>9</td>
+											<td>NULL</td>
+											<td>NULL</td>
+											</tr>
+											<tr>
+											<td>4</td>
+											<td>10</td>
+											<td>4</td>
+											<td>35</td>
+											<td>13</td>
+											<td>NULL</td>
+											<td>NULL</td>
+											</tr>
+											<tr>
+											<td>5</td>
+											<td>5</td>
+											<td>5</td>
+											<td>40</td>
+											<td>18</td>
+											<td>NULL</td>
+											<td>NULL</td>
+											</tr>
+											<tr>
+											<td>6</td>
+											<td>10</td>
+											<td>6</td>
+											<td>50</td>
+											<td>24</td>
+											<td>NULL</td>
+											<td>NULL</td>
+											</tr>
+											<tr>
+											<td>7</td>
+											<td>14</td>
+											<td>5</td>
+											<td>64</td>
+											<td>29</td>
+											<td>NULL</td>
+											<td>NULL</td>
+											</tr>
+											<tr>
+											<td>8</td>
+											<td>9</td>
+											<td>4</td>
+											<td>64</td>
+											<td>27</td>
+											<td>0.00%</td>
+											<td>-6.90%</td>
+											</tr>
+											<tr>
+											<td>9</td>
+											<td>11</td>
+											<td>6</td>
+											<td>69</td>
+											<td>31</td>
+											<td>7.81%</td>
+											<td>14.81%</td>
+											</tr>
+											<tr>
+											<td>10</td>
+											<td>12</td>
+											<td>2</td>
+											<td>71</td>
+											<td>32</td>
+											<td>2.90%</td>
+											<td>3.23%</td>
+											</tr>
+											<tr>
+											<td>11</td>
+											<td>10</td>
+											<td>2</td>
+											<td>71</td>
+											<td>30</td>
+											<td>0.00%</td>
+											<td>-6.25%</td>
+											</tr>
+											<tr>
+											<td>12</td>
+											<td>6</td>
+											<td>2</td>
+											<td>72</td>
+											<td>27</td>
+											<td>1.41%</td>
+											<td>-10.00%</td>
+											</tr>
+											<tr>
+											<td>13</td>
+											<td>2</td>
+											<td>4</td>
+											<td>64</td>
+											<td>25</td>
+											<td>-11.11%</td>
+											<td>-7.41%</td>
+											</tr>
+											<tr>
+											<td>14</td>
+											<td>5</td>
+											<td>4</td>
+											<td>55</td>
+											<td>24</td>
+											<td>-14.06%</td>
+											<td>-4.00%</td>
+											</tr>
+											<tr>
+											<td>15</td>
+											<td>6</td>
+											<td>5</td>
+											<td>52</td>
+											<td>25</td>
+											<td>-5.45%</td>
+											<td>4.17%</td>
+											</tr>
+											<tr>
+											<td>16</td>
+											<td>9</td>
+											<td>1</td>
+											<td>50</td>
+											<td>20</td>
+											<td>-3.85%</td>
+											<td>-20.00%</td>
+											</tr>
+											<tr>
+											<td>17</td>
+											<td>2</td>
+											<td>3</td>
+											<td>40</td>
+											<td>21</td>
+											<td>-20.00%</td>
+											<td>5.00%</td>
+											</tr>
+											<tr>
+											<td>18</td>
+											<td>4</td>
+											<td>8</td>
+											<td>34</td>
+											<td>27</td>
+											<td>-15.00%</td>
+											<td>28.57%</td>
+											</tr>
+											<tr>
+											<td>19</td>
+											<td>7</td>
+											<td>4</td>
+											<td>35</td>
+											<td>29</td>
+											<td>2.94%</td>
+											<td>7.41%</td>
+											</tr>
+											<tr>
+											<td>20</td>
+											<td>5</td>
+											<td>7</td>
+											<td>38</td>
+											<td>32</td>
+											<td>8.57%</td>
+											<td>10.34%</td>
+											</tr>
+											<tr>
+											<td>21</td>
+											<td>5</td>
+											<td>7</td>
+											<td>38</td>
+											<td>35</td>
+											<td>0.00%</td>
+											<td>9.38%</td>
+											</tr>
+											</table>
+									</details>
+									(<i><a href="#analysis-2" class="link-highlight">goto analysis</a></i>)</p>
+									
+									<p id="extract-3">3. Assess the effectiveness of email campaign in influencing customers’ purchasing decisions.<br></p><p>
 									Analyzing the email opening rate and click-through rates, as well as comparing them to industry benchmarks, will enable the evaluation of the effectiveness and quality of the email campaign. This will provide insights into how well the campaign engages recipients, whether they open the emails, and if they click on the provided links, helping to measure the overall impact and success of the campaign.<br>
 									I extracted the data from emails table where the sent date was between the production start date of “Sprint” model and two months before it.<br>
 									Then, I summarized those data in a different table called sprint_camp_summary with following structure:<br>
@@ -166,7 +622,67 @@
 									To calculate the click_rate and open_rate please refer the formula below:<br>
 									<code>click_rate = 100 * (clicked / (email_sent – bounced))</code><br>
 									<code>open_rate = 100 * (opened / (email_sent – bounced))</code><br>
-								</p>
+									<details>
+										<summary>view code</summary>
+										<!-- <img src="/images/projects/zoom-ev/code3.png" alt="" class="image fit code-screenshot"> -->
+										<md-block>
+											```sql
+											-- Extracting E-mail marketing data related to Sprint scooter 
+											WITH sprint_campaign AS (
+												SELECT * 
+												FROM emails
+												WHERE sent_date
+													-- assuming the campaign started 2 months before its production start date
+													BETWEEN 
+														(SELECT production_start_date
+														FROM products
+														WHERE model = 'Sprint') - INTERVAL 2 MONTH 
+													AND
+														(SELECT production_start_date
+														FROM products
+														WHERE model = 'Sprint')
+											)
+											-- Calculating the click through rate and email opening rate to compare with industry benchmark
+											SELECT CONCAT(ROUND(100 * clicked/(email_sent-bounced)),'%') AS click_rate,
+													CONCAT(ROUND(100 * opened/(email_sent-bounced)),'%') AS open_rate
+											FROM (
+												-- Summarising sprint_campaign data by counting emails- sent, clicked, opened & bounced for further calculation
+												SELECT COUNT(*) AS email_sent,
+														COUNT(CASE WHEN clicked = 't' THEN 1 END) AS clicked,
+														COUNT(CASE WHEN opened = 't' THEN 1 END) AS opened,
+														COUNT(CASE WHEN bounced = 't' THEN 1 END) AS bounced
+												FROM sprint_campaign) AS campaign_summary;
+										</md-block>
+									</details>
+									<details>
+										<summary>view data</summary>
+										<table style="font-family: 'Courier New', Courier, monospace;">
+										<tr>
+											<th>email_sent</th>
+											<th>clicked</th>
+											<th>opened</th>
+											<th>bounced</th>
+										</tr>
+										<tr>
+											<td>35067</td>
+											<td>848</td>
+											<td>6995</td>
+											<td>125</td>
+										</tr>
+										</table>
+										<table style="font-family: 'Courier New', Courier, monospace;">
+											<tr>
+												<th>click_rate</th>
+												<th>open_rate</th>
+											</tr>
+											<tr>
+												<td>2%</td>
+												<td>20%</td>
+											</tr>
+										</table>
+									</details>
+									(<i><a href="#analysis-3" class="link-highlight">goto analysis</a></i>)</p>
+								
 
 								<h3 id="misc">Misc.</h3>
 								<h4>Microsoft Word</h4>
@@ -178,12 +694,10 @@
 								
 								<h2 id="finishedproject">FINISHED PROJECT</h2>
 								<p>
-									Here is my finished project: <a href="#" style="color:rgb(0, 119, 255) ;" target="_blank">Zoom Electric: Sales Analysis.</a><br>
+									Here is my finished project: <a href="https://github.com/avishek-choudhary/zoom-electric/report.md" class="link-highlight" target="_blank">Zoom Electric: Sales Analysis.</a><br>
 									You can view my SQL code on Github used for data extraction 
-									<a href="#" style="color:rgb(0, 119, 255) ;" target="_blank">here</a> and the Excel files for analysis 
-									<a href="#" style="color:rgb(0, 119, 255) ;" target="_blank">here</a>.
-									<h3>Preview</h3>
-									<img src="" alt="image">
+									<a href="https://github.com/avishek-choudhary/zoom-electric/extract.sql" class="link-highlight" target="_blank">here</a> and the Excel files for analysis 
+									<a href="https://github.com/avishek-choudhary/zoom-electric/analysis" class="link-highlight" target="_blank">here</a>.
 								</p>
 								<h2 id="dataoverview">OVERVIEW OF DATA</h2>
 								<p>
@@ -209,13 +723,13 @@
 									<ul>
 										Below is what I learned/practiced from over 40 hours spent on this project:
 										<li>Complex SQL queries to extract required data for analysis.</li>
-										<li>Use of table joins and aggregate window functions like rolling sum over a specified no. of rows, Lag function, sub-query and common table expressions (cte).</li>
+										<li>Use of table joins and aggregate window functions like rolling sum over a specified no. of rows, Analytical function, sub-query and common table expressions (cte).</li>
 										<li>Pivot tables and graphs in Excel, edited the data tables along with creating different charts using pivot tables.</li>
 									</ul>
 								</p>
 								<h2 id="resources">RESOURCES</h2>
 								<p>
-									This project or micro-experience I found on <a href="#" style="color:rgb(0, 119, 255) ;" target="_blank">bluetick.ai</a> website.
+									I found this project/micro-experience on <a href="https://app.bluetick.ai/workstation/104" class="link-highlight" target="_blank">bluetick.ai</a> website.
 								</p>
 							</section>
 
@@ -240,7 +754,7 @@
 								<h3>Profile</h3>
 								<ul class="icons alt">
 									<li><a href="https://www.novypro.com/profile_projects/avishekchoudhary" target="_blank" class="icon brands alt"><i class="fa-solid fa-chart-simple"></i><span class="label">Power BI</span></a></li>
-									<li><a href="https://www.linkedin.com/in/avishek-choudhary" target="_blank" class="icon brands alt fa-twitter"><span class="label">Twitter</span></a></li>
+									<li><a href="https://www.linkedin.com/in/avishek-choudhary" target="_blank" class="icon brands alt fa-linkedin"><span class="label">Twitter</span></a></li>
 									<li><a href="https://www.github.com/avishek-choudhary" target="_blank" class="icon brands alt fa-github"><span class="label">GitHub</span></a></li>
 								</ul>
 							</section>
@@ -263,5 +777,7 @@
 			<script src="/assets/js/util.js"></script>
 			<script src="/assets/js/main.js"></script>
 			<script src="https://kit.fontawesome.com/729695af29.js" crossorigin="anonymous"></script>
+			<script src="/assets/js/prism.js" data-manual></script>
+			<script type="module" src="https://md-block.verou.me/md-block.js"></script>
 	</body>
 </html>

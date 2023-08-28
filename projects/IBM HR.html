@@ -1,10 +1,20 @@
 <!DOCTYPE HTML>
 <html>
 	<head>
+		<!-- Google tag (gtag.js) -->
+		<script async src="https://www.googletagmanager.com/gtag/js?id=UA-282889432-1"></script>
+		<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+		gtag('js', new Date());
+		gtag('config', 'UA-282889432-1');
+		</script>
+		<!-- Google tag (gtag.js) -->
 		<title>IBM: HR Analytics | Portfolio | Avishek Choudhary</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="/assets/css/style.css" />
+		<link rel="stylesheet" href="/assets/css/prism.css">
 		<link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon">
 		<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
 		<link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
@@ -49,24 +59,24 @@
 								<!-- <div class="image main"><img src="images/pic01.jpg" alt="" /></div> -->
 								<p>This is a detailed article about IBM HR Analytics Dashboard where I visualized employee attrition metrics and KPIs, I also generated insights and recommended strategies for employee retention.<br>
 								<u>Tools Used</u>: Microsoft Excel | Microsoft Power BI<br>
-								<u>Quick Links</u>: <a href="https://www.novypro.com/project/ibm-hr-analytics-dashboard" style="color:rgb(0, 119, 255) ;" target="_blank">Power BI Dashboard</a> | <a href="https://www.github.com/avishek-choudhary/IBM-HR-Analytics" style="color:rgb(0, 119, 255) ;" target="_blank">GitHub Repository</a> <br>
+								<u>Quick Links</u>: <a href="https://www.novypro.com/project/ibm-hr-analytics-dashboard" class="link-highlight" target="_blank">Power BI Dashboard</a> | <a href="https://www.github.com/avishek-choudhary/IBM-HR-Analytics" class="link-highlight" target="_blank">GitHub Repository</a> <br>
 								Below is a table of contents in case you want to go to any section.
 								</p>
 								<h2><u>Table Contents</u>:</h2>
 								<ol>
-									<li><a href="#introduction" style="color:rgb(0, 119, 255) ;">Introduction</a></li>
-									<li><a href="#process" style="color:rgb(0, 119, 255) ;">Process</a></li>
+									<li><a href="#introduction" class="link-highlight">Introduction</a></li>
+									<li><a href="#process" class="link-highlight">Process</a></li>
 									<ol type="a">
-										<li><a href="#excel" style="color:rgb(0, 119, 255) ;">Microsoft Excel</a></li>
-										<li><a href="#powerbi" style="color:rgb(0, 119, 255) ;">Microsoft Power BI</a></li>
-										<li><a href="#misc" style="color:rgb(0, 119, 255) ;">Misc.</a></li>
+										<li><a href="#excel" class="link-highlight">Microsoft Excel</a></li>
+										<li><a href="#powerbi" class="link-highlight">Microsoft Power BI</a></li>
+										<li><a href="#misc" class="link-highlight">Misc.</a></li>
 									</ol>
-									<li><a href="#finishedproject" style="color:rgb(0, 119, 255) ;">Finished Project</a></li>
-									<li><a href="#dataoverview" style="color:rgb(0, 119, 255) ;">Overview of Data</a></li>
-									<li><a href="#insights" style="color:rgb(0, 119, 255) ;">Insights</a></li>
-									<li><a href="#recommendations" style="color:rgb(0, 119, 255) ;">Recommendations</a></li>
-									<li><a href="#learnings" style="color:rgb(0, 119, 255) ;">What I Learned</a></li>
-									<li><a href="#resources" style="color:rgb(0, 119, 255) ;">Resources</a></li>
+									<li><a href="#finishedproject" class="link-highlight">Finished Project</a></li>
+									<li><a href="#dataoverview" class="link-highlight">Overview of Data</a></li>
+									<li><a href="#insights" class="link-highlight">Insights</a></li>
+									<li><a href="#recommendations" class="link-highlight">Recommendations</a></li>
+									<li><a href="#learnings" class="link-highlight">What I Learned</a></li>
+									<li><a href="#resources" class="link-highlight">Resources</a></li>
 								</ol>
 								<h2 id="introduction">INTRODUCTION</h2>
 								<p>
@@ -80,15 +90,15 @@
 								<h3 id="excel">Microsoft Excel</h3>
 								<p>I downloaded the csv file and converted it into spreadsheet to check if there was any garbage/null values but the data was already clean meanwhile I also familiarized myself with the data.<br>
 									Below are the sample images of data column, there are total 35 columns it consists of both employee attrition and performance data.<br>
-								<img src="https://i.pinimg.com/originals/76/73/e6/7673e6d260aeafbe9e56cb48127a6d85.png" alt="sample table 1" class="image fit">
-								<img src="https://i.pinimg.com/originals/37/61/6d/37616d266edfd809628f3ca6aa00560a.png" alt="sample table 2" class="image fit">
-								<img src="https://i.pinimg.com/originals/c4/75/16/c475160aef0bc943b90b8163d40f3c56.png" alt="sample table 3" class="image fit">
-								<img src="https://i.pinimg.com/originals/d1/24/f4/d124f42449d01ea1c43a5c32853add35.png" alt="sample table 4" class="image fit">
-								<img src="https://i.pinimg.com/originals/06/e2/79/06e2798ed1348c6776290ce7cdb4d952.png" alt="sample table 5" class="image fit">
+								<img src="https://i.pinimg.com/originals/76/73/e6/7673e6d260aeafbe9e56cb48127a6d85.png" alt="sample table 1" class="image fit code-screenshot">
+								<img src="https://i.pinimg.com/originals/37/61/6d/37616d266edfd809628f3ca6aa00560a.png" alt="sample table 2" class="image fit code-screenshot">
+								<img src="https://i.pinimg.com/originals/c4/75/16/c475160aef0bc943b90b8163d40f3c56.png" alt="sample table 3" class="image fit code-screenshot">
+								<img src="https://i.pinimg.com/originals/d1/24/f4/d124f42449d01ea1c43a5c32853add35.png" alt="sample table 4" class="image fit code-screenshot">
+								<img src="https://i.pinimg.com/originals/06/e2/79/06e2798ed1348c6776290ce7cdb4d952.png" alt="sample table 5" class="image fit code-screenshot">
 								</p>
 								<h3 id="powerbi">Power BI</h3>
 								<p>
-									To view my complete dashboard click <a href="https://www.novypro.com/project/ibm-hr-analytics-dashboard" style="color:rgb(0, 119, 255) ;" target="_blank">here</a>.<br>
+									To view my complete dashboard click <a href="https://www.novypro.com/project/ibm-hr-analytics-dashboard" class="link-highlight" target="_blank">here</a>.<br>
 									My goal was to display all the key metrics leading to employee attrition in one screen.<br>
 									While creating charts and cards, I faced a few problems like the values in attrition column had yes or no values so whenever I wanted to show the count of employee attrition I always had to apply filter for “yes” value so to tackle this problem I created a new column called Attrition with the values 1 and 0 to make it easy for counting this saved me some time and then I renamed the previous one as Attrition(Yes/No).<br><br>
 									Added Columns:<br>
@@ -107,51 +117,51 @@
 								<P>I used NovyPro to host the dashboard.</P>
 								<h2 id="finishedproject">FINISHED PROJECT</h2>
 								<p>
-									Here is my finished project: <a href=https://www.novypro.com/project/ibm-hr-analytics-dashboard" style="color:rgb(0, 119, 255) ;" target="_blank">IBM: HR Analytics Dashboard</a><br>
+									Here is my finished project: <a href=https://www.novypro.com/project/ibm-hr-analytics-dashboard" class="link-highlight" target="_blank">IBM: HR Analytics Dashboard</a><br>
 									<h3>Preview</h3>
-									<img src="https://i.pinimg.com/originals/a8/4f/e2/a84fe222a3ef3107d66fc59aee261751.png" alt="dashboard screenshot" class="image fit">
-									<img src="https://i.pinimg.com/originals/48/44/03/484403359e71e40c97c7005d138df189.png" alt="insights screenshot" class="image fit">
-									<img src="https://i.pinimg.com/originals/ad/42/99/ad4299f66b1acd0d1eecdb43309c4ee0.png" alt="recommendations screenshot" class="image fit">
+									<img src="https://i.pinimg.com/originals/a8/4f/e2/a84fe222a3ef3107d66fc59aee261751.png" alt="dashboard screenshot" class="image fit code-screenshot">
+									<img src="https://i.pinimg.com/originals/48/44/03/484403359e71e40c97c7005d138df189.png" alt="insights screenshot" class="image fit code-screenshot">
+									<img src="https://i.pinimg.com/originals/ad/42/99/ad4299f66b1acd0d1eecdb43309c4ee0.png" alt="recommendations screenshot" class="image fit code-screenshot">
 								</p>
 								<h2 id="dataoverview">Overview of Data</h2>
 								<p>
 									<h3>Data:</h3>
 									<ol>
-										<li><a href="#avgage" style="color:rgb(0, 119, 255) ;">Average Age of Employee</a></li>
-										<li><a href="#dept" style="color:rgb(0, 119, 255) ;">Attrition by Department</a></li>
-										<li><a href="#salary" style="color:rgb(0, 119, 255) ;">Attrition by Salary Slab</a></li>
-										<li><a href="#year" style="color:rgb(0, 119, 255) ;">Attrition by Years at Company</a></li>
-										<li><a href="#education" style="color:rgb(0, 119, 255) ;">Attrition by Educational Background</a></li>
-										<li><a href="#gender" style="color:rgb(0, 119, 255) ;">Attrition by Gender</a></li>
-										<li><a href="#jobsatisfaction" style="color:rgb(0, 119, 255) ;">Job Satisfaction Rate by Job Role</a></li>
-										<li><a href="#joblevel" style="color:rgb(0, 119, 255) ;">Attrition by Job level</a></li>
+										<li><a href="#avgage" class="link-highlight">Average Age of Employee</a></li>
+										<li><a href="#dept" class="link-highlight">Attrition by Department</a></li>
+										<li><a href="#salary" class="link-highlight">Attrition by Salary Slab</a></li>
+										<li><a href="#year" class="link-highlight">Attrition by Years at Company</a></li>
+										<li><a href="#education" class="link-highlight">Attrition by Educational Background</a></li>
+										<li><a href="#gender" class="link-highlight">Attrition by Gender</a></li>
+										<li><a href="#jobsatisfaction" class="link-highlight">Job Satisfaction Rate by Job Role</a></li>
+										<li><a href="#joblevel" class="link-highlight">Attrition by Job level</a></li>
 									</ol>
 									<h4 id="avgage"><i>Average Age of Employee</i></h4>
 									The average age of employee is ~37 years.<br>
-									<img src="https://i.pinimg.com/originals/aa/30/74/aa3074fa5285b7c34e6d90c96418bce7.png" alt="average age"><br><br>
+									<img src="https://i.pinimg.com/originals/aa/30/74/aa3074fa5285b7c34e6d90c96418bce7.png" alt="average age" class="code-screenshot"><br><br>
 									<h4 id="dept"><i>Attrition by Department</i></h4>
 									The Research & Development department witnessed the highest attrition, accounting for 133 of the total.<br>
-									<img src="https://i.pinimg.com/originals/8f/31/33/8f313344b6d45230161a7b4f76b548f5.png" alt="attrition by department" class="image fit"><br><br>
+									<img src="https://i.pinimg.com/originals/8f/31/33/8f313344b6d45230161a7b4f76b548f5.png" alt="attrition by department" class="image fit code-screenshot"><br><br>
 									<h4 id="salary"><i>Attrition by Salary-Slab</i></h4>
 									The majority of employees who left the company belonged to the salary range below $5000 per month, comprising 163 individuals.<br>
-									<img src="https://i.pinimg.com/originals/ef/68/a0/ef68a01ed39f7528ff7d952b0730a9ac.png" alt="attrition by salary" class="image fit"><br><br>
+									<img src="https://i.pinimg.com/originals/ef/68/a0/ef68a01ed39f7528ff7d952b0730a9ac.png" alt="attrition by salary" class="image fit code-screenshot"><br><br>
 									<h4 id="year"><i>Attrition by Years at Company</i></h4>
 									The employees who left, the highest attrition was observed among those who spent 1 year at the company- total 59 employee that accounts for 25%.<br>
-									<img src="https://i.pinimg.com/originals/88/c5/3d/88c53d0d71193fcb05a2f3261c1d5ed5.png" alt="attrition by years at company" class="image fit"><br><br>
+									<img src="https://i.pinimg.com/originals/88/c5/3d/88c53d0d71193fcb05a2f3261c1d5ed5.png" alt="attrition by years at company" class="image fit code-screenshot"><br><br>
 									<h4 id="education"><i>Attrition by Educational Background</i></h4>
 									The educational background of employees who left the company indicates that most individuals had a Life Science background total 89.<br>
-									<img src="https://i.pinimg.com/originals/94/7a/44/947a4411f45a330713dbac02238474aa.png" alt="attrition by education" class="image fit"><br><br>
+									<img src="https://i.pinimg.com/originals/94/7a/44/947a4411f45a330713dbac02238474aa.png" alt="attrition by education" class="image fit code-screenshot"><br><br>
 									<h4 id="gender"><i>Attrition by Gender</i></h4>
 									Female employees attrition rate is ~15%.<br>
-									<img src="https://i.pinimg.com/originals/c7/90/2d/c7902da6cf5c25547f4966e4c4c74315.png" alt="attrition by gender for female" class="image fit"><br><br>
+									<img src="https://i.pinimg.com/originals/c7/90/2d/c7902da6cf5c25547f4966e4c4c74315.png" alt="attrition by gender for female" class="image fit code-screenshot"><br><br>
 									While the Male employees attrition rate is sightly higher ~17%.<br>
-									<img src="https://i.pinimg.com/originals/f7/79/f0/f779f045e8a2e36e4b57dd2d7a3d5822.png" alt="attrition by gender for male" class="image fit"><br><br>
+									<img src="https://i.pinimg.com/originals/f7/79/f0/f779f045e8a2e36e4b57dd2d7a3d5822.png" alt="attrition by gender for male" class="image fit code-screenshot"><br><br>
 									<h4 id="jobsatisfaction"><i>Job Satisfaction Rate by Job Role</i></h4>
 									The Job Satisfaction rate in the Laboratory Technician role was the highest- 64, followed by Sales Executive- 57 and the Research Scientist- 47.<br>
-									<img src="https://i.pinimg.com/originals/87/85/d6/8785d6c9a36703b059079479025119e4.png" alt="job satisfaction rate by job role" class="image fit"><br><br>
+									<img src="https://i.pinimg.com/originals/87/85/d6/8785d6c9a36703b059079479025119e4.png" alt="job satisfaction rate by job role" class="image fit code-screenshot"><br><br>
 									<h4 id="joblevel"><i>Attrition by Job Level</i></h4>
 									The employees who left, the highest attrition was observed among those whose Job level was 1 that accounts for total 143 employees.<br>
-									<img src="https://i.pinimg.com/originals/95/9e/3b/959e3b12d0095414cb318e0c07b60d9c.png" alt="attrition by job-level" class="image fit"><br>
+									<img src="https://i.pinimg.com/originals/95/9e/3b/959e3b12d0095414cb318e0c07b60d9c.png" alt="attrition by job-level" class="image fit code-screenshot"><br>
 								</p>
 								<h2 id="insights">INSIGHTS</h2>
 								<p>Below are the general insights and answers to the question from the dashboard:
@@ -189,7 +199,7 @@
 
 								</p>
 								<h2 id="resources">RESOURCES</h2>
-								<p>This dataset was downloaded from kaggle, to download it click <a href="https://www.kaggle.com/datasets/pavansubhasht/ibm-hr-analytics-attrition-dataset" style="color:rgb(0, 119, 255) ;" target="_blank">here</a>.</p>
+								<p>This dataset was downloaded from kaggle, to download it click <a href="https://www.kaggle.com/datasets/pavansubhasht/ibm-hr-analytics-attrition-dataset" class="link-highlight" target="_blank">here</a>.</p>
 							</section>
 
 					</div>
@@ -236,5 +246,7 @@
 			<script src="/assets/js/util.js"></script>
 			<script src="/assets/js/main.js"></script>
 			<script src="https://kit.fontawesome.com/729695af29.js" crossorigin="anonymous"></script>
+			<script src="/assets/js/prism.js" data-manual></script>
+			<script type="module" src="https://md-block.verou.me/md-block.js"></script>
 	</body>
 </html>

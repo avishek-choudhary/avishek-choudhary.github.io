@@ -3028,10 +3028,11 @@ input, select, textarea {
 			border: solid 1px;
 			border-left: 0;
 			border-right: 0;
+			text-align: center;
 		}
 
 		table td {
-			padding: 0.75rem 0.75rem;
+			padding: 0rem;
 		}
 
 		table th {
@@ -3040,9 +3041,9 @@ input, select, textarea {
 			font-weight: 900;
 			letter-spacing: 0.075em;
 			line-height: 1.5;
-			padding: 0 0.75rem 0.75rem 0.75rem;
-			text-align: left;
-			text-transform: uppercase;
+			padding: 0.75rem;
+			text-align: center;
+			background-color: #e7e2e2;
 		}
 
 			@media screen and (max-width: 980px) {
@@ -4700,4 +4701,72 @@ input, select, textarea {
 
 	}
 
+/* Code-Div-Tag */
+
+	.code-bg {
+		background-color: #dcdcdc40;
+		border: solid 2px;
+		border-color: #eeeeee;
+	}
+
+	.code-format {
+		margin: 0 0.25rem;
+		padding: 0.25rem 0.65rem;
+		font-family: 'Courier New', Courier, monospace;
+		font-size: 0.9rem;
+	}
+
+/* Link-Format */
+
+	a.link-highlight {
+		color: #0077ff;
+		border-bottom-style: none;
+	}
+
+/* Sub-List-Style */
+
+	ol.sub-list {
+		list-style: lower-alpha;
+	}
+
+/* Code-Screenshot--Transition/Border-Radius/Box-Shadow */
+
+	img.code-screenshot {
+		-moz-transition: -moz-transform 0.2s ease-out;
+		-webkit-transition: -webkit-transform 0.2s ease-out;
+		-ms-transition: -ms-transform 0.2s ease-out;
+		transition: transform 0.2s ease-out;
+		border-radius: 15px 15px 15px 15px;
+		-moz-border-radius: 15px 15px 15px 15px;
+		-webkit-border-radius: 15px 15px 15px 15px;
+		-webkit-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+		-moz-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+		box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+	}
+
+	img.code-screenshot:hover {
+		-moz-transform: scale(1.05);
+		-webkit-transform: scale(1.05);
+		-ms-transform: scale(1.05);
+		transform: scale(1.05);
+	}
+
+/* Screenshot--Transition/Border-Radius/Box-Shadow */
+
+img.screenshot {
+	-moz-transition: -moz-transform 0.2s ease-out;
+	-webkit-transition: -webkit-transform 0.2s ease-out;
+	-ms-transition: -ms-transform 0.2s ease-out;
+	transition: transform 0.2s ease-out;
+	border-radius: 15px 15px 15px 15px;
+	-moz-border-radius: 15px 15px 15px 15px;
+	-webkit-border-radius: 15px 15px 15px 15px;
+}
+
+img.screenshot:hover {
+	-moz-transform: scale(1.05);
+	-webkit-transform: scale(1.05);
+	-ms-transform: scale(1.05);
+	transform: scale(1.05);
+}
 
