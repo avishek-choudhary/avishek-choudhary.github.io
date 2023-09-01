@@ -10,7 +10,7 @@
 		gtag('config', 'G-Y6XY7WHLF3');
 		</script>
 		<!-- Google tag (gtag.js) -->
-		<title>SQL Case Study: Online Music Store | Portfolio | Avishek Choudhary</title>
+		<title>SQL Case Study: Digital Music Store | Portfolio | Avishek Choudhary</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="/assets/css/style.css" />
@@ -54,7 +54,7 @@
 								<header class="major">
 									<span class="date">May, 2023</span>
 									<h1>SQL Case Study:<br>
-										Online Music Store
+										Digital Music Store
 									</h1>
 								</header>
 								<!-- Skills-Tags -->
@@ -65,7 +65,7 @@
 									<span class="tag">Regex</span>
 								</div>
 								<!-- <div class="image main"><img src="/images/music-store.jpg" alt="" /></div> -->
-								<p>I did a Case Study on Music Store data using SQL-queries. I will be diving into the background, my full process of creating the database and using queries to find answers from the data.<br>
+								<p>I did a Case Study on a Digital Music Store data using SQL-queries. I will be diving into the background, my full process of creating the database and using queries to find answers from the data.<br>
 								<u>Tools Used</u>: PostgreSQL | PgAdmin4<br>
 								<u>Quick Links</u>: <a href="https://github.com/avishek-choudhary/Music-Store-Analysis" class="link-highlight" target="_blank">GitHub Repository</a> <br>
 								Below is a table of contents in case you want to go to any section.
@@ -87,7 +87,7 @@
 								</ol>
 								<h2 id="introduction">INTRODUCTION</h2>
 								<p>
-									Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, adipisci similique beatae animi nam unde labore natus nisi, voluptate praesentium voluptas suscipit illo doloribus pariatur deleniti quaerat vel soluta? Explicabo!<br>
+									The Music Store sells a wide variety of music, including albums, tracks, and playlists. It also allows customers to create their own playlists. The store has a large number of employees, who work at multiple locations in Canada. The store also has a large number of customers world-wide, who make regular purchases.<br>
 									<u>Overall Goal</u>: Find Insights and find answer of the questions.<br>
 									<u>Questions</u>: Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod, laborum voluptas provident inventore non quis excepturi ipsam eum quisquam, necessitatibus reiciendis doloremque libero vero animi, architecto eius eaque impedit perspiciatis.<br>
 								</p>
@@ -98,9 +98,9 @@
 								</p>
 								<p>
 									<details><summary><h4>1. Artist</h4></summary>
-									A simple table to show Artists' names.<br><br>
+									Artist: A person or group that creates music.<br>
+									An artist can have many albums. For example, The Beatles have released many albums, such as "Please Please Me", "A Hard Day's Night", and "Sgt. Pepper's Lonely Hearts Club Band".<br><br>
 									<h5>Table Schema</h5>
-									The table schema of artist table is as follows:
 									<md-block>
 										```markdown
 										|Column Name|Data Type|Description                |
@@ -108,8 +108,7 @@
 										|artist_id  |INTEGER  |A unique ID for each Artist|
 										|name       |VARCHAR  |Name of the Artist         |
 									</md-block><br>
-									<h5>Table Data</h5>
-									The artist table contains the following data:
+									<h5>Sample Data</h5>
 									<md-block>
 										```markdown
 										|artist_id|name             |
@@ -123,9 +122,9 @@
 								</p>
 								<p>
 									<details><summary><h4>2. Album</h4></summary>
-									A simple table to show Albums' names.<br><br>
+									Album: A collection of songs by a single artist.<br>
+									An album can have many tracks. For example, the album "Sgt. Pepper's Lonely Hearts Club Band" has 13 tracks.<br><br>
 									<h5>Table Schema</h5>
-									The table schema of album table is as follows:
 									<md-block>
 										```markdown
 										|Column Name |Data Type|Description                                    |
@@ -134,8 +133,7 @@
 										|name        |VARCHAR  |Name of the Album                              |
 										|artist_id   |INTEGER  |A unique ID for each Artist (can be duplicates)|
 									</md-block><br>
-									<h5>Table Data</h5>
-									The album table contains the following data:
+									<h5>Sample Data</h5>
 									<md-block>
 										```markdown
 										|album_id|title                                                                  |artist_id|
@@ -149,9 +147,10 @@
 								</p>
 								<p>
 									<details><summary><h4>3. Track</h4></summary>
-									A table to show Track (song) details.<br><br>
+									Track: A single song.<br>
+									A track can be sung by multiple artists or a group of artists.<br><br>
+									<br>
 									<h5>Table Schema</h5>
-									The table schema of track table is as follows:
 									<md-block>
 										```markdown
 										|Column Name  |Data Type|Description                            |
@@ -166,8 +165,7 @@
 										|bytes        |INTEGER  |Size of Track in bytes                 |
 										|unit_price   |INTEGER  |Price of each track                    |
 									</md-block><br>
-									<h5>Table Data</h5>
-									The track table contains the following data:
+									<h5>Sample Data</h5>
 									<md-block>
 										```markdown
 										|track_id|name                                   |album_id|media_type_id|genre_id|composer                                                              |milliseconds|bytes     |unit_price|
@@ -181,7 +179,7 @@
 								</p>
 								<p>
 									<details><summary><h4>4. Media Type</h4></summary>
-									A simple table to show different types of meadia file.<br><br>
+									MediaType: The type of digital file on which a track is released, such as MPEG, AAC, or MPEG-4.<br><br>
 									<h5>Table Schema</h5>
 									<md-block>
 										```markdown
@@ -190,7 +188,7 @@
 										|media_type_id|INTEGER  |A unique ID for each Media type|
 										|name         |VARCHAR  |Name of the Artist             |
 									</md-block><br>
-									<h5>Table Data</h5>
+									<h5>Sample Data</h5>
 									<md-block>
 										```markdown
 										|media_type_id|name                       |
@@ -204,7 +202,8 @@
 								</p>
 								<p>
 									<details><summary><h4>5. Genre</h4></summary>
-									A table to show Genre's name.<br><br>
+									Genre: Category of different style elements in a music.<br>
+									A track can have multiple genres.<br><br>
 									<h5>Table Schema</h5>
 									<md-block>
 										```markdown
@@ -213,7 +212,7 @@
 										|genre_id   |INTEGER  |A unique ID for each Genre|
 										|name       |VARCHAR  |Name of the Genre         |
 									</md-block><br>
-									<h5>Table Data</h5>
+									<h5>Sample Data</h5>
 									<md-block>
 										```markdown
 										|genre_id|name              |
@@ -227,7 +226,8 @@
 								</p>
 								<p>
 									<details><summary><h4>6. Playlist</h4></summary>
-									A table to show Playlist name.<br><br>
+									Playlist: A collection of tracks that are saved together.<br>
+									A playlist can have multiple tracks or a track can be included in one or more playlists. For example, the track "Hey Jude" is included in the playlists "The Beatles Greatest Hits" and "Classic Rock Hits".<br><br>
 									<h5>Table Schema</h5>
 									<md-block>
 										```markdown
@@ -236,7 +236,7 @@
 										|playlist_id|INTEGER  |A unique ID for each Playlist|
 										|name       |VARCHAR  |Name of the Playlist         |
 									</md-block><br>
-									<h5>Table Data</h5>
+									<h5>Sample Data</h5>
 									<md-block>
 										```markdown
 										|playlist_id|name      |
@@ -251,7 +251,8 @@
 								</p>
 								<p>
 									<details><summary><h4>7. Playlist Track</h4></summary>
-									A table to show Playlist ID corresponding to it's Track ID<br><br>
+									PlaylistTrack: To store Playlist ID corresponding to it's Track ID<br>
+									Multiple track ID can have same playlist ID.<br><br>
 									<h5>Table Schema</h5>
 									<md-block>
 										```markdown
@@ -274,7 +275,8 @@
 								</p>
 								<p>
 									<details><summary><h4>8. Invoice Line</h4></summary>
-									A table to show <br><br>
+									InvoiceLine: A single line item on an invoice, representing a single track or album that was purchased.<br>
+									An invoice line can be for one or more tracks. For example, an invoice line for the album "Sgt. Pepper's Lonely Hearts Club Band" would be for all 13 tracks on the album.<br><br>
 									<h5>Table Schema</h5>
 									<md-block>
 										```markdown
@@ -286,7 +288,7 @@
 										|unit_price		|FLOAT	  |unit price of each track			   |
 										|quantity		|INTEGER  |number of track ordered			   |
 									</md-block><br>
-									<h5>Table Data</h5>
+									<h5>Sample Data</h5>
 									<md-block>
 										```markdown
 										|invoice_line_id|invoice_id|track_id|unit_price|quantity|
@@ -301,7 +303,8 @@
 								</p>
 								<p>
 									<details><summary><h4>9. Invoice</h4></summary>
-									A table to show <br><br>
+									Invoice: A record of a customer's purchase.<br>
+									An invoice can have many invoice lines. For example, an invoice for a purchase of 3 albums would have 3 invoice lines, one for each album.<br><br>
 									<h5>Table Schema</h5>
 									<md-block>
 										```markdown
@@ -317,7 +320,7 @@
 										|billing_postal_code|VARCHAR  |billing postal code of the customer	|
 										|total				|FLOAT	  |total amount of the bill				|
 									</md-block><br>
-									<h5>Table Data</h5>
+									<h5>Sample Data</h5>
 									<md-block>
 										```markdown
 										|invoice_id|customer_id|invoice_date       |billing_address |billing_city|billing_state|billing_country|billing_postal_code|total|
@@ -332,7 +335,8 @@
 								</p>
 								<p>
 									<details><summary><h4>10. Customer</h4></summary>
-									A table to show details of customers.<br><br>
+									Customer: A person who buys music from the music store.<br>
+									A customer can make many purchases from the music store. For example, a regular customer might make several purchases each month.<br><br>
 									<h5>Table Schema</h5>
 									<md-block>
 										```markdown
@@ -352,7 +356,7 @@
 										|email		   |VARCHAR  |Email-ID of the customer									|
 										|support_rep_id|INTEGER  |An ID of employee for customer support (can be duplicates)|
 									</md-block><br>
-									<h5>Table Data</h5>
+									<h5>Sample Data</h5>
 									<md-block>
 										```markdown
 										|customer_id|first_name|last_name|company              |address                  |city         |state|country|postal_code|phone             |fax               |email                   |support_rep_id|
@@ -367,7 +371,8 @@
 								</p>
 								<p>
 									<details><summary><h4>11. Employee</h4></summary>
-									A table to show details of employees.<br><br>
+									Employee: A person who works at the music store.<br>
+									An employee can work for one or more customers. For example, an employee who works in the sales department may work with many customers.<br><br>
 									<h5>Table Schema</h5>
 									<md-block>
 										```markdown
@@ -390,7 +395,7 @@
 										|fax		|VARCHAR  |Fax No. of the employee							  		 |
 										|email		|VARCHAR  |Email-ID of the employee							  		 |
 									</md-block><br>
-									<h5>Table Data</h5>
+									<h5>Sample Data</h5>
 									<md-block>
 										```markdown
 										|employee_id|last_name|first_name  |title              |reports_to|levels|birthdate |hire_date |address             |city      |state|country|postal_code|phone            |fax              |email                  |
@@ -405,10 +410,10 @@
 									</details>
 								</p>
 								<h2 id="process">Process</h2>
-								<p><u>Overview</u>: I used PostgreSQL to create a database and to find anwers.</p>
+								<p><u>Overview</u>: I used PgAdmin4 (GUI of PostgreSQL) to create a database and to find anwers using queries.</p>
 								<h3 id="sql">PostgreSQL</h3>
 								<p>
-									Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit nesciunt debitis consequuntur? Nostrum cum accusantium deserunt mollitia dolorem? Nobis voluptate quaerat incidunt suscipit. Iure vel magnam ipsum, minima quisquam doloremque.
+									First I created the database using ERD and exported all the CSV files to respective tables at the same time I familiarized myself with the data. Then connected the tables using Primary and Foreign Key constraints. And then used my quering skills to find answers.
 									<!-- <img src="/images/projects/music store/code.png" alt="code-screenshot" class="image fit code-screenshot"> -->
 									<p>Q1. Who is the senior most employee based on job title?
 										<details>
@@ -512,7 +517,6 @@
 										</md-block>
 									</p>
 									<p>Q3. What are top 3 values of total invoice?
-
 										<details>
 											<summary>view query</summary>
 											<md-block>
@@ -3671,13 +3675,11 @@
 									</p>
 								</p><h3 id="misc">MISC.</h3>
 								<h4>Microsoft Word</h4>
-								<b>Notes</b> - Notes for the project including the final insights, what I was looking for, and anything else having to do with the project.</li>
+								<b>Notes</b> - Notes for the project including the answer of queries, what I was looking for, and anything else that has to do with the project.</li>
 																
 								<h2 id="finishedproject">FINISHED PROJECT</h2>
 								<p>
 									Here is my finished project: <a href="https://github.com/avishek-choudhary/Music-Store-Analysis" class="link-highlight" target="_blank">SQL Case Study: Music Store</a><br>
-									<h3>Preview</h3>
-									<img src="" alt="image">
 								</p>
 								<h2 id="dataoverview">Overview of Data</h2>
 								<p>
@@ -3693,15 +3695,15 @@
 									</ul>
 								</p>
 								<h2 id="learnings">WHAT I LEARNED</h2>
-								<p>
+								<p>This was my first SQL project, the following is what I learned/practised:
 									<il>
-										<li></li>
-										<li></li>
-										<li></li>
+										<li>Table joins.</li>
+										<li>Using sub queries.</li>
+										<li>Using window functions.</li>
 									</il>
 								</p>
 								<h2 id="resources">RESOURCES</h2>
-								<p>This dataset was downloaded from Rishabh Mishra's github, to download it click <a href="#" class="link-highlight" target="_blank">here</a>.</p>
+								<p>This dataset was downloaded from Rishabh Mishra's github, to download it click <a href="https://github.com/rishabhnmishra/SQL_Music_Store_Analysis" class="link-highlight" target="_blank">here</a>.</p>
 							</section>
 
 					</div>
