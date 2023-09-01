@@ -18,11 +18,13 @@ section, summary, time, mark, audio, video {
 	border: 0;
 	font-size: 100%;
 	font: inherit;
-	vertical-align: baseline;}
+	vertical-align: baseline;
+}
 
 article, aside, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section {
-	display: block;}
+	display: block;
+}
 
 body {
 	line-height: 1;
@@ -36,10 +38,10 @@ blockquote, q {
 	quotes: none;
 }
 
-	blockquote:before, blockquote:after, q:before, q:after {
-		content: '';
-		content: none;
-	}
+blockquote:before, blockquote:after, q:before, q:after {
+	content: '';
+	content: none;
+}
 
 table {
 	border-collapse: collapse;
@@ -4770,3 +4772,50 @@ img.screenshot:hover {
 	transform: scale(1.05);
 }
 
+/* Skills-Tags */
+
+.tags {
+	font-family: Arial, sans-serif;
+    display: flex;
+	flex-wrap: wrap;
+    justify-content: left;
+    align-items: center;
+    margin: 0;
+    display: flex;
+    gap: 10px;
+	padding-bottom: 20px;
+}
+
+.tag {
+    display: inline-block;
+    padding: 0 10px;
+    background-color: #d1eaff;
+    color: #0066cc;
+    border-radius: 20px;
+    text-align: center;
+}
+
+.tag:hover {
+	cursor: default;
+	-moz-transition: -moz-transform 0.2s ease-out;
+	-webkit-transition: -webkit-transform 0.2s ease-out;
+	-ms-transition: -ms-transform 0.2s ease-out;
+	transition: transform 0.2s ease-out;
+	-moz-transform: scale(1.05);
+	-webkit-transform: scale(1.05);
+	-ms-transform: scale(1.05);
+	transform: scale(1.05);
+}
+
+@media screen and (max-width: 768px) {
+    .tags {
+        justify-content: center; /* Center tags on smaller screens */
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .tag {
+        padding: 4px 8px; /* Reduce padding for smaller screens */
+        font-size: 14px; /* Decrease font size for smaller screens */
+    }
+}

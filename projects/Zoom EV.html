@@ -55,10 +55,18 @@
 									<span class="date">August, 2023</span>
 									<h1>Zoom Electric: Sales Analysis</h1>
 								</header>
+								<!-- Skills-Tags -->
+								<div class="tags">
+									<span class="tag">Problem Solving</span>
+									<span class="tag">Growth Analyst</span>
+									<span class="tag">Business Sense</span>
+									<span class="tag">SQL</span>
+									<span class="tag">Excel</span>
+								</div>
 								<!-- <div><img src="/images/zoom-ev.jpg" alt="" class="image fit screenshot"/></div> -->
-								<p>I worked on the Zoom Electric- Sales Analysis project. I will be diving into the background, my full process of extracting and analyzing the data, along with my final suggestions and summary of the data. </p>
+								<p>I worked on the Zoom Electric- Sales Analysis project. I will be diving into the background, my full process of extracting and analyzing the data, along with my final summary and insights of the data. </p>
 								<u>Tools Used</u>: MySQL | Microsoft Excel<br>
-								<u>Quick Links</u>: <a href="https://github.com/avishek-choudhary/zoom-electric" class="link-highlight" target="_blank">GitHub Repository</a> <br>
+								<u>Quick Links</u>: <a href="https://github.com/avishek-choudhary/zoom-electric/extraction.sql" class="link-highlight" target="_blank">SQL Query </a>|<a href="https://github.com/avishek-choudhary/zoom-electric" class="link-highlight" target="_blank"> GitHub Repository</a> <br>
 								Below is a table of contents in case you want to go to any section.
 								</p>
 								<h2><u>Table Contents</u>:</h2>
@@ -74,7 +82,6 @@
 									<li><a href="#finishedproject" class="link-highlight">Finished Project</a></li>
 									<li><a href="#dataoverview" class="link-highlight">Overview of Data</a></li>
 									<li><a href="#insights" class="link-highlight">Insights</a></li>
-									<li><a href="#recommendations" class="link-highlight">Recommendations</a></li>
 									<li><a href="#learnings" class="link-highlight">What I Learned</a></li>
 									<li><a href="#resources" class="link-highlight">Resources</a></li>
 								</ol>
@@ -84,42 +91,145 @@
 									Zoom Electric offers a range of automotive and scooter products, including FioNex, Sprint, and Parker, along with some exclusive limited-edition variants.<br> 
 									Recently, ZE introduced a new scooter model called <b>Sprint</b> in the 2-wheeler EV scooter segment. Initially, the sales numbers for Sprint Scooters were quite impressive during the first two weeks of its launch. However, unexpectedly, there was a sudden decline in sales thereafter.<br>
 									<u>My Role</u>: In this scenario I am working as an analyst in the sales & operation team at Zoom Electric (ZE). My team is responsible for executing the pre-orders, sales client visits, and website sales, and analyze the visit session created on the website, and analyzing the sales funnel. And my team has been tasked with the overall goal (see below) of sales & operation strategies.<br>
-									<u>Overall Goal</u>: As a data analyst, I have been assigned to validate the sales drop for Sprint scooters and figure out the reasons for this decline.
-									<ul>To find the reason for decline in sales precisely the overall goal is divided into three sub-goals:									
-										<li>Quantify the drop in sales volume, to validate if there was a drop in sales volume.</li>
-										<li>Assess whether there is a relation between the launch date and sales growth.</li>
-										<li>Assess the effectiveness of email campaign in influencing customers’ purchasing decisions.</li>
-									</ul>
+									<u>Overall Goal</u>: As a data analyst, I have been assigned to validate the sales drop for Sprint scooters and figure out the reasons for this decline.<br>
+									<u>Approach</u>: To find the reason for decline in sales precisely, the overall goal is divided into three sub-goals:<br>									
+									&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<b>• </b>Quantify the drop in sales volume, to validate if there was a drop in sales volume.<br>
+									&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<b>• </b>Assess whether there is a relation between the launch date and sales growth.<br>
+									&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<b>• </b>Assess the effectiveness of email campaign in influencing customers’ purchasing decisions.
 								</p>
 
 								<h2 id="datadictionary">DATA DICTIONARY</h2>
 								<p>
-									<h3>Schema</h3>
-									<img src="/images/projects/zoom-ev/schema.jpg" alt="schema diagram" class="image fit" style="filter:drop-shadow(10px 8px 6px rgb(6, 6, 189)) ;">
+									<h3>Entity Relationship Diagram</h3>
+									<img src="/images/projects/zoom-ev/schema.jpg" alt="schema diagram" class="image fit">
 								</p>
-
+								<p>
+									<details><summary><h4>1. Sales</h4></summary>
+									A table to show details regarding sales.<br><br>
+									<h5>Table Schema</h5>
+									<md-block>
+										```markdown
+										|Column Name		   |Data Type|Description														           |
+										|----------------------|---------|-----------------------------------------------------------------------------|
+										|customer_id		   |INTEGER  |Each and every customer logged in on Zoom Electric are assigned a uniqe ID   |
+										|product_id			   |INTEGER  |An ID of product (can be duplicates)										   |
+										|sales_transaction_date|TIMESTAMP|Date and time of sales transaction done for product_id					   |
+										|channel			   |VARCHAR  |Sales channel (offline or online) offline - dealers across the various cities|
+										|dealership_id		   |INTEGER  |Code of dealer through which sales done									   |
+									</md-block><br>
+									<h5>Table Data</h5>
+									<md-block>
+										```markdown
+										|customer_id|product_id|sales_transaction_date|channel   |dealership_id|
+										|-----------|----------|----------------------|----------|-------------|
+										|1          |7         |2017-07-19 08:38:00   |internet  |             |
+										|22         |7         |2017-08-14 09:59:00   |dealership|20           |
+										|145        |7         |2019-01-20 10:40:00   |internet  |             |
+										|289        |7         |2017-05-09 14:20:00   |dealership|7            |
+										|331        |7         |2019-05-21 20:03:00   |dealership|4            |										
+									</md-block></details>
+								</p>
+								<p>
+									<details><summary><h4>2. Products</h4></summary>
+									A table to show details of the products.<br><br>
+									<h5>Table Schema</h5>
+									<md-block>
+										```markdown
+										|Column Name		  |Data Type|Description											  						  |
+										|---------------------|---------|---------------------------------------------------------------------------------|
+										|product_id			  |INTEGER	|Primary Key for the product table (unique identifiers for Zoom Electric products)|
+										|model				  |VARCHAR	|Model for the products 														  |
+										|year				  |INTEGER	|Model Year for the products													  |
+										|product_type		  |VARCHAR	|Type of products- scooter, automobile											  |
+										|base_price			  |FLOAT	|price of the products															  |
+										|production_start_date|TIMESTAMP|Date on which production of the product starts in Zoom Electric				  |
+										|production_end_date  |TIMESTAMP|Date on which production of the product end or closed in Zoom Electric			  |
+									</md-block><br>
+									<h5>Table Data</h5>
+									<md-block>
+										```markdown
+										|product_id|model                 |year|product_type|base_price|production_start_date|production_end_date|
+										|----------|----------------------|----|------------|----------|---------------------|-------------------|
+										|5         |Parker                |2014 |scooter    |111998    |23-06-2014 00:00     |27-01-2015 00:00   |
+										|6         |Corpel                |2015 |automobile |524000    |15-04-2015 00:00     |01-10-2018 00:00   |
+										|7         |Sprint                |2016 |scooter    |95998     |10-10-2016 00:00     |                   |
+										|8         |Sprint Limited Edition|2017 |scooter    |111998    |15-02-2017 00:00     |                   |
+										|9         |SigniaSafari          |2017 |automobile |280000    |15-02-2017 00:00     |                   |
+									</md-block></details>
+								</p>
+								<p>
+									<details><summary><h4>3. Emails</h4></summary>
+									A table to show data of email marketing.<br><br>
+									<h5>Table Schema</h5>
+									<md-block>
+										```markdown
+										|Column Name	 |Data Type|Description																				|
+										|----------------|---------|----------------------------------------------------------------------------------------|
+										|email_id		 |INTEGER  |Primary Key for the email table (unique identifiers for all the email sent to customers)|
+										|customer_id	 |INTEGER  |An ID of customer (can be duplicates)													|
+										|email_subject_id|INTEGER  |An ID of Email subject (can be duplicates)												|
+										|opened			 |BOOLEAN  |Check if email opened or not, 't'- opened, 'f'- not opened								|
+										|clicked		 |BOOLEAN  |'t'- clicked, 'f'- not clicked															|
+										|bounced		 |BOOLEAN  |'t'- bounced, 'f'- not bounced															|
+										|sent_date		 |TIMESTAMP|Date on which email was sent															|
+										|opened _date	 |TIMESTAMP|Date on which email was opened															|
+										|clicked_date	 |TIMESTAMP|Date on which customer clicked the link to land on the ZOOM ELECTRIC landing page		|
+									</md-block><br>
+									<h5>Table Data</h5>
+									<md-block>
+										```markdown
+										|email_id|customer_id|opened|clicked|bounced|sent_date          |opened_date     |clicked_date    |email_subject_id|
+										|--------|-----------|------|-------|-------|-------------------|----------------|----------------|----------------|
+										|54      |665        |t     |f      |f      |2011-01-03 15:00:00|04-01-2011 18:35|                |6               |
+										|55      |666        |f     |f      |f      |2011-01-03 15:00:00|                |                |6               |
+										|56      |673        |t     |t      |f      |2011-01-03 15:00:00|04-01-2011 12:03|04-01-2011 12:06|6               |
+										|57      |694        |f     |f      |f      |2011-01-03 15:00:00|                |                |6               |
+										|58      |701        |t     |f      |f      |2011-01-03 15:00:00|04-01-2011 08:35|                |6               |										
+									</md-block></details>
+								</p>
+								<p>
+									<details><summary><h4>4. Email subject</h4></summary>
+									A table to show details of employees.<br><br>
+									<h5>Table Schema</h5>
+									<md-block>
+										```markdown
+										|Column Name	 |Data Type|Description						  |
+										|----------------|---------|----------------------------------|
+										|email_subject_id|INTEGER  |Primary Key for the email subjects|
+										|email_subject   |VARCHAR  |Descriptions  of emails			  |
+									</md-block><br>
+									<h5>Table Data</h5>
+									<md-block>
+										```markdown
+										|email_subject_id|email_subject							|
+										|----------------|--------------------------------------|
+										|1               |25% off all EVs. It's a Christmas Time|
+										|2          	 |A Brand New Scooter...and Car			|
+										|3        		 |A New Year, And Some New EVs			|
+										|4				 |An Electric Car for a New Age			|
+										|5          	 |Green Cars , Green Friday Offer		|											
+									</md-block></details>
+								</p>
 								<h2 id="process">PROCESS</h2>
 								<p><u>Overview</u>: I first familiarized myself with the dataset, tables and fields separately in Excel, then used MySQL to create a database using those datasets to extract the required data. Finally I returned to Excel to analyse those extracted data using pivot tables and graphs.</p>
 								<h3 id="excel">Microsoft Excel</h3>
 								<p>
 									I downloaded all the CSV files and familiarized myself with the data first.<br>
-									Then I used MySQL to create database for <a href="#sql">data extraction</a> purpose because the files were quite large to filter and processing those files in Excel would have taken a long time. And then I came back to Excel to analyse the data, I did this 3 times for each sub-goal.<br>I've streamlined the comprehension of process section by adding <i>goto</i> tags.
+									Then I used MySQL to create database for <a href="#sql" class="link-highlight">data extraction</a> purpose because the files were quite large to filter and processing those files in Excel would have taken a long time. And then I came back to Excel to analyse the data, I did this 3 times for each sub-goal.<br>I've streamlined the comprehension of process section by adding <i>goto</i> tags.
 									<p id="analysis-1">1. Quantify the decline in sales growth.&nbsp;
 									(<i><a href="#extract-1" class="link-highlight">goto extraction</a></i>)</p>
 									<img src="/images/projects/zoom-ev/table1.png" alt="sprint sales graph" class="image fit code-screenshot">
-									<img src="/images/projects/zoom-ev/table1a.png" alt="sprint sales graph" class="image fit code-screenshot">
-									<img src="/images/projects/zoom-ev/table1b.png" alt="sprint sales graph" class="image fit code-screenshot">
-										You can see the trendline in first graph going down and also there are (-ve) values in growth column that confirms there has been a decline in sales volume.<br><br>
+									You can see the trendline in first graph going down and also there are (-ve) values in growth column that confirms there has been a decline in sales volume.<br><br>
 									<p id="analysis-2">2. Assess the relationship between launch date and sales growth.&nbsp;
 									(<i><a href="#extract-2" class="link-highlight">goto extraction</a></i>)</p>
 									<img src="/images/projects/zoom-ev/table2.png" alt="sprint vs sprint-le sales graph" class="image fit code-screenshot">
-									<img src="/images/projects/zoom-ev/table2a.png" alt="sprint vs sprint-le sales graph" class="image fit code-screenshot">
-									<img src="/images/projects/zoom-ev/table2b.png" alt="sprint vs sprint-le sales graph" class="image fit code-screenshot">
-										On comparing "Sprint" with "Sprint Limited Edition" sales data we see that 
+									The Sprint scooter came out in 4th quarter whereas every other scooter models came out in the 1st or 2nd quarter.<br>
+									At the start, the Sprint scooter sold more in the first days, but later on, the Sprint LE caught up and did even better. The Sprint scooter's sales dropped quickly after 10 days, while the Sprint LE's sales went down more slowly. The Sprint scooter sold more each day on average. In the first week, the Sprint grew faster, but then slowed down. The Sprint LE's growth stayed steady. Eventually, the Sprint scooter's growth went down, while the Sprint LE kept growing.<br><br>
 									<p id="analysis-3">3. Assess the effectiveness of email campaign in influencing customers’ purchasing decisions.&nbsp;
 									(<i><a href="#extract-3" class="link-highlight">goto extraction</a></i>)</p>
 									<img src="/images/projects/zoom-ev/table3.png" alt="emails campaign" class="image fit code-screenshot">
-										It is clear that click through rate(ctr) is significantly lower than industry benchmark but the opening rate is higher.
+									The CTR is the percentage of people who clicked on a link in the email, while the open rate is the percentage of people who opened the email.<br>
+									The CTR is 2%, which is below the industry benchmark of 8%. This means that only 2% of the people who received the email clicked on a link in the email. The open rate is 20%, which is slightly above the industry benchmark of 18%. This means that 20% of the people who received the email opened it.
 								</p>
 								<h3 id="sql">MySQL</h3>
 								<p>
@@ -138,7 +248,7 @@
 									<code>growth = 100 * (cumm_7D - cumm_7D_prev) / cumm_7D_prev</code><br>
 									Note: The sales_transaction_date column was of datetime date-type so I had to cast DATE() function in order to get total unit sold on each day.
 									<details>
-										<summary>view code</summary>
+										<summary>view query</summary>
 										<!-- <img src="/images/projects/zoom-ev/code1.png" alt="" class="image fit code-screenshot"> -->
 										<md-block>
 											```sql
@@ -174,7 +284,7 @@
 									</details>
 									<details>
 										<summary>view data</summary>
-											<table style="font-family: 'Courier New', Courier, monospace;">
+											<table class="image fit" style="font-family: 'Courier New', Courier, monospace;">
 												<thead>
 												  <tr>
 													<th>date</th>
@@ -350,7 +460,7 @@
 									<b>growth_sprint</b> - to store the growth column values from Sprint sales data table.<br>
 									<b>growth_sprint_le</b> - to store the growth column values from Sprint Limited Edition sales data table.
 									<details>
-										<summary>view code</summary>
+										<summary>view query</summary>
 										<!-- <img src="/images/projects/zoom-ev/code2.png" alt="" class="image fit code-screenshot"> -->
 										<md-block>
 											```sql
@@ -405,7 +515,7 @@
 									</details>
 									<details>
 										<summary>view data</summary>
-										<table style="font-family: 'Courier New', Courier, monospace;">
+										<table class="image fit" style="font-family: 'Courier New', Courier, monospace;">
 											<tr>
 											<th>day</th>
 											<th>sprint</th>
@@ -623,7 +733,7 @@
 									<code>click_rate = 100 * (clicked / (email_sent – bounced))</code><br>
 									<code>open_rate = 100 * (opened / (email_sent – bounced))</code><br>
 									<details>
-										<summary>view code</summary>
+										<summary>view query</summary>
 										<!-- <img src="/images/projects/zoom-ev/code3.png" alt="" class="image fit code-screenshot"> -->
 										<md-block>
 											```sql
@@ -682,46 +792,71 @@
 										</table>
 									</details>
 									(<i><a href="#analysis-3" class="link-highlight">goto analysis</a></i>)</p>
-								
-
+									
 								<h3 id="misc">Misc.</h3>
 								<h4>Microsoft Word</h4>
 								<ul>
-									<li><b>Date Log</b> - I wrote down what I did that day related to my project</li>
 									<li><b>Resources</b> - A list of resources I frequently used.</li>
 									<li><b>Notes</b> - Notes for the project including the final insights, what I was looking for, and anything else having to do with the project.</li>
 								</ul>
 								
 								<h2 id="finishedproject">FINISHED PROJECT</h2>
 								<p>
-									Here is my finished project: <a href="https://github.com/avishek-choudhary/zoom-electric/report.md" class="link-highlight" target="_blank">Zoom Electric: Sales Analysis.</a><br>
-									You can view my SQL code on Github used for data extraction 
-									<a href="https://github.com/avishek-choudhary/zoom-electric/extract.sql" class="link-highlight" target="_blank">here</a> and the Excel files for analysis 
+									Here is my finished project: <a href="https://github.com/avishek-choudhary/zoom-electric" class="link-highlight" target="_blank">Zoom Electric: Sales Analysis.</a><br>
+									You can view my SQL queries on Github used for data extraction 
+									<a href="https://github.com/avishek-choudhary/zoom-electric/extraction.sql" class="link-highlight" target="_blank">here</a> and the Excel files for analysis 
 									<a href="https://github.com/avishek-choudhary/zoom-electric/analysis" class="link-highlight" target="_blank">here</a>.
 								</p>
 								<h2 id="dataoverview">OVERVIEW OF DATA</h2>
 								<p>
 									<h3>Data:</h3>
 									<ol>
-										<li></li>
+										<li><a href="#sprint" class="link-highlight"><i>Sprint Sales</i></a></li>
+										<li><a href="#sprintvsle" class="link-highlight"><i>Sprint vs Sprint Limited Edition</i></a></li>
+										<li><a href="#emailcampaign" class="link-highlight"><i>Email Marketing Campaign</i></a></li>
 									</ol>
+									<h4 id="sprint"><i>Sprint Sales Data</i></h4>
+									<img src="/images/projects/zoom-ev/table1a.png" alt="sprint sales graph" class="image fit code-screenshot">
+									<b>• </b>The sales of the Sprint scooter started off strong, with over 100 units sold in the first few days of the month.<br>
+									<b>• </b>The sales then declined steadily, with only a few units sold in the last few days of the month.<br>
+									<b>• </b>The average daily sales for the month were around 50 units.<br>
+									<img src="/images/projects/zoom-ev/table1b.png" alt="sprint sales graph" class="image fit code-screenshot">
+									<b>• </b>The growth rate of the Sprint scooter was positive in the first 7 days after launch, but it declined steadily after that.<br>
+									<b>• </b>The growth rate of the Sprint scooter became negative on day 15 and remained negative for the rest of the month.<br>
+									<b>• </b>The average daily growth rate for the month was -2%.<br>
+									Based on these insights, it is clear that there was a decline in the sales of the Sprint scooter in October 2016. The decline in sales started after the initial hype around the product died down.<br><br>
+									
+									<h4 id="sprintvsle"><i>Sprint vs Sprint Limited Edition</i></h4>
+									<img src="/images/projects/zoom-ev/table2a.png" alt="sprint vs sprint-le sales graph" class="image fit code-screenshot">
+									On comparing "Sprint" with "Sprint Limited Edition" sales data we see that:<br>
+									<b>• </b>The Sprint scooter had higher sales in the first few days after launch, but the Sprint LE scooter eventually caught up and surpassed it.<br>
+									<b>• </b>The Sprint scooter had a sharp decline in sales after day 10, while the Sprint LE scooter had a more gradual decline.<br>
+									<b>• </b>The Sprint scooter had a higher average daily sales than the Sprint LE scooter.<br>
+									<img src="/images/projects/zoom-ev/table2b.png" alt="sprint vs sprint-le sales graph" class="image fit code-screenshot">
+									<b>• </b>The Sprint scooter had a higher growth rate in the first 7 days after launch than the Sprint LE scooter.<br>
+									<b>• </b>The Sprint scooter's growth rate then declined, while the Sprint LE scooter's growth rate remained relatively stable.<br>
+									<b>• </b>The Sprint scooter's growth rate eventually became negative, while the Sprint LE scooter's growth rate remained positive.<br>
+									Based on these insights, it is possible that the launch date did have an impact on the sales of the two scooters. The Sprint scooter may have been more hyped up before launch, which could have led to higher initial sales and a higher growth rate.<br><br>
+									
+									<h4 id="emailcampaign"><i>Email Marketing Campaign</i></h4>
+									<img src="/images/projects/zoom-ev/table3a.png" alt="emails campaign" class="image fit code-screenshot">
+									The open rate for the campaign was 20%, which is slightly above the industry benchmark of 18%. However, the click-through rate was only 2%, which is below the industry benchmark of 8%. This means that only 2% of the people who opened the email clicked on a link in the email.<br>
+									Based on the insights it is clear the the email campaign was not effective in influencing customer's purchasing decision.<br>
 								</p>
 								<h2 id="insights">INSIGHTS</h2>
 								<p>Below are the general insights:
 									<ul>
-										<li></li>
-									</ul>
-								</p>
-								<h2 id="recommendations">RECOMMENDATIONS</h2>
-								<p>
-									<ul>
-										<li></li>
+										<li>The sales performance of Sprint Scooters exhibited an impressive start during the first two weeks of its launch. However, unexpectedly, there was a sudden decrease in sales by 20%.</li>
+										<li>The sales volume showed promise during the initial week of release, up until October 17. However, it began to decline steadily thereafter.</li>
+										<li>The Sprint scooter had a sharp decline in sales after day 10, while the Sprint LE scooter had a more gradual decline.</li>
+										<li>The Sprint scooter's growth rate eventually became negative, while the Sprint LE scooter's growth rate remained positive.</li>
+										<li>Only 2% of the people who opened the email clicked on a link in the email.</li>
 									</ul>
 								</p>
 								<h2 id="learnings">WHAT I LEARNED</h2>
 								<p>
 									<ul>
-										Below is what I learned/practiced from over 40 hours spent on this project:
+										Below is what I learned/practiced from this project:
 										<li>Complex SQL queries to extract required data for analysis.</li>
 										<li>Use of table joins and aggregate window functions like rolling sum over a specified no. of rows, Analytical function, sub-query and common table expressions (cte).</li>
 										<li>Pivot tables and graphs in Excel, edited the data tables along with creating different charts using pivot tables.</li>
@@ -741,10 +876,6 @@
 							<section class="alt">
 								<h3>Location</h3>
 								<p>West-Bengal, India</p>
-							</section>
-							<section>
-								<h3>Phone</h3>
-								<p><a href="tel:+919330280896">+91 9330280896</a></p>
 							</section>
 							<section>
 								<h3>Email</h3>

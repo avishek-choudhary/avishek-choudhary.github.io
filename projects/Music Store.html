@@ -57,8 +57,15 @@
 										Online Music Store
 									</h1>
 								</header>
-								<!-- <div class="image main"><img src="images/pic01.jpg" alt="" /></div> -->
-								<p>Donec eget ex magna. Interdum et malesuada fames ac ante ipsum primis in faucibus. Pellentesque venenatis dolor imperdiet dolor mattis sagittis. Praesent rutrum sem diam, vitae egestas enim auctor sit amet. Pellentesque leo mauris, consectetur id ipsum sit amet, fergiat. Pellentesque in mi eu massa lacinia malesuada et a elit. Donec urna ex, lacinia in purus ac, pretium pulvinar mauris. Nunc lorem mauris, fringilla in aliquam at, euismod in lectus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Curabitur sapien risus, commodo eget turpis at, elementum convallis enim turpis, lorem ipsum dolor sit amet nullam.<br>
+								<!-- Skills-Tags -->
+								<div class="tags">
+									<span class="tag">SQL Queries</span>
+									<span class="tag">Business Sense</span>
+									<span class="tag">Ad-Hoc Analysis</span>
+									<span class="tag">Regex</span>
+								</div>
+								<!-- <div class="image main"><img src="/images/music-store.jpg" alt="" /></div> -->
+								<p>I did a Case Study on Music Store data using SQL-queries. I will be diving into the background, my full process of creating the database and using queries to find answers from the data.<br>
 								<u>Tools Used</u>: PostgreSQL | PgAdmin4<br>
 								<u>Quick Links</u>: <a href="https://github.com/avishek-choudhary/Music-Store-Analysis" class="link-highlight" target="_blank">GitHub Repository</a> <br>
 								Below is a table of contents in case you want to go to any section.
@@ -81,16 +88,324 @@
 								<h2 id="introduction">INTRODUCTION</h2>
 								<p>
 									Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, adipisci similique beatae animi nam unde labore natus nisi, voluptate praesentium voluptas suscipit illo doloribus pariatur deleniti quaerat vel soluta? Explicabo!<br>
-									<u>Overall Goal</u>: “Recommend strategies to retain employee”<br>
+									<u>Overall Goal</u>: Find Insights and find answer of the questions.<br>
 									<u>Questions</u>: Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod, laborum voluptas provident inventore non quis excepturi ipsam eum quisquam, necessitatibus reiciendis doloremque libero vero animi, architecto eius eaque impedit perspiciatis.<br>
 								</p>
 								<h2 id="data-dictionary">DATA DICTIONARY</h2>
 								<p>
-									<h3>Schema</h3>
+									<h3>Entity Relationship Diagram</h3>
 									<img src="https://i.pinimg.com/originals/57/56/50/5756505d2d337bf200716b8c6071a46c.png" alt="schema diagram" class="image fit code-screenshot">
 								</p>
+								<p>
+									<details><summary><h4>1. Artist</h4></summary>
+									A simple table to show Artists' names.<br><br>
+									<h5>Table Schema</h5>
+									The table schema of artist table is as follows:
+									<md-block>
+										```markdown
+										|Column Name|Data Type|Description                |
+										|-----------|---------|---------------------------|
+										|artist_id  |INTEGER  |A unique ID for each Artist|
+										|name       |VARCHAR  |Name of the Artist         |
+									</md-block><br>
+									<h5>Table Data</h5>
+									The artist table contains the following data:
+									<md-block>
+										```markdown
+										|artist_id|name             |
+										|---------|-----------------|
+										|1        |AC/DC            |
+										|2        |Accept           |
+										|3        |Aerosmith        |
+										|4        |Alanis Morissette|
+										|5        |Alice In Chains  |										
+									</md-block></details>
+								</p>
+								<p>
+									<details><summary><h4>2. Album</h4></summary>
+									A simple table to show Albums' names.<br><br>
+									<h5>Table Schema</h5>
+									The table schema of album table is as follows:
+									<md-block>
+										```markdown
+										|Column Name |Data Type|Description                                    |
+										|------------|---------|-----------------------------------------------|
+										|album_id    |INTEGER  |A unique ID for each Album                     |
+										|name        |VARCHAR  |Name of the Album                              |
+										|artist_id   |INTEGER  |A unique ID for each Artist (can be duplicates)|
+									</md-block><br>
+									<h5>Table Data</h5>
+									The album table contains the following data:
+									<md-block>
+										```markdown
+										|album_id|title                                                                  |artist_id|
+										|--------|-----------------------------------------------------------------------|---------|
+										|156     |And Justice For All                                                    |50       |
+										|208     |Black Light Syndrome                                                   |136      |
+										|257     |20th Century Masters - The Millennium Collection: The Best of Scorpions|179      |
+										|296     |A Copland Celebration, Vol. I                                          |230      |
+										|94      |A Matter of Life and Death                                             |90       |										
+									</md-block></details>
+								</p>
+								<p>
+									<details><summary><h4>3. Track</h4></summary>
+									A table to show Track (song) details.<br><br>
+									<h5>Table Schema</h5>
+									The table schema of track table is as follows:
+									<md-block>
+										```markdown
+										|Column Name  |Data Type|Description                            |
+										|-------------|---------|---------------------------------------|
+										|track_id     |INTEGER  |A unique ID for each Track             |
+										|name         |VARCHAR  |Name of the Track                      |
+										|album_id     |INTEGER  |An ID of album (can be duplicates)     |
+										|media_type_id|INTEGER  |An ID of media_type (can be duplicates)|
+										|genre_id     |INTEGER  |An ID of genre (can be duplicates)     |
+										|composer     |VARCHAR  |Name of the Composer                   |
+										|milliseconds |INTEGER  |Track length in milliseconds           |
+										|bytes        |INTEGER  |Size of Track in bytes                 |
+										|unit_price   |INTEGER  |Price of each track                    |
+									</md-block><br>
+									<h5>Table Data</h5>
+									The track table contains the following data:
+									<md-block>
+										```markdown
+										|track_id|name                                   |album_id|media_type_id|genre_id|composer                                                              |milliseconds|bytes     |unit_price|
+										|--------|---------------------------------------|--------|-------------|--------|----------------------------------------------------------------------|------------|----------|----------|
+										|1       |For Those About To Rock (We Salute You)|1       |1            |1       |Angus Young, Malcolm Young, Brian Johnson                             |343719      |11170334  |0.99      |
+										|2       |Balls to the Wall                      |2       |2            |1       |                                                                      |342562      |5510424   |0.99      |
+										|3       |Fast As a Shark                        |3       |2            |1       |F. Baltes, S. Kaufman, U. Dirkscneider & W. Hoffman                   |230619      |3990994   |0.99      |
+										|4       |Restless and Wild                      |3       |2            |1       |F. Baltes, R.A. Smith-Diesel, S. Kaufman, U. Dirkscneider & W. Hoffman|252051      |4331779   |0.99      |
+										|5       |Princess of the Dawn                   |3       |2            |1       |Deaffy & R.A. Smith-Diesel                                            |375418      |6290521   |0.99      |										
+									</md-block></details>
+								</p>
+								<p>
+									<details><summary><h4>4. Media Type</h4></summary>
+									A simple table to show different types of meadia file.<br><br>
+									<h5>Table Schema</h5>
+									<md-block>
+										```markdown
+										|Column Name  |Data Type|Description                    |
+										|-------------|---------|-------------------------------|
+										|media_type_id|INTEGER  |A unique ID for each Media type|
+										|name         |VARCHAR  |Name of the Artist             |
+									</md-block><br>
+									<h5>Table Data</h5>
+									<md-block>
+										```markdown
+										|media_type_id|name                       |
+										|-------------|---------------------------|
+										|1            |MPEG audio file            |
+										|2            |Protected AAC audio file   |
+										|3            |Protected MPEG-4 video file|
+										|4            |Purchased AAC audio file   |
+										|5            |AAC audio file             |										
+									</md-block></details>
+								</p>
+								<p>
+									<details><summary><h4>5. Genre</h4></summary>
+									A table to show Genre's name.<br><br>
+									<h5>Table Schema</h5>
+									<md-block>
+										```markdown
+										|Column Name|Data Type|Description               |
+										|-----------|---------|--------------------------|
+										|genre_id   |INTEGER  |A unique ID for each Genre|
+										|name       |VARCHAR  |Name of the Genre         |
+									</md-block><br>
+									<h5>Table Data</h5>
+									<md-block>
+										```markdown
+										|genre_id|name              |
+										|--------|------------------|
+										|1       |Rock              |
+										|2       |Jazz              |
+										|3       |Metal             |
+										|4       |Alternative & Punk|
+										|5       |Rock And Roll     |										
+									</md-block></details>
+								</p>
+								<p>
+									<details><summary><h4>6. Playlist</h4></summary>
+									A table to show Playlist name.<br><br>
+									<h5>Table Schema</h5>
+									<md-block>
+										```markdown
+										|Column Name|Data Type|Description                  |
+										|-----------|---------|-----------------------------|
+										|playlist_id|INTEGER  |A unique ID for each Playlist|
+										|name       |VARCHAR  |Name of the Playlist         |
+									</md-block><br>
+									<h5>Table Data</h5>
+									<md-block>
+										```markdown
+										|playlist_id|name      |
+										|-----------|----------|
+										|1          |Music     |
+										|2          |Movies    |
+										|3          |TV Shows  |
+										|4          |Audiobooks|
+										|5          |90’s Music|										
+									</md-block>
+									</details>
+								</p>
+								<p>
+									<details><summary><h4>7. Playlist Track</h4></summary>
+									A table to show Playlist ID corresponding to it's Track ID<br><br>
+									<h5>Table Schema</h5>
+									<md-block>
+										```markdown
+										|Column Name|Data Type|Description                          |
+										|-----------|---------|-------------------------------------|
+										|playlist_id|INTEGER  |An ID of playlist (can be duplicates)|
+										|track_id   |INTEGER  |An ID of track (can be duplicates)   |
+									</md-block><br>
+									<h5>Table Data</h5>
+									<md-block>
+										```markdown
+										|playlist_id|track_id|
+										|-----------|--------|
+										|1          |3402    |
+										|1          |3389    |
+										|1          |3390    |
+										|1          |3391    |
+										|1          |3392    |										
+									</md-block></details>
+								</p>
+								<p>
+									<details><summary><h4>8. Invoice Line</h4></summary>
+									A table to show <br><br>
+									<h5>Table Schema</h5>
+									<md-block>
+										```markdown
+										|Column Name    |Data Type|Description                         |
+										|---------------|---------|------------------------------------|
+										|invoice_line_id|INTEGER  |A unique ID for each                |
+										|invoice_id     |INTEGER  |An ID of invoice (can be duplicates)|
+										|track_id		|INTEGER  |An ID of track (can be duplicates)  |
+										|unit_price		|FLOAT	  |unit price of each track			   |
+										|quantity		|INTEGER  |number of track ordered			   |
+									</md-block><br>
+									<h5>Table Data</h5>
+									<md-block>
+										```markdown
+										|invoice_line_id|invoice_id|track_id|unit_price|quantity|
+										|---------------|----------|--------|----------|--------|
+										|1              |1         |1158    |0.99      |1       |
+										|2              |1         |1159    |0.99      |1       |
+										|3              |1         |1160    |0.99      |1       |
+										|4              |1         |1161    |0.99      |1       |
+										|5              |1         |1162    |0.99      |1       |										
+									</md-block>
+									</details>
+								</p>
+								<p>
+									<details><summary><h4>9. Invoice</h4></summary>
+									A table to show <br><br>
+									<h5>Table Schema</h5>
+									<md-block>
+										```markdown
+										|Column Name		|Data Type|Description                          |
+										|-------------------|---------|-------------------------------------|
+										|invoice_id 		|INTEGER  |A unique ID for each Invoice         |
+										|customer_id		|VARCHAR  |An ID of customer (can be duplicates)|
+										|invoice_date		|TIMESTAMP|date and time of invoice 			|
+										|billing_address	|VARCHAR  |billing address of the customer 		|
+										|billing_city		|VARCHAR  |billing city of the customer			|
+										|billing_state	 	|VARCHAR  |billing state of the customer		|
+										|billing_country	|VARCHAR  |billing country of the customer		|
+										|billing_postal_code|VARCHAR  |billing postal code of the customer	|
+										|total				|FLOAT	  |total amount of the bill				|
+									</md-block><br>
+									<h5>Table Data</h5>
+									<md-block>
+										```markdown
+										|invoice_id|customer_id|invoice_date       |billing_address |billing_city|billing_state|billing_country|billing_postal_code|total|
+										|----------|-----------|-------------------|----------------|------------|-------------|---------------|-------------------|-----|
+										|1         |18         |2017-01-03 00:00:00|627 Broadway    |New York    |NY           |USA            |10012-2612         |15.84|
+										|2         |30         |2017-01-03 00:00:00|230 Elgin Street|Ottawa      |ON           |Canada         |K2P 1L7            |9.9  |
+										|3         |40         |2017-01-05 00:00:00|8, Rue Hanovre  |Paris       |None         |France         |75002              |1.98 |
+										|4         |18         |2017-01-06 00:00:00|627 Broadway    |New York    |NY           |USA            |10012-2612         |7.92 |
+										|5         |27         |2017-01-07 00:00:00|1033 N Park Ave |Tucson      |AZ           |USA            |85719              |16.83|										
+									</md-block>
+									</details>
+								</p>
+								<p>
+									<details><summary><h4>10. Customer</h4></summary>
+									A table to show details of customers.<br><br>
+									<h5>Table Schema</h5>
+									<md-block>
+										```markdown
+										|Column Name   |Data Type|Description												|
+										|--------------|---------|----------------------------------------------------------|
+										|customer_id   |INTEGER  |A unique ID for each Customer								|
+										|first_name    |VARCHAR  |First name of the customer								|
+										|last_name     |VARCHAR  |Last name of the customer									|
+										|company	   |VARCHAR  |Company name where the customer works at					|
+										|address	   |VARCHAR  |Address of the customer									|
+										|city		   |VARCHAR  |City where the customer lives in							|
+										|state		   |VARCHAR  |State where the customer lives in  						|
+										|country	   |VARCHAR  |Country where the customer lives in						|
+										|postal_code   |VARCHAR  |Postal Code of the customer								|
+										|phone		   |VARCHAR  |Phone No. of the customer									|
+										|fax		   |VARCHAR  |Fax No. of the customer									|
+										|email		   |VARCHAR  |Email-ID of the customer									|
+										|support_rep_id|INTEGER  |An ID of employee for customer support (can be duplicates)|
+									</md-block><br>
+									<h5>Table Data</h5>
+									<md-block>
+										```markdown
+										|customer_id|first_name|last_name|company              |address                  |city         |state|country|postal_code|phone             |fax               |email                   |support_rep_id|
+										|-----------|----------|---------|---------------------|-------------------------|-------------|-----|-------|-----------|------------------|------------------|------------------------|--------------|
+										|10         |Eduardo   |Martins  |Woodstock Discos     |Rua Dr. Falcão Filho, 155|São Paulo    |SP   |Brazil |01007-010  |+55 (11) 3033-5446|+55 (11) 3033-4564|eduardo@woodstock.com.br|4             |
+										|11         |Alexandre |Rocha    |Banco do Brasil S.A. |Av. Paulista, 2022       |São Paulo    |SP   |Brazil |01310-200  |+55 (11) 3055-3278|+55 (11) 3055-8131|alero@uol.com.br        |5             |
+										|15         |Jennifer  |Peterson |Rogers Canada        |700 W Pender Street      |Vancouver    |BC   |Canada |V6C 1G8    |+1 (604) 688-2255 |+1 (604) 688-8756 |jenniferp@rogers.ca     |3             |
+										|16         |Frank     |Harris   |Google Inc.          |1600 Amphitheatre Parkway|Mountain View|CA   |USA    |94043-1351 |+1 (650) 253-0000 |+1 (650) 253-0000 |fharris@google.com      |4             |
+										|17         |Jack      |Smith    |Microsoft Corporation|1 Microsoft Way          |Redmond      |WA   |USA    |98052-8300 |+1 (425) 882-8080 |+1 (425) 882-8081 |jacksmith@microsoft.com |5             |										
+									</md-block>
+									</details>
+								</p>
+								<p>
+									<details><summary><h4>11. Employee</h4></summary>
+									A table to show details of employees.<br><br>
+									<h5>Table Schema</h5>
+									<md-block>
+										```markdown
+										|Column Name|Data Type|Description												 |
+										|-----------|---------|----------------------------------------------------------|
+										|employee_id|INTEGER  |A unique ID for each Employee							 |
+										|last_name	|VARCHAR  |Last name of the employee								 |
+										|first_name	|VARCHAR  |First name of the employee							  	 |
+										|title		|VARCHAR  |Job title of the employee							  	 |
+										|reports_to	|INTEGER  |An ID of employee that they reports to (can be duplicates)|
+										|levels		|VARCHAR  |Level of the job title (L1-L7)							 |
+										|birth_date	|VARCHAR  |Date of birth of the employee							 |
+										|hire_date	|VARCHAR  |Hiring date of the employee							  	 |
+										|address	|VARCHAR  |Address of the employee							  		 |
+										|city		|VARCHAR  |City where the employee lives in							 |
+										|state		|VARCHAR  |State where the employee lives in						 |
+										|country	|VARCHAR  |Country where the employee lives in						 |
+										|postal_code|VARCHAR  |Postal Code of the employee							  	 |
+										|phone		|VARCHAR  |Phone No. of the employee							  	 |
+										|fax		|VARCHAR  |Fax No. of the employee							  		 |
+										|email		|VARCHAR  |Email-ID of the employee							  		 |
+									</md-block><br>
+									<h5>Table Data</h5>
+									<md-block>
+										```markdown
+										|employee_id|last_name|first_name  |title              |reports_to|levels|birthdate |hire_date |address             |city      |state|country|postal_code|phone            |fax              |email                  |
+										|-----------|---------|------------|-------------------|----------|------|----------|----------|--------------------|----------|-----|-------|-----------|-----------------|-----------------|-----------------------|
+										|1          |Adams    |Andrew      |General Manager    |9         |L6    |18-02-1962|14-08-2016|11120 Jasper Ave NW |Edmonton  |AB   |Canada |T5K 2N1    |+1 (780) 428-9482|+1 (780) 428-3457|andrew@chinookcorp.com |
+										|2          |Edwards  |Nancy       |Sales Manager      |1         |L4    |08-12-1958|01-05-2016|825 8 Ave SW        |Calgary   |AB   |Canada |T2P 2T3    |+1 (403) 262-3443|+1 (403) 262-3322|nancy@chinookcorp.com  |
+										|3          |Peacock  |Jane        |Sales Support Agent|2         |L1    |29-08-1973|01-04-2017|1111 6 Ave SW       |Calgary   |AB   |Canada |T2P 5M5    |+1 (403) 262-3443|+1 (403) 262-6712|jane@chinookcorp.com   |
+										|6          |Mitchell |Michael     |IT Manager         |1         |L3    |01-07-1973|17-10-2016|5827 Bowness Road NW|Calgary   |AB   |Canada |T3B 0C5    |+1 (403) 246-9887|+1 (403) 246-9899|michael@chinookcorp.com|
+										|8          |Callahan |Laura       |IT Staff           |6         |L2    |09-01-1968|04-03-2017|923 7 ST NW         |Lethbridge|AB   |Canada |T1H 1Y8    |+1 (403) 467-3351|+1 (403) 467-8772|laura@chinookcorp.com  |
+										
+									</md-block>
+									</details>
+								</p>
 								<h2 id="process">Process</h2>
-								<p><u>Overview</u>: Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil est, nemo facere adipisci blanditiis libero soluta sit numquam, praesentium deleniti neque delectus. Libero error impedit aspernatur possimus earum, excepturi minus.</p>
+								<p><u>Overview</u>: I used PostgreSQL to create a database and to find anwers.</p>
 								<h3 id="sql">PostgreSQL</h3>
 								<p>
 									Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit nesciunt debitis consequuntur? Nostrum cum accusantium deserunt mollitia dolorem? Nobis voluptate quaerat incidunt suscipit. Iure vel magnam ipsum, minima quisquam doloremque.
@@ -277,68 +592,67 @@
 										</details>
 										<md-block class="md-table">
 											```markdown
-											|email|first_name    |last_name                     |
-|-----|--------------|------------------------------|
-|aaronmitchell@yahoo.ca|Aaron                         |Mitchell                      |
-|alero@uol.com.br|Alexandre                     |Rocha                         |
-|astrid.gruber@apple.at|Astrid                        |Gruber                        |
-|bjorn.hansen@yahoo.no|Bjørn                         |Hansen                        |
-|camille.bernard@yahoo.fr|Camille                       |Bernard                       |
-|daan_peeters@apple.be|Daan                          |Peeters                       |
-|diego.gutierrez@yahoo.ar|Diego                         |Gutiérrez                     |
-|dmiller@comcast.com|Dan                           |Miller                        |
-|dominiquelefebvre@gmail.com|Dominique                     |Lefebvre                      |
-|edfrancis@yachoo.ca|Edward                        |Francis                       |
-|eduardo@woodstock.com.br|Eduardo                       |Martins                       |
-|ellie.sullivan@shaw.ca|Ellie                         |Sullivan                      |
-|emma_jones@hotmail.com|Emma                          |Jones                         |
-|enrique_munoz@yahoo.es|Enrique                       |Muñoz                         |
-|fernadaramos4@uol.com.br|Fernanda                      |Ramos                         |
-|fharris@google.com|Frank                         |Harris                        |
-|fralston@gmail.com|Frank                         |Ralston                       |
-|frantisekw@jetbrains.com|František                     |Wichterlová                   |
-|ftremblay@gmail.com|François                      |Tremblay                      |
-|fzimmermann@yahoo.de|Fynn                          |Zimmermann                    |
-|hannah.schneider@yahoo.de|Hannah                        |Schneider                     |
-|hholy@gmail.com|Helena                        |Holý                          |
-|hleacock@gmail.com|Heather                       |Leacock                       |
-|hughoreilly@apple.ie|Hugh                          |O'Reilly                      |
-|isabelle_mercier@apple.fr|Isabelle                      |Mercier                       |
-|jacksmith@microsoft.com|Jack                          |Smith                         |
-|jenniferp@rogers.ca|Jennifer                      |Peterson                      |
-|jfernandes@yahoo.pt|João                          |Fernandes                     |
-|joakim.johansson@yahoo.se|Joakim                        |Johansson                     |
-|johavanderberg@yahoo.nl|Johannes                      |Van der Berg                  |
-|johngordon22@yahoo.com|John                          |Gordon                        |
-|jubarnett@gmail.com|Julia                         |Barnett                       |
-|kachase@hotmail.com|Kathy                         |Chase                         |
-|kara.nielsen@jubii.dk|Kara                          |Nielsen                       |
-|ladislav_kovacs@apple.hu|Ladislav                      |Kovács                        |
-|leonekohler@surfeu.de|Leonie                        |Köhler                        |
-|lucas.mancini@yahoo.it|Lucas                         |Mancini                       |
-|luisg@embraer.com.br|Luís                          |Gonçalves                     |
-|luisrojas@yahoo.cl|Luis                          |Rojas                         |
-|manoj.pareek@rediff.com|Manoj                         |Pareek                        |
-|marc.dubois@hotmail.com|Marc                          |Dubois                        |
-|mark.taylor@yahoo.au|Mark                          |Taylor                        |
-|marthasilk@gmail.com|Martha                        |Silk                          |
-|masampaio@sapo.pt|Madalena                      |Sampaio                       |
-|michelleb@aol.com|Michelle                      |Brooks                        |
-|mphilips12@shaw.ca|Mark                          |Philips                       |
-|nschroder@surfeu.de|Niklas                        |Schröder                      |
-|patrick.gray@aol.com|Patrick                       |Gray                          |
-|phil.hughes@gmail.com|Phil                          |Hughes                        |
-|ricunningham@hotmail.com|Richard                       |Cunningham                    |
-|rishabh_mishra@yahoo.in|Rishabh                       |Mishra                        |
-|robbrown@shaw.ca|Robert                        |Brown                         |
-|roberto.almeida@riotur.gov.br|Roberto                       |Almeida                       |
-|stanisław.wójcik@wp.pl|Stanisław                     |Wójcik                        |
-|steve.murray@yahoo.uk|Steve                         |Murray                        |
-|terhi.hamalainen@apple.fi|Terhi                         |Hämäläinen                    |
-|tgoyer@apple.com|Tim                           |Goyer                         |
-|vstevens@yahoo.com|Victor                        |Stevens                       |
-|wyatt.girard@yahoo.fr|Wyatt                         |Girard                        |
-
+											|email                        |first_name|last_name   |
+											|-----------------------------|----------|------------|
+											|aaronmitchell@yahoo.ca       |Aaron     |Mitchell    |
+											|alero@uol.com.br			  |Alexandre |Rocha       |
+											|astrid.gruber@apple.at		  |Astrid    |Gruber      |
+											|bjorn.hansen@yahoo.no        |Bjørn     |Hansen      |
+											|camille.bernard@yahoo.fr	  |Camille   |Bernard     |
+											|daan_peeters@apple.be        |Daan      |Peeters     |
+											|diego.gutierrez@yahoo.ar     |Diego     |Gutiérrez   |
+											|dmiller@comcast.com          |Dan       |Miller      |
+											|dominiquelefebvre@gmail.com  |Dominique |Lefebvre    |
+											|edfrancis@yachoo.ca          |Edward    |Francis     |
+											|eduardo@woodstock.com.br     |Eduardo   |Martins     |
+											|ellie.sullivan@shaw.ca       |Ellie     |Sullivan    |
+											|emma_jones@hotmail.com       |Emma      |Jones       |
+											|enrique_munoz@yahoo.es       |Enrique   |Muñoz       |
+											|fernadaramos4@uol.com.br     |Fernanda  |Ramos       |
+											|fharris@google.com           |Frank     |Harris      |
+											|fralston@gmail.com           |Frank     |Ralston     |
+											|frantisekw@jetbrains.com     |František |Wichterlová |
+											|ftremblay@gmail.com          |François  |Tremblay    |
+											|fzimmermann@yahoo.de         |Fynn      |Zimmermann  |
+											|hannah.schneider@yahoo.de    |Hannah    |Schneider   |
+											|hholy@gmail.com              |Helena    |Holý        |
+											|hleacock@gmail.com           |Heather   |Leacock     |
+											|hughoreilly@apple.ie         |Hugh      |O'Reilly    |
+											|isabelle_mercier@apple.fr    |Isabelle  |Mercier     |
+											|jacksmith@microsoft.com      |Jack      |Smith       |
+											|jenniferp@rogers.ca          |Jennifer  |Peterson    |
+											|jfernandes@yahoo.pt          |João      |Fernandes   |
+											|joakim.johansson@yahoo.se    |Joakim    |Johansson   |
+											|johavanderberg@yahoo.nl      |Johannes  |Van der Berg|
+											|johngordon22@yahoo.com       |John      |Gordon      |
+											|jubarnett@gmail.com          |Julia     |Barnett     |
+											|kachase@hotmail.com          |Kathy     |Chase       |
+											|kara.nielsen@jubii.dk        |Kara      |Nielsen     |
+											|ladislav_kovacs@apple.hu     |Ladislav  |Kovács      |
+											|leonekohler@surfeu.de        |Leonie    |Köhler      |
+											|lucas.mancini@yahoo.it       |Lucas     |Mancini     |
+											|luisg@embraer.com.br         |Luís      |Gonçalves   |
+											|luisrojas@yahoo.cl           |Luis      |Rojas       |
+											|manoj.pareek@rediff.com      |Manoj     |Pareek      |
+											|marc.dubois@hotmail.com      |Marc      |Dubois      |
+											|mark.taylor@yahoo.au         |Mark      |Taylor      |
+											|marthasilk@gmail.com         |Martha    |Silk        |
+											|masampaio@sapo.pt            |Madalena  |Sampaio     |
+											|michelleb@aol.com            |Michelle  |Brooks      |
+											|mphilips12@shaw.ca           |Mark      |Philips     |
+											|nschroder@surfeu.de          |Niklas    |Schröder    |
+											|patrick.gray@aol.com         |Patrick   |Gray        |
+											|phil.hughes@gmail.com        |Phil      |Hughes      |
+											|ricunningham@hotmail.com     |Richard   |Cunningham  |
+											|rishabh_mishra@yahoo.in      |Rishabh   |Mishra      |
+											|robbrown@shaw.ca             |Robert    |Brown       |
+											|roberto.almeida@riotur.gov.br|Roberto   |Almeida     |
+											|stanisław.wójcik@wp.pl       |Stanisław |Wójcik      |
+											|steve.murray@yahoo.uk        |Steve     |Murray      |
+											|terhi.hamalainen@apple.fi    |Terhi     |Hämäläinen  |
+											|tgoyer@apple.com             |Tim       |Goyer       |
+											|vstevens@yahoo.com           |Victor    |Stevens     |
+											|wyatt.girard@yahoo.fr        |Wyatt     |Girard      |
 										</md-block>
 									</p>
 									<p>Q7. Let's invite the artists who have written the most rock music in our dataset. 
@@ -3356,10 +3670,12 @@
 										</md-block>
 									</p>
 								</p><h3 id="misc">MISC.</h3>
-								<P>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Tempora, porro. Eos eius, impedit commodi et doloribus iure, porro, recusandae reprehenderit rerum neque reiciendis tenetur enim illum pariatur atque debitis excepturi!</P>
+								<h4>Microsoft Word</h4>
+								<b>Notes</b> - Notes for the project including the final insights, what I was looking for, and anything else having to do with the project.</li>
+																
 								<h2 id="finishedproject">FINISHED PROJECT</h2>
 								<p>
-									Here is my finished project: <a href="#" class="link-highlight" target="_blank">Project Title</a><br>
+									Here is my finished project: <a href="https://github.com/avishek-choudhary/Music-Store-Analysis" class="link-highlight" target="_blank">SQL Case Study: Music Store</a><br>
 									<h3>Preview</h3>
 									<img src="" alt="image">
 								</p>
@@ -3396,10 +3712,6 @@
 							<section class="alt">
 								<h3>Location</h3>
 								<p>West-Bengal, India</p>
-							</section>
-							<section>
-								<h3>Phone</h3>
-								<p><a href="tel:+919330280896">+91 9330280896</a></p>
 							</section>
 							<section>
 								<h3>Email</h3>
