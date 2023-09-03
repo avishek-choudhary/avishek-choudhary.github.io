@@ -2840,13 +2840,13 @@ input, select, textarea {
 			font-size: 1.25rem;
 		}
 
-	ul.icons.alt li i:before {
-		-moz-transition: color 0.2s ease-in-out, background-color 0.2s ease-in-out, border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
-		-webkit-transition: color 0.2s ease-in-out, background-color 0.2s ease-in-out, border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
-		-ms-transition: color 0.2s ease-in-out, background-color 0.2s ease-in-out, border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
-		transition: color 0.2s ease-in-out, background-color 0.2s ease-in-out, border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
-		font-size: 1rem;
-	}
+		ul.icons.alt li i:before {
+			-moz-transition: color 0.2s ease-in-out, background-color 0.2s ease-in-out, border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+			-webkit-transition: color 0.2s ease-in-out, background-color 0.2s ease-in-out, border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+			-ms-transition: color 0.2s ease-in-out, background-color 0.2s ease-in-out, border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+			transition: color 0.2s ease-in-out, background-color 0.2s ease-in-out, border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+			font-size: 1rem;
+		}
 
 /* List */
 
@@ -3291,7 +3291,7 @@ input, select, textarea {
 		@media screen and (orientation: portrait) {
 
 			#wrapper > .bg {
-				background-size: auto,								auto,														auto 175%;
+				background-size: auto, auto, auto 175%;
 			}
 
 		}
@@ -4635,7 +4635,6 @@ input, select, textarea {
 			right: 0;
 			text-align: right;
 			top: 0;
-			vertical-align: middle;
 			width: 7rem;
 		}
 
@@ -4755,67 +4754,70 @@ input, select, textarea {
 
 /* Screenshot--Transition/Border-Radius/Box-Shadow */
 
-img.screenshot {
-	-moz-transition: -moz-transform 0.2s ease-out;
-	-webkit-transition: -webkit-transform 0.2s ease-out;
-	-ms-transition: -ms-transform 0.2s ease-out;
-	transition: transform 0.2s ease-out;
-	border-radius: 15px 15px 15px 15px;
-	-moz-border-radius: 15px 15px 15px 15px;
-	-webkit-border-radius: 15px 15px 15px 15px;
-}
+	img.screenshot {
+		-moz-transition: -moz-transform 0.2s ease-out;
+		-webkit-transition: -webkit-transform 0.2s ease-out;
+		-ms-transition: -ms-transform 0.2s ease-out;
+		transition: transform 0.2s ease-out;
+		border-radius: 15px 15px 15px 15px;
+		-moz-border-radius: 15px 15px 15px 15px;
+		-webkit-border-radius: 15px 15px 15px 15px;
+	}
 
-img.screenshot:hover {
-	-moz-transform: scale(1.05);
-	-webkit-transform: scale(1.05);
-	-ms-transform: scale(1.05);
-	transform: scale(1.05);
-}
+	img.screenshot:hover {
+		-moz-transform: scale(1.05);
+		-webkit-transform: scale(1.05);
+		-ms-transform: scale(1.05);
+		transform: scale(1.05);
+	}
 
 /* Skills-Tags */
 
-.tags {
-	font-family: Arial, sans-serif;
-    display: flex;
-	flex-wrap: wrap;
-    justify-content: left;
-    align-items: center;
-    margin: 0;
-    display: flex;
-    gap: 10px;
-	padding-bottom: 20px;
-}
+	.tags {
+		font-family: Arial, sans-serif;
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: left;
+		align-items: center;
+		margin: 0;
+		display: flex;
+		gap: 10px;
+		padding-bottom: 20px;
+	}
 
-.tag {
-    display: inline-block;
-    padding: 0 10px;
-    background-color: #d1eaff;
-    color: #0066cc;
-    border-radius: 20px;
-    text-align: center;
-}
+	.tag {
+		display: inline-block;
+		padding: 0 10px;
+		background-color: #d1eaff;
+		color: #0066cc;
+		border-radius: 20px;
+		text-align: center;
+	}
 
-.tag:hover {
-	cursor: default;
-	-moz-transition: -moz-transform 0.2s ease-out;
-	-webkit-transition: -webkit-transform 0.2s ease-out;
-	-ms-transition: -ms-transform 0.2s ease-out;
-	transition: transform 0.2s ease-out;
-	-moz-transform: scale(1.05);
-	-webkit-transform: scale(1.05);
-	-ms-transform: scale(1.05);
-	transform: scale(1.05);
-}
+	.tag:hover {
+		cursor: default;
+		-moz-transition: -moz-transform 0.2s ease-out;
+		-webkit-transition: -webkit-transform 0.2s ease-out;
+		-ms-transition: -ms-transform 0.2s ease-out;
+		transition: transform 0.2s ease-out;
+		-moz-transform: scale(1.05);
+		-webkit-transform: scale(1.05);
+		-ms-transform: scale(1.05);
+		transform: scale(1.05);
+	}
 
-@media screen and (max-width: 768px) {
-    .tags {
-        justify-content: center; /* Center tags on smaller screens */
-    }
-}
+	@media screen and (max-width: 768px) {
+		.tags {
+			justify-content: center; /* Center tags on smaller screens */
+		}
+	}
 
-@media screen and (max-width: 480px) {
-    .tag {
-        padding: 4px 8px; /* Reduce padding for smaller screens */
-        font-size: 14px; /* Decrease font size for smaller screens */
-    }
-}
+	@media screen and (max-width: 480px) {
+		.tag {
+			padding: 4px 8px; /* Reduce padding for smaller screens */
+			font-size: 14px; /* Decrease font size for smaller screens */
+		}
+	}
+
+
+

@@ -284,7 +284,7 @@
 									</details>
 									<details>
 										<summary>view data</summary>
-											<table class="image fit" style="font-family: 'Courier New', Courier, monospace;">
+											<!-- <table class="table-wrapper" style="font-family: 'Courier New', Courier, monospace;">
 												<thead>
 												  <tr>
 													<th>date</th>
@@ -443,8 +443,33 @@
 													<td>0.00%</td>
 												  </tr>
 												</tbody>
-											  </table>
-										
+											  </table> -->
+										<md-block class="md-table">
+											```markdown
+											|    date    | unit_sold | cumm_7D | cumm_7D_prev |  growth |
+											|------------|-----------|---------|--------------|---------|
+											| 2016-10-10 | 9         | 9       | NULL         | NULL    |
+											| 2016-10-11 | 6         | 15      | NULL         | NULL    |
+											| 2016-10-12 | 10        | 25      | NULL         | NULL    |
+											| 2016-10-13 | 10        | 35      | NULL         | NULL    |
+											| 2016-10-14 | 5         | 40      | NULL         | NULL    |
+											| 2016-10-15 | 10        | 50      | NULL         | NULL    |
+											| 2016-10-16 | 14        | 64      | NULL         | NULL    |
+											| 2016-10-17 | 9         | 64      | 64           | 0.00%   |
+											| 2016-10-18 | 11        | 69      | 64           | 7.81%   |
+											| 2016-10-19 | 12        | 71      | 69           | 2.90%   |
+											| 2016-10-20 | 10        | 71      | 71           | 0.00%   |
+											| 2016-10-21 | 6         | 72      | 71           | 1.41%   |
+											| 2016-10-22 | 2         | 64      | 72           | -11.11% |
+											| 2016-10-23 | 5         | 55      | 64           | -14.06% |
+											| 2016-10-24 | 6         | 52      | 55           | -5.45%  |
+											| 2016-10-25 | 9         | 50      | 52           | -3.85%  |
+											| 2016-10-26 | 2         | 40      | 50           | -20.00% |
+											| 2016-10-27 | 4         | 34      | 40           | -15.00% |
+											| 2016-10-28 | 7         | 35      | 34           | 2.94%   |
+											| 2016-10-29 | 5         | 38      | 35           | 8.57%   |
+											| 2016-10-30 | 5         | 38      | 38           | 0.00%   |
+										</md-block>
 									</details> 
 									(<i><a href="#analysis-1" class="link-highlight">goto analysis</a></i>)</p>
 									
@@ -515,7 +540,7 @@
 									</details>
 									<details>
 										<summary>view data</summary>
-										<table class="image fit" style="font-family: 'Courier New', Courier, monospace;">
+										<!-- <table class="table-wrapper" style="font-family: 'Courier New', Courier, monospace;">
 											<tr>
 											<th>day</th>
 											<th>sprint</th>
@@ -714,7 +739,33 @@
 											<td>0.00%</td>
 											<td>9.38%</td>
 											</tr>
-											</table>
+											</table> -->
+										<md-block class="md-table">
+											```markdown
+											| day | sprint | sprint_le | sprint_cl7 | sprint_le_cl7 | sprint_growth | sprint_le_growth |
+											|-----|--------|-----------|------------|---------------|---------------|------------------|
+											| 1   | 9      | 6         | 9          | 6             | NULL          | NULL             |
+											| 2   | 6      | 2         | 15         | 8             | NULL          | NULL             |
+											| 3   | 10     | 1         | 25         | 9             | NULL          | NULL             |
+											| 4   | 10     | 4         | 35         | 13            | NULL          | NULL             |
+											| 5   | 5      | 5         | 40         | 18            | NULL          | NULL             |
+											| 6   | 10     | 6         | 50         | 24            | NULL          | NULL             |
+											| 7   | 14     | 5         | 64         | 29            | NULL          | NULL             |
+											| 8   | 9      | 4         | 64         | 27            | 0.00%         | -6.90%           |
+											| 9   | 11     | 6         | 69         | 31            | 7.81%         | 14.81%           |
+											| 10  | 12     | 2         | 71         | 32            | 2.90%         | 3.23%            |
+											| 11  | 10     | 2         | 71         | 30            | 0.00%         | -6.25%           |
+											| 12  | 6      | 2         | 72         | 27            | 1.41%         | -10.00%          |
+											| 13  | 2      | 4         | 64         | 25            | -11.11%       | -7.41%           |
+											| 14  | 5      | 4         | 55         | 24            | -14.06%       | -4.00%           |
+											| 15  | 6      | 5         | 52         | 25            | -5.45%        | 4.17%            |
+											| 16  | 9      | 1         | 50         | 20            | -3.85%        | -20.00%          |
+											| 17  | 2      | 3         | 40         | 21            | -20.00%       | 5.00%            |
+											| 18  | 4      | 8         | 34         | 27            | -15.00%       | 28.57%           |
+											| 19  | 7      | 4         | 35         | 29            | 2.94%         | 7.41%            |
+											| 20  | 5      | 7         | 38         | 32            | 8.57%         | 10.34%           |
+											| 21  | 5      | 7         | 38         | 35            | 0.00%         | 9.38%            |
+										</md-block>
 									</details>
 									(<i><a href="#analysis-2" class="link-highlight">goto analysis</a></i>)</p>
 									
@@ -766,7 +817,7 @@
 									</details>
 									<details>
 										<summary>view data</summary>
-										<table style="font-family: 'Courier New', Courier, monospace;">
+										<!-- <table style="font-family: 'Courier New', Courier, monospace;">
 										<tr>
 											<th>email_sent</th>
 											<th>clicked</th>
@@ -779,8 +830,8 @@
 											<td>6995</td>
 											<td>125</td>
 										</tr>
-										</table>
-										<table style="font-family: 'Courier New', Courier, monospace;">
+										</table> -->
+										<!-- <table style="font-family: 'Courier New', Courier, monospace;">
 											<tr>
 												<th>click_rate</th>
 												<th>open_rate</th>
@@ -789,7 +840,13 @@
 												<td>2%</td>
 												<td>20%</td>
 											</tr>
-										</table>
+										</table> -->
+										<md-block>
+											```markdown
+											| click_rate | open_rate |
+											|------------|-----------|
+											| 2%         | 20%       |
+										</md-block>
 									</details>
 									(<i><a href="#analysis-3" class="link-highlight">goto analysis</a></i>)</p>
 									
