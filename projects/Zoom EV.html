@@ -15,11 +15,11 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="/assets/css/style.css" type="text/css" />
 		<link rel="stylesheet" href="/assets/css/prism.css">
-		<link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon">
-		<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
-		<link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
-		<link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
-		<link rel="manifest" href="/images/site.webmanifest">
+		<link rel="shortcut icon" href="/images/favicon/favicon.ico" type="image/x-icon">
+		<link rel="apple-touch-icon" sizes="180x180" href="/images/favicon/apple-touch-icon.png">
+		<link rel="icon" type="image/png" sizes="32x32" href="/images/favicon/favicon-32x32.png">
+		<link rel="icon" type="image/png" sizes="16x16" href="/images/favicon/favicon-16x16.png">
+		<link rel="manifest" href="/images/favicon/site.webmanifest">
 		<noscript><link rel="stylesheet" href="/assets/css/noscript.css" /></noscript>
 	</head>
 	<body class="is-preload">
@@ -101,7 +101,7 @@
 								<h2 id="datadictionary">DATA DICTIONARY</h2>
 								<p>
 									<h3>Entity Relationship Diagram</h3>
-									<img src="/images/projects/zoom-ev/schema.jpg" alt="schema diagram" class="image fit">
+									<img src="/images/projects/zoom-ev/schema.png" alt="schema diagram" class="image fit">
 								</p>
 								<p>
 									<details><summary><h4>1. Sales</h4></summary>
@@ -219,7 +219,7 @@
 									<p id="analysis-1">1. Quantify the decline in sales growth.&nbsp;
 									(<i><a href="#extract-1" class="link-highlight">goto extraction</a></i>)</p>
 									<img src="/images/projects/zoom-ev/table1.png" alt="sprint sales graph" class="image fit code-screenshot">
-									You can see the trendline in first graph going down and also there are (-ve) values in growth column that confirms there has been a decline in sales volume.<br><br>
+									You can see there are (-ve) values in the growth column that confirms there has been a decline in sales volume.<br><br>
 									<p id="analysis-2">2. Assess the relationship between launch date and sales growth.&nbsp;
 									(<i><a href="#extract-2" class="link-highlight">goto extraction</a></i>)</p>
 									<img src="/images/projects/zoom-ev/table2.png" alt="sprint vs sprint-le sales graph" class="image fit code-screenshot">
@@ -254,32 +254,31 @@
 											```sql
 											-- Extracting Sprint scooters sales data of first 3-weeks
 											WITH sprint_sales AS (
-											SELECT ROW_NUMBER() OVER(ORDER BY sales_transaction_date) AS day,
-												DATE(sales_transaction_date) AS date,
-												COUNT(*) AS unit_sold
-											FROM sales
-											JOIN products ON sales.product_id = products.product_id
-											WHERE
-											products.model = 'Sprint'
-											GROUP BY 2
-											LIMIT 21
+												SELECT ROW_NUMBER() OVER(ORDER BY sales_transaction_date) AS day,
+													   DATE(sales_transaction_date) AS date,
+													   COUNT(*) AS unit_sold
+												FROM sales
+													JOIN products ON sales.product_id = products.product_id
+												WHERE products.model = 'Sprint'
+												GROUP BY 2
+												LIMIT 21
 											),
 											-- Calculating cumulative sales over a rolling 7-day period
 											cumm_sales AS (
-											SELECT  *,
-													SUM(unit_sold) 
-													OVER(ORDER BY day ROWS BETWEEN 6 PRECEDING AND CURRENT ROW) AS cumm_7D
-											FROM sprint_sales
+												SELECT  *,
+														SUM(unit_sold) 
+														OVER(ORDER BY day ROWS BETWEEN 6 PRECEDING AND CURRENT ROW) AS cumm_7D
+												FROM sprint_sales
 											)
 											--  Calculating the rate of growth
 											SELECT date, unit_sold, cumm_7D, cumm_7D_prev,
-												CONCAT(ROUND((100 * (cumm_7D - cumm_7D_prev) / cumm_7D_prev), 2), '%') AS growth
+												   CONCAT(ROUND((100 * (cumm_7D - cumm_7D_prev) / cumm_7D_prev), 2), '%') AS growth
 											FROM (
-											-- Calculating previous value of cumulative sales to calculate rate of growth
-											SELECT *,
-													LAG(CASE WHEN day >= 7 THEN cumm_7D END) 
-													OVER(ORDER BY day) AS cumm_7D_prev
-												FROM cumm_sales) AS cumm_sales_prev;
+												  -- Calculating previous value of cumulative sales to calculate rate of growth
+												  SELECT *,
+														 LAG(CASE WHEN day >= 7 THEN cumm_7D END) 
+														 OVER(ORDER BY day) AS cumm_7D_prev
+													  FROM cumm_sales) AS cumm_sales_prev;
 										</md-block>
 									</details>
 									<details>
@@ -492,10 +491,10 @@
 											-- Extracting Sprint scooters sales data of first 3-weeks
 											WITH sprint_sales AS (
 												SELECT ROW_NUMBER() OVER(ORDER BY sales_transaction_date) AS day,
-														DATE(sales_transaction_date) AS date,
-														COUNT(*) AS sprint
+													   DATE(sales_transaction_date) AS date,
+													   COUNT(*) AS sprint
 												FROM sales
-												JOIN products ON sales.product_id = products.product_id
+													JOIN products ON sales.product_id = products.product_id
 												WHERE model = 'Sprint'
 												GROUP BY 2
 												LIMIT 21
@@ -503,10 +502,10 @@
 											-- Extracting Sprint Limited Edition variant sales data of first 3-weeks
 											sprintle_sales AS (
 												SELECT ROW_NUMBER() OVER(ORDER BY sales_transaction_date) AS day,
-														DATE(sales_transaction_date) AS date,
-														COUNT(*) AS sprint_le
+													   DATE(sales_transaction_date) AS date,
+													   COUNT(*) AS sprint_le
 												FROM sales
-												JOIN products ON sales.product_id = products.product_id
+													JOIN products ON sales.product_id = products.product_id
 												WHERE model = 'Sprint Limited Edition'
 												GROUP BY 2
 												LIMIT 21
@@ -520,22 +519,22 @@
 														SUM(sprint_le) 
 														OVER(ORDER BY day ROWS BETWEEN 6 PRECEDING AND CURRENT ROW) AS sprint_le_cl7
 												FROM sprint_sales
-												JOIN sprintle_sales ON sprint_sales.day = sprintle_sales.day
+													JOIN sprintle_sales ON sprint_sales.day = sprintle_sales.day
 											)
 											-- Calculating rate of growth of both the variants for comparision
 											SELECT day, sprint, sprint_le, sprint_cl7, sprint_le_cl7,
-													CONCAT(ROUND(100 * (sprint_cl7 - sprint_cl7_prev) / sprint_cl7_prev, 2), '%') 
-														AS sprint_growth,
-													CONCAT(ROUND(100 * (sprint_le_cl7 - sprint_le_cl7_prev) / sprint_le_cl7_prev, 2), '%') 
-														AS sprint_le_growth
+												   CONCAT(ROUND(100 * (sprint_cl7 - sprint_cl7_prev) / sprint_cl7_prev, 2), '%') 
+													   AS sprint_growth,
+												   CONCAT(ROUND(100 * (sprint_le_cl7 - sprint_le_cl7_prev) / sprint_le_cl7_prev, 2), '%') 
+													   AS sprint_le_growth
 											FROM ( 
 												-- Calculating previous value of cumulative sales to calculate rate of growth
 												SELECT *, 
-														LAG(CASE WHEN day >= 7 THEN sprint_cl7 END) 
-														OVER(ORDER BY day) AS sprint_cl7_prev, 
-														LAG(CASE WHEN day >= 7 THEN sprint_le_cl7 END) 
-														OVER(ORDER BY day) AS sprint_le_cl7_prev
-													FROM cumm_sales ) AS cumm_sales_prev;
+													   LAG(CASE WHEN day >= 7 THEN sprint_cl7 END) 
+													   OVER(ORDER BY day) AS sprint_cl7_prev, 
+													   LAG(CASE WHEN day >= 7 THEN sprint_le_cl7 END) 
+													   OVER(ORDER BY day) AS sprint_le_cl7_prev
+												FROM cumm_sales ) AS cumm_sales_prev;
 										</md-block>
 									</details>
 									<details>
@@ -788,7 +787,7 @@
 										<!-- <img src="/images/projects/zoom-ev/code3.png" alt="" class="image fit code-screenshot"> -->
 										<md-block>
 											```sql
-											-- Extracting E-mail marketing data related to Sprint scooter 
+											-- Extracting E-mail marketing data of Sprint scooters 
 											WITH sprint_campaign AS (
 												SELECT * 
 												FROM emails
@@ -796,22 +795,23 @@
 													-- assuming the campaign started 2 months before its production start date
 													BETWEEN 
 														(SELECT production_start_date
-														FROM products
-														WHERE model = 'Sprint') - INTERVAL 2 MONTH 
+														 FROM products
+														 WHERE model = 'Sprint') - INTERVAL 2 MONTH 
 													AND
 														(SELECT production_start_date
-														FROM products
-														WHERE model = 'Sprint')
+														 FROM products
+														 WHERE model = 'Sprint')
 											)
 											-- Calculating the click through rate and email opening rate to compare with industry benchmark
-											SELECT CONCAT(ROUND(100 * clicked/(email_sent-bounced)),'%') AS click_rate,
-													CONCAT(ROUND(100 * opened/(email_sent-bounced)),'%') AS open_rate
+											SELECT CONCAT(ROUND(100 * clicked / (email_sent - bounced)), '%') AS click_rate,
+												   CONCAT(ROUND(100 * opened / (email_sent - bounced)), '%') AS open_rate
 											FROM (
-												-- Summarising sprint_campaign data by counting emails- sent, clicked, opened & bounced for further calculation
+												-- Summarizing sprint_campaign data by counting the no. of emails- 
+												-- sent, clicked, opened & bounced for further calculation
 												SELECT COUNT(*) AS email_sent,
-														COUNT(CASE WHEN clicked = 't' THEN 1 END) AS clicked,
-														COUNT(CASE WHEN opened = 't' THEN 1 END) AS opened,
-														COUNT(CASE WHEN bounced = 't' THEN 1 END) AS bounced
+													   COUNT(CASE WHEN clicked = 't' THEN 1 END) AS clicked,
+													   COUNT(CASE WHEN opened = 't' THEN 1 END) AS opened,
+													   COUNT(CASE WHEN bounced = 't' THEN 1 END) AS bounced
 												FROM sprint_campaign) AS campaign_summary;
 										</md-block>
 									</details>
@@ -860,9 +860,9 @@
 								<h2 id="finishedproject">FINISHED PROJECT</h2>
 								<p>
 									Here is my finished project: <a href="https://github.com/avishek-choudhary/zoom-electric" class="link-highlight" target="_blank">Zoom Electric: Sales Analysis.</a><br>
-									You can view my SQL queries on Github used for data extraction 
+									View my SQL queries on Github used for data extraction 
 									<a href="https://github.com/avishek-choudhary/Zoom-Electric/blob/main/extraction.sql" class="link-highlight" target="_blank">here</a> and the Excel files for analysis 
-									<a href="https://github.com/avishek-choudhary/zoom-electric/analysis" class="link-highlight" target="_blank">here</a>.
+									<a href="https://github.com/avishek-choudhary/Zoom-Electric/tree/main/analysis" class="link-highlight" target="_blank">here</a>.
 								</p>
 								<h2 id="dataoverview">OVERVIEW OF DATA</h2>
 								<p>
