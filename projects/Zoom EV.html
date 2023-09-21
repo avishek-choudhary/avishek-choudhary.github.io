@@ -115,9 +115,9 @@
 										|product_id			   |INTEGER  |An ID of product (can be duplicates)										   |
 										|sales_transaction_date|TIMESTAMP|Date and time of sales transaction done for product_id					   |
 										|channel			   |VARCHAR  |Sales channel (offline or online) offline - dealers across the various cities|
-										|dealership_id		   |INTEGER  |Code of dealer through which sales done									   |
-									</md-block><br>
-									<h5>Table Data</h5>
+										|dealership_id		   |INTEGER  |Code of dealer through which sales done									   |</md-block>
+									<br>
+									<h5>Sample Data</h5>
 									<md-block>
 										```markdown
 										|customer_id|product_id|sales_transaction_date|channel   |dealership_id|
@@ -126,8 +126,8 @@
 										|22         |7         |2017-08-14 09:59:00   |dealership|20           |
 										|145        |7         |2019-01-20 10:40:00   |internet  |             |
 										|289        |7         |2017-05-09 14:20:00   |dealership|7            |
-										|331        |7         |2019-05-21 20:03:00   |dealership|4            |										
-									</md-block></details>
+										|331        |7         |2019-05-21 20:03:00   |dealership|4            |</md-block>
+									</details>
 								</p>
 								<p>
 									<details><summary><h4>2. Products</h4></summary>
@@ -143,9 +143,9 @@
 										|product_type		  |VARCHAR	|Type of products- scooter, automobile											  |
 										|base_price			  |FLOAT	|price of the products															  |
 										|production_start_date|TIMESTAMP|Date on which production of the product starts in Zoom Electric				  |
-										|production_end_date  |TIMESTAMP|Date on which production of the product end or closed in Zoom Electric			  |
-									</md-block><br>
-									<h5>Table Data</h5>
+										|production_end_date  |TIMESTAMP|Date on which production of the product end or closed in Zoom Electric			  |</md-block>
+									<br>
+									<h5>Sample Data</h5>
 									<md-block>
 										```markdown
 										|product_id|model                 |year|product_type|base_price|production_start_date|production_end_date|
@@ -154,8 +154,8 @@
 										|6         |Corpel                |2015 |automobile |524000    |15-04-2015 00:00     |01-10-2018 00:00   |
 										|7         |Sprint                |2016 |scooter    |95998     |10-10-2016 00:00     |                   |
 										|8         |Sprint Limited Edition|2017 |scooter    |111998    |15-02-2017 00:00     |                   |
-										|9         |SigniaSafari          |2017 |automobile |280000    |15-02-2017 00:00     |                   |
-									</md-block></details>
+										|9         |SigniaSafari          |2017 |automobile |280000    |15-02-2017 00:00     |                   |</md-block>
+									</details>
 								</p>
 								<p>
 									<details><summary><h4>3. Emails</h4></summary>
@@ -173,9 +173,9 @@
 										|bounced		 |BOOLEAN  |'t'- bounced, 'f'- not bounced															|
 										|sent_date		 |TIMESTAMP|Date on which email was sent															|
 										|opened _date	 |TIMESTAMP|Date on which email was opened															|
-										|clicked_date	 |TIMESTAMP|Date on which customer clicked the link to land on the ZOOM ELECTRIC landing page		|
-									</md-block><br>
-									<h5>Table Data</h5>
+										|clicked_date	 |TIMESTAMP|Date on which customer clicked the link to land on the ZOOM ELECTRIC landing page		|</md-block>
+									<br>
+									<h5>Sample Data</h5>
 									<md-block>
 										```markdown
 										|email_id|customer_id|opened|clicked|bounced|sent_date          |opened_date     |clicked_date    |email_subject_id|
@@ -184,8 +184,8 @@
 										|55      |666        |f     |f      |f      |2011-01-03 15:00:00|                |                |6               |
 										|56      |673        |t     |t      |f      |2011-01-03 15:00:00|04-01-2011 12:03|04-01-2011 12:06|6               |
 										|57      |694        |f     |f      |f      |2011-01-03 15:00:00|                |                |6               |
-										|58      |701        |t     |f      |f      |2011-01-03 15:00:00|04-01-2011 08:35|                |6               |										
-									</md-block></details>
+										|58      |701        |t     |f      |f      |2011-01-03 15:00:00|04-01-2011 08:35|                |6               |</md-block>
+									</details>
 								</p>
 								<p>
 									<details><summary><h4>4. Email subject</h4></summary>
@@ -196,9 +196,9 @@
 										|Column Name	 |Data Type|Description						  |
 										|----------------|---------|----------------------------------|
 										|email_subject_id|INTEGER  |Primary Key for the email subjects|
-										|email_subject   |VARCHAR  |Descriptions  of emails			  |
-									</md-block><br>
-									<h5>Table Data</h5>
+										|email_subject   |VARCHAR  |Descriptions  of emails			  |</md-block>
+									<br>
+									<h5>Sample Data</h5>
 									<md-block>
 										```markdown
 										|email_subject_id|email_subject							|
@@ -207,8 +207,8 @@
 										|2          	 |A Brand New Scooter...and Car			|
 										|3        		 |A New Year, And Some New EVs			|
 										|4				 |An Electric Car for a New Age			|
-										|5          	 |Green Cars , Green Friday Offer		|											
-									</md-block></details>
+										|5          	 |Green Cars , Green Friday Offer		|</md-block>
+									</details>
 								</p>
 								<h2 id="process">PROCESS</h2>
 								<p><u>Overview</u>: I first familiarized myself with the dataset, tables and fields separately in Excel, then used MySQL to create a database using those datasets to extract the required data. Finally I returned to Excel to analyse those extracted data using pivot tables and graphs.</p>
@@ -278,8 +278,7 @@
 												  SELECT *,
 														 LAG(CASE WHEN day >= 7 THEN cumm_7D END) 
 														 OVER(ORDER BY day) AS cumm_7D_prev
-													  FROM cumm_sales) AS cumm_sales_prev;
-										</md-block>
+													  FROM cumm_sales) AS cumm_sales_prev;</md-block>
 									</details>
 									<details>
 										<summary>view data</summary>
@@ -467,8 +466,7 @@
 											| 2016-10-27 | 4         | 34      | 40           | -15.00% |
 											| 2016-10-28 | 7         | 35      | 34           | 2.94%   |
 											| 2016-10-29 | 5         | 38      | 35           | 8.57%   |
-											| 2016-10-30 | 5         | 38      | 38           | 0.00%   |
-										</md-block>
+											| 2016-10-30 | 5         | 38      | 38           | 0.00%   |</md-block>
 									</details> 
 									(<i><a href="#analysis-1" class="link-highlight">goto analysis</a></i>)</p>
 									
@@ -534,8 +532,7 @@
 													   OVER(ORDER BY day) AS sprint_cl7_prev, 
 													   LAG(CASE WHEN day >= 7 THEN sprint_le_cl7 END) 
 													   OVER(ORDER BY day) AS sprint_le_cl7_prev
-												FROM cumm_sales ) AS cumm_sales_prev;
-										</md-block>
+												FROM cumm_sales ) AS cumm_sales_prev;</md-block>
 									</details>
 									<details>
 										<summary>view data</summary>
@@ -763,8 +760,7 @@
 											| 18  | 4      | 8         | 34         | 27            | -15.00%       | 28.57%           |
 											| 19  | 7      | 4         | 35         | 29            | 2.94%         | 7.41%            |
 											| 20  | 5      | 7         | 38         | 32            | 8.57%         | 10.34%           |
-											| 21  | 5      | 7         | 38         | 35            | 0.00%         | 9.38%            |
-										</md-block>
+											| 21  | 5      | 7         | 38         | 35            | 0.00%         | 9.38%            |</md-block>
 									</details>
 									(<i><a href="#analysis-2" class="link-highlight">goto analysis</a></i>)</p>
 									
@@ -812,8 +808,7 @@
 													   COUNT(CASE WHEN clicked = 't' THEN 1 END) AS clicked,
 													   COUNT(CASE WHEN opened = 't' THEN 1 END) AS opened,
 													   COUNT(CASE WHEN bounced = 't' THEN 1 END) AS bounced
-												FROM sprint_campaign) AS campaign_summary;
-										</md-block>
+												FROM sprint_campaign) AS campaign_summary;</md-block>
 									</details>
 									<details>
 										<summary>view data</summary>
@@ -845,8 +840,7 @@
 											```markdown
 											| click_rate | open_rate |
 											|------------|-----------|
-											| 2%         | 20%       |
-										</md-block>
+											| 2%         | 20%       |</md-block>
 									</details>
 									(<i><a href="#analysis-3" class="link-highlight">goto analysis</a></i>)</p>
 									

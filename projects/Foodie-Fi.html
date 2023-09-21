@@ -1,0 +1,617 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<!-- Google tag (gtag.js) -->
+		<script async src="https://www.googletagmanager.com/gtag/js?id=G-Y6XY7WHLF3"></script>
+		<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+		gtag('js', new Date());
+		gtag('config', 'G-Y6XY7WHLF3');
+		</script>
+		<!-- Google tag (gtag.js) -->
+		<title>SQL Case Study: Foodie-Fi | Portfolio | Avishek Choudhary</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="/assets/css/style.css" />
+		<link rel="stylesheet" href="/assets/css/prism.css">
+		<link rel="shortcut icon" href="/images/favicon/favicon.ico" type="image/x-icon">
+		<link rel="apple-touch-icon" sizes="180x180" href="/images/favicon/apple-touch-icon.png">
+		<link rel="icon" type="image/png" sizes="32x32" href="/images/favicon/favicon-32x32.png">
+		<link rel="icon" type="image/png" sizes="16x16" href="/images/favicon/favicon-16x16.png">
+		<link rel="manifest" href="/images/favicon/site.webmanifest">
+		<noscript><link rel="stylesheet" href="/assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Header -->
+					<header id="header">
+						<a href="/index.html" class="logo">Home</a>
+					</header>
+
+				<!-- Nav -->
+					<nav id="nav">
+						<ul class="links">
+							<li><a href="/index.html#header">About</a></li>
+							<li class="active"><a href="/portfolio.html">Portfolio</a></li>
+							<li><a href="#contact">Contact</a></li>
+						</ul>
+						<ul class="icons">
+							<li><a href="https://www.novypro.com/profile_projects/avishekchoudhary" target="_blank" class="icon brands"><i class="fa-solid fa-chart-simple"></i><span class="label">Power BI</span></a></li>
+							<li><a href="https://www.linkedin.com/in/avishek-choudhary" target="_blank" class="icon brands fa-linkedin"><span class="label">Linked In</span></a></li>
+							<li><a href="https://www.github.com/avishek-choudhary" target="_blank" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
+						</ul>
+					</nav>
+
+				<!-- Main -->
+					<div id="main">
+
+						<!-- Post -->
+							<section class="post">
+								<header class="major">
+									<span class="date">August, 2023</span>
+									<h1>SQL Case Study:<br>
+									Foodie-Fi</h1>
+								</header>
+								<!-- Skills-Tags -->
+								<div class="tags">
+									<span class="tag">SQL</span>
+                                    <span class="tag">Business Sense</span>
+                                    <span class="tag">Ad-hoc Analysis</span>
+                                    <span class="tag"></span>
+								</div>
+								<!-- <div class="image main"><img src="/images/Foodie-Fi.png" alt="" /></div> -->
+								<p>I did a Case Study on a Foodie-Fi data using SQL-queries. I will be diving into the background, my full process of creating the database and using queries to find answers from the data.</p>
+								<u>Tools Used</u>: MySQL Workbench | MySQL<br>
+								<u>Quick Links</u>: <a href="https://github.com/avishek-choudhary" class="link-highlight" target="_blank">GitHub Repository</a> <br>
+								Below is a table of contents in case you want to go to any section.
+								</p>
+								<h2><u>Table Contents</u>:</h2>
+								<ol>
+									<li><a href="#introduction" class="link-highlight">Introduction</a></li>
+                                    <li><a href="data-dictionary" class="link-highlight">Data Dictionary</a></li>
+									<li><a href="#process" class="link-highlight">Process</a></li>
+									<ol class="sub-list">
+										<li><a href="#sql" class="link-highlight">MySQL</a></li>
+										<li><a href="#misc" class="link-highlight">Misc.</a></li>
+									</ol>
+									<li><a href="#casestudy" class="link-highlight">Case Study</a></li>
+									<ol class="sub-list">
+										<li><a href="#customer-journey" class="link-highlight">Customer Journey</a></li>
+										<li><a href="#data-analysis" class="link-highlight">Data Analysis</a></li>
+										<!-- <li><a href="#payment-questions" class="link-highlight">Payment Questions</a></li> -->
+									</ol>
+									<li><a href="#finished-project" class="link-highlight">Finished Project</a></li>
+									<li><a href="#dataoverview" class="link-highlight">Overview of Data</a></li>
+									<li><a href="#insights" class="link-highlight">Insights</a></li>
+									<li><a href="#recommendations" class="link-highlight">Recommendations</a></li>
+									<li><a href="#learnings" class="link-highlight">What I Learned</a></li>
+									<li><a href="#resources" class="link-highlight">Resources</a></li>
+								</ol>
+								<h2 id="introduction">INTRODUCTION</h2>
+								<p>
+                                    Subscription based businesses are super popular and Danny realised that there was a large gap in the market - he wanted to create a new streaming service that only had food related content - something like Netflix but with only cooking shows!<br>
+                                    Danny finds a few smart friends to launch his new startup Foodie-Fi in 2020 and started selling monthly and annual subscriptions, giving their customers unlimited on-demand access to exclusive food videos from around the world!<br>
+                                    Danny created Foodie-Fi with a data driven mindset and wanted to ensure all future investment decisions and new features were decided using data. <br>
+                                    This case study focuses on using Foodie-Fi data; a subscription style digital data to answer important business questions that could help the startup have an insight of critical business metrics.<br><br>
+									<u>Overall Goal</u>: Generate insights relating to customer journey, payment transactions, and overall business performance.<br>
+								</p>
+                                <h2 id="data-dictionary">DATA DICTONARY</h2>
+                                <p>
+                                    <h3>Entity Relationship Diagram</h3>
+                                    <img src="https://i.pinimg.com/originals/4f/68/13/4f68132267e06b7b6773d0b7addba209.png" alt="schema-diagram" class="image fit code-screenshot">
+                                </p>
+                                <p>
+                                    <details><summary><h4>1. Plans</h4></summary>
+									<p>Customers can choose which plans to join Foodie-Fi when they first sign up.</p>
+									<p>Basic plan customers have limited access and can only stream their videos and is only available monthly at $9.90.</p>
+									<p>Pro plan customers have no watch time limits and are able to download videos for offline viewing. Pro plans start at $19.90 a month or $199 for an annual subscription.</p>
+									<p>Customers can sign up to an initial 7 day free trial will automatically continue with the pro monthly subscription plan unless they cancel, downgrade to basic or upgrade to an annual pro plan at any point during the trial.</p>
+									<p>When customers cancel their Foodie-Fi service - they will have a <code>churn</code> plan record with a <code>null</code> price but their plan will continue until the end of the billing period.</p>
+									<h5>Table Schema</h5>
+                                    <md-block>
+                                        ```markdown
+                                        |Column Name|Data Type|Description              |
+                                        |-----------|---------|-------------------------|
+                                        |plan_id    |INTEGER  |A unique ID for each Plan|
+                                        |plan_name  |VARCHAR  |Name of the Plan         |
+                                        |price      |FLOAT    |Price of the Plan        |</md-block>
+									<br>
+                                    <h5>Sample Data</h5>
+                                    <md-block>
+                                        ```markdown
+                                        |plan_id|plan_name    |price |
+                                        |-------|-------------|------|
+                                        |0      |trial        |0.00  |
+                                        |1      |basic monthly|9.90  |
+                                        |2      |pro monthly  |19.90 |
+                                        |3      |pro annual   |199.00|
+                                        |4      |churn        |null  |</md-block>
+									</details>
+                                </p>
+                                <p>
+                                    <details><summary><h4>2. Subscriptions</h4></summary>
+									<p>Customer subscriptions show the exact date where their specific <code>plan_id</code> starts.</p>
+									<p>If customers downgrade from a pro plan or cancel their subscription - the higher plan will remain in place until the period is over - the <code>start_date</code> in the <code>subscriptions</code> table will reflect the date that the actual plan changes.</p>
+									<p>When customers upgrade their account from a basic plan to a pro or annual pro plan - the higher plan will take effect straightaway.</p>
+									<p>When customers churn - they will keep their access until the end of their current billing period but the <code>start_date</code> will be technically the day they decided to cancel their service.</p>
+                                    <h5>Table Schema</h5>
+                                    <md-block>
+                                        ```markdown
+                                        |Column Name|Data Type|Description                      |
+                                        |-----------|---------|---------------------------------|
+                                        |customer_id|INTEGER  |A unique ID for each Customer    |
+                                        |plan_id    |INTEGER  |An ID of Plan (can be duplicates)|
+                                        |start_date |DATE     |Date when the plan starts        |</md-block>
+									<br>
+                                    <h5>Sample Data</h5>
+                                    <md-block>
+                                        ```markdown
+                                        |customer_id|plan_id|start_date|
+                                        |-----------|-------|----------|
+                                        |1          |0      |2020-08-01|
+                                        |1          |1      |2020-08-08|
+                                        |2          |0      |2020-09-20|
+                                        |2          |3      |2020-09-27|
+                                        |3          |0      |2020-01-13|</md-block>
+									</details>
+                                </p>
+								<h2 id="process">Process</h2>
+								<p><u>Overview</u>: I used MySQL Workbench (GUI of MySQL) to create a database and to find anwers using queries.</p>
+                                <h3 id="sql">MySQL</h3>
+								<p>
+									First I created the database using ERD and at the same time I familiarized myself with the data. Then connected the tables using Primary and Foreign Key constraints. And then used my quering skills to find answers.
+								</p>
+								<h3 id="misc">MISC.</h3>
+                                <h4>Microsoft Word</h4>
+								<b>Notes</b> - Notes for the project including the answer of queries, what I was looking for, and anything else that has to do with the project.</li><br><br>
+								
+								<h2 id="case-study">CASE STUDY</h2>
+								<p>
+									This case study is split into an initial data understanding question before diving straight into data analysis questions before finishing with 1 single extension challenge.
+								</p>
+								<h3 id="customer-journey">Customer Journey</h3>
+								<p>
+									Based off the 8 sample customers (1,2,11,13,15,16,18,19) from the subscriptions table, write a brief description about each customer’s onboarding journey.<br>
+									<details><summary>view query</summary>
+									<md-block>
+										```sql
+										SELECT customer_id, plans.plan_name, start_date
+										FROM subscriptions
+											JOIN plans ON plans.plan_id = subscriptions.plan_id
+										WHERE customer_id IN (1,2,11,13,15,16,18,19)
+										ORDER BY 1;</md-block>
+									</details>
+									<details><summary>view data</summary>
+									<md-block>
+										```markdown
+										|customer_id|plan_name    |start_date|
+										|-----------|-------------|----------|
+										|1          |trial        |2020-08-01|
+										|1          |basic monthly|2020-08-08|
+										|2          |trial        |2020-09-20|
+										|2          |pro annual   |2020-09-27|
+										|11         |trial        |2020-11-19|
+										|11         |churn        |2020-11-26|
+										|13         |trial        |2020-12-15|
+										|13         |basic monthly|2020-12-22|
+										|13         |pro monthly  |2021-03-29|
+										|15         |trial        |2020-03-17|
+										|15         |pro monthly  |2020-03-24|
+										|15         |churn        |2020-04-29|
+										|16         |trial        |2020-05-31|
+										|16         |basic monthly|2020-06-07|
+										|16         |pro annual   |2020-10-21|
+										|18         |trial        |2020-07-06|
+										|18         |pro monthly  |2020-07-13|
+										|19         |trial        |2020-06-22|
+										|19         |pro monthly  |2020-06-29|
+										|19         |pro annual   |2020-08-29|</md-block>
+									</details><br>
+									<li>Customer 1 starts with a free trial plan on 2020-08-01 and when the trial ends, upgrades to basic monthly plan on 2020-08-08.</li>
+									<li>Customer 2 starts with a free trial plan on 2020-09-20 and when the trial ends, upgrades to pro annual plan on 2020-09-27.</li>
+									<li>Customer 11 starts with free trial plan on 2020-11-19 and churns at the end of the free trial plan on 2020-11-26.</li>
+									<li>Customer 13 starts with free trial plan on 2020-15-12 and when the trial ends subscribes to a basic monthly plan on the 2020-12-22, and 3 months later upgrades to a pro monthly plan on 2021-03-29.</li>
+									<li>Customer 15 starts with a free trial plan on 2020-03-17, and when the trail ends automatically upgrades to the pro monthly plan on 2020-03-24 and then churns one month later on 2020-04-29.</li>
+									<li>Customer 16 starts with a free trial plan on 2020-05-31, and when the trial ends, subscribes to a basic monthly plan on 2020-06-07 and 4 months later upgrades to a pro annual plan on 2020-10-21.</li>
+									<li>Customer 18 starts with a free trial plan on 2020-07-06 and when the trial ends, automatically upgrades to pro monthly plan on the 2020-07-13.</li>
+									<li>Customer 19 starts with a free trial plan on 2020-06-22, automatically ugrades to pro monthly on 2020-06-29, and 2 months later upgrades to pro annual plan on 2020-08-29.</li>
+								</p>
+								<h3 id="data-analysis">Data Analysis</h3>
+								<p>1. How many customers has Foodie-Fi ever had?
+									<details><summary>view query</summary>
+									<md-block>
+										```sql
+										SELECT COUNT(DISTINCT(customer_id)) AS unique_customers
+										FROM subscriptions;</md-block>
+									</details>
+									<details><summary>view data</summary>
+									<md-block>
+										```markdown
+										|unique_customers|
+										|----------------|
+										|1000            |</md-block>
+									</details>
+									&emsp;Foodie-Fi had 1,000 unique customers.
+								</p>
+								<p>2. What is the monthly distribution of <code>trial</code> plan <code>start_date</code> values for our dataset - use the start of the month as the group by value?
+									<details><summary>view query</summary>
+									<md-block>
+										```sql
+										SELECT MONTHNAME(start_date) AS month,
+											   COUNT(*) AS total_plans
+										FROM subscriptions
+										JOIN plans ON plans.plan_id = subscriptions.plan_id
+										WHERE plan_name = 'trial'
+										GROUP BY 1
+										ORDER BY 2 DESC;</md-block>
+									</details>
+									<details><summary>view data</summary>
+									<md-block>
+										```markdown
+										|month    |total_plans|
+										|---------|-----------|
+										|March    |94         |
+										|July     |89         |
+										|August   |88         |
+										|January  |88         |
+										|May      |88         |
+										|September|87         |
+										|December |84         |
+										|April    |81         |
+										|June     |79         |
+										|October  |79         |
+										|November |75         |
+										|February |68         |</md-block>
+									</details>
+									&emsp;March has the highest number of trial plans, whereas February has the lowest number of trial plans.
+								</p>
+								<p>3. Which plan's <code>start_date</code> values occur after the year 2020 for our dataset? Show the breakdown by a count of events for each <code>plan_name</code>.
+									<details><summary>view query</summary>
+									<md-block>
+										```sql
+										SELECT plan_name, COUNT(*) AS event_2021
+										FROM plans
+										JOIN subscriptions ON plans.plan_id = subscriptions.plan_id
+										WHERE start_date > '2020-12-31'
+										GROUP BY 1;</md-block>
+									</details>
+									<details><summary>view data</summary>
+									<md-block>
+										```markdown
+										|plan_name    |event_2021|
+										|-------------|----------|
+										|churn        |71        |
+										|pro monthly  |60        |
+										|pro annual   |63        |
+										|basic monthly|8         |</md-block>
+									</details>
+									&emsp;The data shows there is no trial period recorded after the year 2020.
+								</p>
+								<p>4. What is the customer count and percentage of customers who have churned rounded to 1 decimal place?
+									<details><summary>view query</summary>
+									<md-block>
+										```sql
+										WITH churn_count AS (
+											SELECT COUNT(*) as churned
+											FROM subscriptions
+											JOIN plans ON plans.plan_id = subscriptions.plan_id
+											WHERE plan_name = 'churn'
+										)
+										SELECT churned, CONCAT(ROUND((100 * churned / unique_customers), 1), '%') AS churn_rate
+										FROM churn_count, (SELECT COUNT(DISTINCT(customer_id)) AS unique_customers 
+														   FROM subscriptions) AS total;</md-block>
+									</details>
+									<details><summary>view data</summary>
+									<md-block>
+										```markdown
+										|churned|churn_rate|
+										|-------|----------|
+										|307    |30.7%     |</md-block>
+									</details>
+									&emsp;307 customers, or 30.7% of the total customers, have churned from Food-fi during the period of analysis.
+								</p>
+								<p>5. How many customers have churned straight after their initial free trial — what's the percentage rounded to the nearest whole number?
+									<details><summary>view query</summary>
+									<md-block>
+										```sql
+										WITH previous_plan_cte AS (
+											SELECT *, LAG(plan_id) OVER(PARTITION BY customer_id ORDER BY plan_id) AS previous_plan
+											FROM subscriptions
+										)
+										SELECT COUNT(*) AS churned,
+											   CONCAT(ROUND(100 * COUNT(*) / unique_customers), '%') AS churn_rate
+										FROM previous_plan_cte, 
+											 (SELECT COUNT(DISTINCT(customer_id)) AS unique_customers 
+											  FROM subscriptions) AS total
+										WHERE plan_id = 4 AND previous_plan = 0;</md-block>
+									</details>
+									<details><summary>view data</summary>
+									<md-block>
+										```markdown
+										|churned|churn_rate|
+										|-------|----------|
+										|92		|9%		   |</md-block>
+									</details>
+									&emsp;92 customers, or 9% of the total customers, have churned straight after their initial free trial.
+								</p>
+								<p>6. What is the number and percentage of customer choosing plans after their initial free trial?
+									<details><summary>view query</summary>
+									<md-block>
+										```sql
+										WITH next_plan_cte AS (
+											SELECT *, 
+												   LEAD(plan_id) OVER(PARTITION BY customer_id ORDER BY plan_id) AS next_plan
+											FROM subscriptions
+										),
+										customer_count AS (
+											SELECT plan_name, COUNT(*) AS customers
+											FROM next_plan_cte
+											JOIN plans ON plans.plan_id = next_plan_cte.next_plan
+											WHERE next_plan_cte.plan_id = 0
+											GROUP BY next_plan
+										)
+										SELECT plan_name, customers,
+											   CONCAT(ROUND((100 * customers / unique_customers), 1), '%') AS percentage
+										FROM customer_count, 
+											 (SELECT COUNT(DISTINCT(customer_id)) AS unique_customers 
+											  FROM subscriptions) AS total;</md-block>
+									</details>
+									<details><summary>view data</summary>
+									<md-block>
+										```markdown
+										|plan_name    |customers|percentage|
+										|-------------|---------|----------|
+										|basic monthly|546      |54.6%     |
+										|pro monthly  |325      |32.5%     |
+										|pro annual   |37       |3.7%      |
+										|churn        |92       |9.2%      |</md-block>
+									</details>
+									&emsp;More than 80% of customers are on paid plans, with a small 3.7% on plan 3 (pro annual $199). Foodie-fi has to rethink its customer acquisition strategy for customers who are willing to spend more.
+								</p>
+								<p>7.What is the customer count and percentage breakdown of all 5 <code>plan_name</code> values at <code>2020-12-31</code>?
+									<details><summary>view query</summary>
+									<md-block>
+										```sql
+										WITH next_date_cte AS (
+											SELECT *, 
+												   LEAD(start_date) OVER(PARTITION BY customer_id ORDER BY start_date) AS next_date
+											FROM subscriptions
+											WHERE start_date <= '2020-12-31'
+										),
+										customer_count AS (
+											SELECT plan_name, COUNT(*) AS customers
+											FROM next_date_cte
+											JOIN plans ON plans.plan_id = next_date_cte.plan_id
+											WHERE next_date IS NULL
+											GROUP BY 1
+										)
+										SELECT plan_name, customers,
+											   CONCAT(ROUND((100 * customers / unique_customers), 1), '%') AS percentage
+										FROM customer_count, 
+											 (SELECT COUNT(DISTINCT(customer_id)) AS unique_customers 
+											  FROM subscriptions) AS total;</md-block>
+									</details>
+									<details><summary>view data</summary>
+									<md-block>
+										```markdown
+										|plan_name    |customers|percentage|
+										|-------------|---------|----------|
+										|trial        |19       |1.9%      |
+										|basic monthly|224      |22.4%     |
+										|pro monthly  |326      |32.6%     |
+										|pro annual   |195      |19.5%     |
+										|churn        |236      |23.6%     |</md-block>
+									</details>
+									&emsp;On December 31, 2020, more people subscribed or upgraded to the pro monthly plan, but fewer people signed up for the trial plan. Could it be that some new customers signed up for paid plans immediately? If not, Foodie-Fi needs to scale up its marketing strategies for acquiring new sign-ups during this period as it’s a holiday period, and as an entertainment platform, it's supposed to have more customers testing out the platform.
+								</p>
+								<p>8. How many customers have upgraded to an annual plan in 2020?
+									<details><summary>view query</summary>
+									<md-block>
+										```sql
+										SELECT COUNT(DISTINCT customer_id) AS customers
+										FROM subscriptions
+										JOIN plans ON plans.plan_id = subscriptions.plan_id
+										WHERE plan_name = 'pro annual'
+											AND YEAR(start_date) <=2020;</md-block>
+									</details>
+									<details><summary>view data</summary>
+									<md-block>
+										```markdown
+										|customers|
+										|---------|
+										|195	  |</md-block>
+									</details>
+									&emsp;195 customers upgraded to an annual plan in 2020.
+								</p>
+								<p>9. How many days on average does it take for a customer to an annual plan from the day they join Foodie-Fi?
+									<details><summary>view query</summary>
+									<md-block>
+										```sql
+										WITH trial_plan AS (
+											SELECT customer_id, start_date AS trial_date
+											FROM subscriptions
+											JOIN plans ON plans.plan_id = subscriptions.plan_id
+											WHERE plan_name = 'trial'
+										),
+										annual_plan AS (
+											SELECT customer_id, start_date AS annual_date
+											FROM subscriptions
+											JOIN plans ON plans.plan_id = subscriptions.plan_id
+											WHERE plan_name = 'pro annual'
+										)
+										SELECT ROUND(AVG(DATEDIFF(annual_date, trial_date))) AS avg_days_to_upgrade
+										FROM trial_plan
+										JOIN annual_plan ON trial_plan.customer_id = annual_plan.customer_id;</md-block>
+									</details>
+									<details><summary>view data</summary>
+									<md-block>
+										```markdown
+										|avg_days_to_upgrade|
+										|-------------------|
+										|105                |</md-block>
+									</details>
+									&emsp;On average, customers take approximately 105 days from the day they join Foodie-Fi to upgrade to an annual plan.
+								</p>
+								<p>10. Can you further breakdown this average value into 30 day periods (i.e. 0-30 days, 31-60 days etc)
+									<details><summary>view query</summary>
+									<md-block>
+										```sql
+										WITH trial_plan AS (
+											SELECT customer_id, start_date AS trial_date
+											FROM subscriptions
+											JOIN plans ON plans.plan_id = subscriptions.plan_id
+											WHERE plan_name = 'trial'
+										),
+										annual_plan AS (
+											SELECT customer_id, start_date AS annual_date
+											FROM subscriptions
+											JOIN plans ON plans.plan_id = subscriptions.plan_id
+											WHERE plan_name = 'pro annual'
+										)
+										SELECT
+											CONCAT(FLOOR(DATEDIFF(annual_date, trial_date) / 30) * 30, '-', 
+												   FLOOR(DATEDIFF(annual_date, trial_date) / 30) * 30 + 30, ' days') AS period,
+											COUNT(*) AS total_customers,
+											ROUND(AVG(DATEDIFF(annual_date, trial_date)), 0) AS avg_days_to_upgrade
+										FROM trial_plan tp
+										JOIN annual_plan ap ON tp.customer_id = ap.customer_id
+										WHERE ap.annual_date IS NOT NULL
+										GROUP BY FLOOR(DATEDIFF(annual_date, trial_date) / 30);</md-block>
+									</details>
+									<details><summary>view data</summary>
+									<md-block>
+										```markdown
+										|period      |total_customers|avg_days_to_upgrade|
+										|------------|---------------|-------------------|
+										|0-30 days   |48             |10                 |
+										|30-60 days  |25             |42                 |
+										|60-90 days  |33             |71                 |
+										|90-120 days |35             |100                |
+										|120-150 days|43             |133                |
+										|150-180 days|35             |162                |
+										|180-210 days|27             |190                |
+										|210-240 days|4              |224                |
+										|240-270 days|5              |257                |
+										|270-300 days|1              |285                |
+										|300-330 days|1              |327                |
+										|330-360 days|1              |346                |</md-block>
+									</details>
+									<li>The majority of customers opt to subscribe or upgrade to an annual plan within the first 30 days.</li>
+									<li>A smaller percentage of customers make the decision to subscribe or upgrade after 210 days.</li>
+									<li>After 270 days, there is almost no customer activity in terms of purchasing a plan.</li>
+								</p>
+								<p>11. How many customers downgraded from a pro monthly to a basic monthly plan in 2020?
+									<details><summary>view query</summary>
+									<md-block>
+										```sql
+										WITH plan_list AS (
+											SELECT customer_id,
+												   sub.plan_id,
+												   plan_name,
+												   LEAD(sub.plan_id) 
+												   	OVER(PARTITION BY customer_id ORDER BY start_date) AS next_plan_id
+											FROM subscriptions AS sub
+											JOIN plans ON plans.plan_id = sub.plan_id
+											WHERE YEAR(start_date) = 2020
+										  )
+										  SELECT COUNT(*) AS downgraded
+										  FROM plan_list
+										  WHERE plan_id = 2
+											AND next_plan_id = 1;</md-block>
+									</details>
+									<details><summary>view data</summary>
+									<md-block>
+										```markdown
+										|downgraded|
+										|----------|
+										|0		   |</md-block>
+									</details>
+									&emsp;No customer has downgraded from pro monthly to basic monthly in 2020.
+								</p>
+								<!-- <h3 id="payment-questions">Payment Questions</h3>
+								<p>
+									The Foodie-Fi team wants you to create a new <code>payments</code> table for the year 2020 that includes amounts paid by each customer in the <code>subscriptions</code> table with the following requirements:
+									<li>monthly payments always occur on the same day of month as the original <code>start_date</code> of any monthly paid plan</li>
+									<li>upgrades from basic to monthly or pro plans are reduced by the current paid amount in that month and start immediately</li>
+									<li>upgrades from pro monthly to pro annual are paid at the end of the current billing period and also starts at the end of the month period</li>
+									<li>once a customer churns they will no longer make payments</li>
+								</p> -->
+                                <h2 id="finished-project">FINISHED PROJECT</h2>
+								<p>
+									Here is my finished project: <a href="#" class="link-highlight" target="_blank">SQL Case Study: Foodie-Fi</a><br>
+								</p>
+								<h2 id="data-overview">Overview of Data</h2>
+								<p>
+									<h3>Data:</h3>
+									<ol>
+										<li></li>
+									</ol>
+								</p>
+								<h2 id="insights">INSIGHTS</h2>
+								<p>Below are the general insights:
+									<ul>
+										<li></li>
+									</ul>
+								</p>
+								<h2 id="recommendations">RECOMMENDATIONS</h2>
+								<p>
+									<ul>
+										<li></li>
+									</ul>
+								</p>
+								<h2 id="learnings">WHAT I LEARNED</h2>
+								<p>
+									
+								</p>
+								<h2 id="resources">RESOURCES</h2>
+								<p>This SQL Case Study was part of 8-week SQL Challenge by Danny, to view the challenge click <a href="https://8weeksqlchallenge.com/case-study-3/" class="link-highlight" target="_blank">here</a>.</p>
+							</section>
+
+					</div>
+					<div id="contact">
+				<!-- Footer -->
+					<footer id="footer">
+						<section class="split contact">
+							<section class="alt">
+								<h3>Location</h3>
+								<p>West-Bengal, India</p>
+							</section>
+							<section>
+								<h3>Email</h3>
+								<p><a href="mailto:avishekchoudhary.09@gmail.com">avishekchoudhary.09@gmail.com</a></p>
+							</section>
+							<section>
+								<h3>Profile</h3>
+								<ul class="icons alt">
+									<li><a href="https://www.novypro.com/profile_projects/avishekchoudhary" target="_blank" class="icon brands alt"><i class="fa-solid fa-chart-simple"></i><span class="label">Power BI</span></a></li>
+									<li><a href="https://www.linkedin.com/in/avishek-choudhary" target="_blank" class="icon brands alt fa-linkedin"><span class="label">Twitter</span></a></li>
+									<li><a href="https://www.github.com/avishek-choudhary" target="_blank" class="icon brands alt fa-github"><span class="label">GitHub</span></a></li>
+								</ul>
+							</section>
+						</section>
+					</footer>
+					</div>
+				<!-- Copyright -->
+					<div id="copyright">
+						<ul><li>&copy; 2023 By <a href="https://www.linkedin.com/in/avishek-choudhary">Avishek Choudhary</a></li></ul>
+					</div>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="/assets/js/jquery.min.js"></script>
+			<script src="/assets/js/jquery.scrollex.min.js"></script>
+			<script src="/assets/js/jquery.scrolly.min.js"></script>
+			<script src="/assets/js/browser.min.js"></script>
+			<script src="/assets/js/breakpoints.min.js"></script>
+			<script src="/assets/js/util.js"></script>
+			<script src="/assets/js/main.js"></script>
+			<script src="https://kit.fontawesome.com/729695af29.js" crossorigin="anonymous"></script>
+			<script src="/assets/js/prism.js" data-manual></script>
+			<script type="module" src="https://md-block.verou.me/md-block.js"></script>
+	</body>
+</html>
