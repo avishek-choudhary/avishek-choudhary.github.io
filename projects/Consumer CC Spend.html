@@ -65,7 +65,7 @@
 								<!-- <div class="image main"><img src="/images/credit-card.jpg" alt="" /></div> -->
 								<p>I worked on the Consumer's Credit Card Spend Project. I will be diving into the background, my full process of cleaning, analyzing and visualizing the data, along with my final suggestions and summary of the data.</p>
 								<u>Tools Used</u>: Microsoft Excel | MySQL | Power BI<br>
-								<u>Quick Links</u>: <a href="#" class="link-highlight" target="_blank">Power BI Dashboard</a> | <a href="https://github.com/avishek-choudhary/" class="link-highlight" target="_blank">GitHub Repository</a> <br><br>
+								<u>Quick Links</u>: <a href="https://www.novypro.com/project/consumer-credit-card-spend-dashboard" class="link-highlight" target="_blank">Power BI Dashboard</a> | <a href="https://github.com/avishek-choudhary/Consumer-Credit-Card-Spend-Analysis" class="link-highlight" target="_blank">GitHub Repository</a> <br><br>
 								Below is a table of contents in case you want to go to any section.
 								</p>
 								<h2><u>Table Contents</u>:</h2>
@@ -188,7 +188,8 @@
 								<p><u>Overview</u>: First I cleaned the data in Excel then I used MySQL Workbench (GUI of MySQL) to create a database and find the results of the queries. Then I used Power BI to create a dashboard to showcase all the metrics and analyze the data.</p>
 								<h3 id="excel">Microsoft Excel</h3>
 								<p>
-									I started downloading the data from <a href="https://www.kaggle.com/datasets/darpan25bajaj/credit-card-exploratory-data-analysis" class="link-highlight">Kaggle</a> and checked if the was any data that has to be cleaned.
+									I started downloading the data from <a href="https://www.kaggle.com/datasets/darpan25bajaj/credit-card-exploratory-data-analysis" class="link-highlight">Kaggle</a> and checked if there was any data that has to be cleaned. <br>
+									The data was already clean but the company column had few incorrect values as in the customers whose job category was self employed had a name of company in company column so I replaced those values with "self employed".
 								</p>
 								<h3 id="sql">MySQL</h3>
 								<p>
@@ -620,35 +621,117 @@
 								</p>
 								<h3 id="powerbi">Power BI</h3>
 								<p>
-									Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit nesciunt debitis consequuntur? Nostrum cum accusantium deserunt mollitia dolorem? Nobis voluptate quaerat incidunt suscipit. Iure vel magnam ipsum, minima quisquam doloremque.
+									I used Microsoft Power BI to showcase my analysis and metrics in a dashboard.
 								</p>
 								<h3 id="misc">MISC.</h3>
 								<h4>Microsoft Word</h4>
 								<b>Notes</b> - Notes for the project including the answer of queries, what I was looking for, and anything else that has to do with the project.<br><br>
-								
+								<P>I used NovyPro to host the dashboard.</P>
 								<h2 id="finishedproject">FINISHED PROJECT</h2>
 								<p>
 									Here is my finished project: <a href="#" class="link-highlight" target="_blank">Consumer Credit Card Spend Dashboard</a><br>
 									<h3>Preview</h3>
-									<img src="" alt="image">
+									<img src="https://github.com/avishek-choudhary/Consumer-Credit-Card-Spend-Analysis/assets/75924699/1af9c32f-9485-4739-b29d-22880346875e" alt="image" class="image fit code-screenshot">
 								</p>
 								<h2 id="dataoverview">Overview of Data</h2>
 								<p>
 									<h3>Data:</h3>
 									<ol>
-										<li></li>
+										<li><a href="#1" class="link-highlight">Average Amount Spent by Product Type</a></li>
+										<li><a href="#2" class="link-highlight">Transactions by Product Type</a></li>
+										<li><a href="#3" class="link-highlight">Customer base by City</a></li>
+										<li><a href="#4" class="link-highlight">Customer base & Amount Spent by Card Type</a></li>
+										<li><a href="#5" class="link-highlight">Customers by Job Segment</a></li>
+										<li><a href="#6" class="link-highlight">MoM Transactions & Average Amount Spent</a></li>
+										<li><a href="#7" class="link-highlight">Total Amount & Transactions by City</a></li>
+										<li><a href="#8" class="link-highlight">KPIs</a></li>
 									</ol>
+									<h4 id="1"><i>Average Amount Spent by Product Type</i></h4>
+									The top 5 product categories by average amount spent are:
+									<ul>
+										<li>Clothes: ₹259,490</li>
+										<li>Camera: ₹259,260</li>
+										<li>Movie ticket: ₹258,480</li>
+										<li>Train ticket: ₹250,510</li>
+										<li>Shopping: ₹249,650</li>
+									</ul>
+									<img src="https://i.pinimg.com/originals/75/ef/a4/75efa42432d6d30d508f536dd3d7ffcc.png" alt="" class="image fit code-screenshot"><br>
+									<h4 id="2"><i>Transactions by Product Type</i></h4>
+									The top 5 products by transactions are:
+									<ul>
+										<li>Petrol: 200</li>
+										<li>Camera: 160</li>
+										<li>Food: 160</li>
+										<li>Air Ticket: 147</li>
+										<li>Train Ticket: 132</li>
+									</ul>
+									<img src="https://i.pinimg.com/originals/85/f6/c3/85f6c32fbfc46acad1dc14f36b394b5d.png" alt="" class="image fit code-screenshot"><br>
+									<h4 id="3"><i>Customer base by City</i></h4>
+									The top 5 cities with highest customer base are Cochin, Bangalore, Calcutta, Mumbai and Chennai.
+									<img src="https://i.pinimg.com/originals/50/bc/a9/50bca9fd61007c31fbbe965f76f14004.png" alt="" class="image fit code-screenshot"><br>
+									<h4 id="4"><i>Customer base & Amount Spent by Card Type</i></h4>
+									Customer base and amount spent by card type are:
+									<ul>
+										<li>Gold: 38%, ₹146M</li>
+										<li>Platinum: 32%, ₹141M</li>
+										<li>Silver: 30%, ₹77M</li>
+									</ul>
+									<img src="https://i.pinimg.com/originals/18/a9/1e/18a91e78329461d1039e8e998b779035.png" alt="" class="image fit code-screenshot"><br>
+									<h4 id="5"><i>Customer base and Amount Spent by Job Segment</i></h4>
+									Customer base and Amount Spent by Job Segment are:
+									<ul>
+										<li>Govt: 29%, ₹63M</li>
+										<li>Self Employed: 23%, ₹66M</li>
+										<li>Normal Salaried: 22%, ₹107M</li>
+										<li>Salaried in MNC: 13%, ₹58M</li>
+										<li>Salaried in Pvt: 13%, ₹68M</li>
+									</ul>
+									<img src="https://i.pinimg.com/originals/1c/97/3a/1c973ac2d2f1764ba169f89b0443c942.png" alt="" class="image fit code-screenshot"><br>
+									<h4 id="6"><i>MoM Transactions & Average Amount Spent</i></h4>
+									<ul>
+										<li>The biggest jump in average amount spent occurs between December and January. This suggests that there is a significant opportunity for businesses to target consumers during the holiday season.</li>
+										<li>The biggest drop in average amount spent occurs between August and October. This suggests that businesses may need to adjust their marketing and sales strategies during the monsoon months.</li>
+										<li>The average amount spent per transaction has been increasing over time. This is likely due to a number of factors, such as inflation, rising incomes, and changes in consumer spending habits.</li>
+									</ul>
+									<img src="https://github.com/avishek-choudhary/Consumer-Credit-Card-Spend-Analysis/assets/75924699/3a1e5050-d272-4ff2-9d0b-5cae3a8f294c" alt="" class="image fit code-screenshot"><br>
+									<h4 id="7"><i>Total Amount & Transactions by City</i></h4>
+									The size of the bubble is proportional to the amount spent in that city.<br>
+									Top cities for spending and transactions are:
+									<ul>
+										<li>Cochin: ₹73M, 298</li>
+										<li>Bangalore: ₹69M, 299</li>
+										<li>Calcutta: ₹64M, 251</li>
+										<li>Mumbai: ₹50M, 215</li>
+										<li>Chennai: ₹32M, 130</li>
+									</ul>
+									<img src="https://i.pinimg.com/originals/53/87/ae/5387aee8dedcecd2d342ff4e64b2a7bc.png" alt="" class="image fit code-screenshot"><br>
+									<h4 id="8"><i>KPIs</i></h4>
+									Total amount spent: The total amount spent on consumer credit cards in the dataset is ₹365 million.<br>
+									Transactions: There were a total of 1500 transactions.<br>
+									Average credit limit: The average credit limit is ₹285,000.<br>
+									Average age of cardholders: The average age of cardholders is 47.<br>
+									Late payment rate: The late payment rate is 46%.
+									<img src="https://github.com/avishek-choudhary/Consumer-Credit-Card-Spend-Analysis/assets/75924699/6dbef0d5-d398-4bcc-987c-d8d7b6177a23" alt="" class="image fit code-screenshot">
 								</p>
 								<h2 id="insights">INSIGHTS</h2>
 								<p>Below are the general insights:
 									<ul>
-										<li></li>
+										<li>The average credit limit is ₹285K. This is a relatively high credit limit, which could lead to overspending and debt problems for some consumers.</li>
+										<li>The average age of consumers is 47 years old. This is slightly older than the median age of the Indian population, which is 28.4 years old.</li>
+										<li>46% of consumers have made a late payment in the past year. This is a high percentage, and it indicates that many consumers are struggling to manage their debt.</li>
+										<li>The top product categories for spending are clothes, cameras, movie tickets, train tickets, and shopping. This suggests that consumers are spending more money on discretionary items than on essential items.</li>
+										<li>The top cities for spending are Cochin, Bangalore, Calcutta, Mumbai, and Chennai. These are all major metropolitan areas with large populations.</li>
+										<li>The top job segments for spending are government, self-employed, normal salaried employee, and salaried employee. This suggests that consumers from all walks of life are spending money on credit cards.</li>
 									</ul>
 								</p>
 								<h2 id="recommendations">RECOMMENDATIONS</h2>
 								<p>
 									<ul>
-										<li></li>
+										<li>Target customers with high credit limits and low late payment rates for special offers and promotions.</li>
+										<li>Develop loyalty programs and rewards programs to encourage customers to spend more on their credit cards.</li>
+										<li>Partner with merchants in popular product categories, such as clothes, cameras, and movie tickets, to offer exclusive discounts and promotions to credit card holders.</li>
+										<li>Offer targeted marketing campaigns to customers in different cities, based on their spending habits.</li>
+										<li>Provide financial literacy education to customers to help them manage their credit card debt effectively.</li>
 									</ul>
 								</p>
 								<h2 id="learnings">WHAT I LEARNED</h2>
@@ -656,7 +739,7 @@
 									
 								</p>
 								<h2 id="resources">RESOURCES</h2>
-								<p>This dataset was downloaded from source, to download it click <a href="https://www.kaggle.com/datasets/darpan25bajaj/credit-card-exploratory-data-analysis" class="link-highlight" target="_blank">here</a>.</p>
+								<p>This dataset was downloaded from Kaggle, to download it click <a href="https://www.kaggle.com/datasets/darpan25bajaj/credit-card-exploratory-data-analysis" class="link-highlight" target="_blank">here</a>.</p>
 							</section>
 
 					</div>
