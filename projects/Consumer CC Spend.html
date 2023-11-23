@@ -88,7 +88,7 @@
 								</ol>
 								<h2 id="introduction">INTRODUCTION</h2>
 								<p>
-									Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, adipisci similique beatae animi nam unde labore natus nisi, voluptate praesentium voluptas suscipit illo doloribus pariatur deleniti quaerat vel soluta? Explicabo!<br>
+									This is a fictional dataset with details of sample 100 customers using different types of credit cards living in different cities, working different jobs in different companies.<br>
 									<u>Overall Goal</u>: “Analyze the Consumer's credit card spending data and generate insights”<br>
 									<u>Questions</u>: What is the average age of credit card holders?
 													  What is the average credit limit?
@@ -432,12 +432,11 @@
 													MAX(repayment.date) AS repayment_date, 
 													ABS(DATEDIFF(MAX(repayment.date), MAX(spend.date))) AS days
 												FROM spend
-												JOIN customer ON customer.customer_id = spend.customer_id
-												JOIN repayment ON repayment.customer_id = customer.customer_id
+												JOIN repayment ON repayment.customer_id = spend.customer_id
 												GROUP BY 1
 												)
-												SELECT ROUND(AVG(days)) AS avg_days
-												FROM bill;</md-block>
+											SELECT ROUND(AVG(days)) AS avg_days
+											FROM bill;</md-block>
 									</details>
 									<md-block>
 										```markdown
@@ -457,13 +456,12 @@
 													ABS(DATEDIFF(MAX(repayment.date), 
 													MAX(spend.date))) AS days
 												FROM spend
-												JOIN customer ON customer.customer_id = spend.customer_id
-												JOIN repayment ON repayment.customer_id = customer.customer_id
+												JOIN repayment ON repayment.customer_id = spend.customer_id
 												GROUP BY 1
 												)
-												SELECT CONCAT(ROUND(100 * COUNT(*) / (SELECT COUNT(*) FROM CUSTOMER)), '%') AS late_payment
-												FROM bill
-												WHERE days > 30;</md-block>
+											SELECT CONCAT(ROUND(100 * COUNT(*) / (SELECT COUNT(*) FROM CUSTOMER)), '%') AS late_payment
+											FROM bill
+											WHERE days > 30;</md-block>
 									</details>
 									<md-block>
 										```markdown
@@ -621,7 +619,25 @@
 								</p>
 								<h3 id="powerbi">Power BI</h3>
 								<p>
-									I used Microsoft Power BI to showcase my analysis and metrics in a dashboard.
+									I used Microsoft Power BI to showcase my analysis and metrics in a dashboard. <br>
+									I created a new table to called <i>late_payment</i> to summarize every customers'  spending and repaying date to calculate the no. of days they took to repay their credit card bills. <br>
+									I created four columns - <br>
+									<b>•</b>&emsp;<i>customer_id</i> - to store customers' id. <br>
+									<b>•</b>&emsp;<i>spend_date</i> - to store the last spending date. <br>
+									<b>•</b>&emsp;<i>repayment_date</i> - to store the last bill payment date. <br>
+									<b>•</b>&emsp;<i>days</i> - to store the no. of days they took to pay their bill.
+									<md-block>
+										```DAX
+										late_payment = 
+											SUMMARIZE(spend, spend[customer_id], "spend_date", MAX(spend[date]),
+												"repayment_date", MAXX(FILTER(repayment, repayment[customer_id] = spend[customer_id]), repayment[date]),
+												"days", ABS(DATEDIFF(MAX(repayment[date]), MAX(spend[date]),DAY))
+											)</md-block>
+									I could've imported the late payments table from sql but I wanted to work on my DAX querying skills. <br>
+									Also I created a measure <i>%_late_payment</i> to calculate the rate of late paying customer considering the maximun no. of days to pay the bill is 30 days.
+									<md-block>
+										```DAX
+										%_late_payment = COUNTROWS(FILTER(late_payment, late_payment[days] > 30)) / COUNTROWS(late_payment)</md-block>
 								</p>
 								<h3 id="misc">MISC.</h3>
 								<h4>Microsoft Word</h4>
@@ -629,7 +645,7 @@
 								<P>I used NovyPro to host the dashboard.</P>
 								<h2 id="finishedproject">FINISHED PROJECT</h2>
 								<p>
-									Here is my finished project: <a href="#" class="link-highlight" target="_blank">Consumer Credit Card Spend Dashboard</a><br>
+									Here is my finished project: <a href="https://www.novypro.com/project/consumer-credit-card-spend-dashboard" class="link-highlight" target="_blank">Consumer Credit Card Spend Dashboard</a><br>
 									<h3>Preview</h3>
 									<img src="https://github.com/avishek-choudhary/Consumer-Credit-Card-Spend-Analysis/assets/75924699/1af9c32f-9485-4739-b29d-22880346875e" alt="image" class="image fit code-screenshot">
 								</p>
@@ -693,7 +709,7 @@
 										<li>The biggest drop in average amount spent occurs between August and October. This suggests that businesses may need to adjust their marketing and sales strategies during the monsoon months.</li>
 										<li>The average amount spent per transaction has been increasing over time. This is likely due to a number of factors, such as inflation, rising incomes, and changes in consumer spending habits.</li>
 									</ul>
-									<img src="https://github.com/avishek-choudhary/Consumer-Credit-Card-Spend-Analysis/assets/75924699/3a1e5050-d272-4ff2-9d0b-5cae3a8f294c" alt="" class="image fit code-screenshot"><br>
+									<img src="https://github.com/avishek-choudhary/Consumer-Credit-Card-Spend-Analysis/assets/75924699/3a1e5050-d272-4ff2-9d0b-5cae3a8f294c" alt="a graph showcasing month on month average amount spent and transactions" class="image fit code-screenshot"><br>
 									<h4 id="7"><i>Total Amount & Transactions by City</i></h4>
 									The size of the bubble is proportional to the amount spent in that city.<br>
 									Top cities for spending and transactions are:
@@ -704,14 +720,14 @@
 										<li>Mumbai: ₹50M, 215</li>
 										<li>Chennai: ₹32M, 130</li>
 									</ul>
-									<img src="https://i.pinimg.com/originals/53/87/ae/5387aee8dedcecd2d342ff4e64b2a7bc.png" alt="" class="image fit code-screenshot"><br>
+									<img src="https://i.pinimg.com/originals/53/87/ae/5387aee8dedcecd2d342ff4e64b2a7bc.png" alt="total amount and transactions by city" class="image fit code-screenshot"><br>
 									<h4 id="8"><i>KPIs</i></h4>
 									Total amount spent: The total amount spent on consumer credit cards in the dataset is ₹365 million.<br>
 									Transactions: There were a total of 1500 transactions.<br>
 									Average credit limit: The average credit limit is ₹285,000.<br>
 									Average age of cardholders: The average age of cardholders is 47.<br>
 									Late payment rate: The late payment rate is 46%.
-									<img src="https://github.com/avishek-choudhary/Consumer-Credit-Card-Spend-Analysis/assets/75924699/6dbef0d5-d398-4bcc-987c-d8d7b6177a23" alt="" class="image fit code-screenshot">
+									<img src="https://github.com/avishek-choudhary/Consumer-Credit-Card-Spend-Analysis/assets/75924699/6dbef0d5-d398-4bcc-987c-d8d7b6177a23" alt="overall trends" class="image fit code-screenshot">
 								</p>
 								<h2 id="insights">INSIGHTS</h2>
 								<p>Below are the general insights:
